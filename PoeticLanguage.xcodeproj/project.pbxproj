@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; };
+		869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */; };
+		869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340923D201D2008D761B /* PLPoetrySearchMainView.m */; };
+		869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */; };
+		869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D340E23D20A87008D761B /* pl_ps_camera.png */; };
+		869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D341023D21311008D761B /* pl_ps_tabbar.png */; };
+		869D341323D21311008D761B /* pl_ps_tabbar_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D341123D21311008D761B /* pl_ps_tabbar_selected.png */; };
 		86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB438E23CF60A200BADA71 /* AppDelegate.m */; };
 		86EB439223CF60A200BADA71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB439123CF60A200BADA71 /* ViewController.m */; };
 		86EB439523CF60A200BADA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439323CF60A200BADA71 /* Main.storyboard */; };
@@ -16,6 +23,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.debug.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.debug.xcconfig"; sourceTree = "<group>"; };
+		464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.release.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.release.xcconfig"; sourceTree = "<group>"; };
+		57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoeticLanguage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainModel.h; sourceTree = "<group>"; };
+		869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchMainModel.m; sourceTree = "<group>"; };
+		869D340823D201D2008D761B /* PLPoetrySearchMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainView.h; sourceTree = "<group>"; };
+		869D340923D201D2008D761B /* PLPoetrySearchMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchMainView.m; sourceTree = "<group>"; };
+		869D340B23D201F3008D761B /* PLPoetrySearchMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainViewController.h; sourceTree = "<group>"; };
+		869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchMainViewController.m; sourceTree = "<group>"; };
+		869D340E23D20A87008D761B /* pl_ps_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_camera.png; sourceTree = "<group>"; };
+		869D341023D21311008D761B /* pl_ps_tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_tabbar.png; sourceTree = "<group>"; };
+		869D341123D21311008D761B /* pl_ps_tabbar_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_tabbar_selected.png; sourceTree = "<group>"; };
 		86EB438A23CF60A200BADA71 /* PoeticLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoeticLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB438D23CF60A200BADA71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86EB438E23CF60A200BADA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -33,17 +52,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5905B6CDA0EE1CC5B51DDE5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		660F117F505B7CC145C53F70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */,
+				464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		869D340123D1FDDD008D761B /* PLPoetrySearchMain */ = {
+			isa = PBXGroup;
+			children = (
+				869D340423D1FFC3008D761B /* PLPoetrySearchMainM */,
+				869D340323D1FFB3008D761B /* PLPoetrySearchMainV */,
+				869D340223D1FF9D008D761B /* PLPoetrySearchMainC */,
+			);
+			path = PLPoetrySearchMain;
+			sourceTree = "<group>";
+		};
+		869D340223D1FF9D008D761B /* PLPoetrySearchMainC */ = {
+			isa = PBXGroup;
+			children = (
+				869D340B23D201F3008D761B /* PLPoetrySearchMainViewController.h */,
+				869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */,
+			);
+			path = PLPoetrySearchMainC;
+			sourceTree = "<group>";
+		};
+		869D340323D1FFB3008D761B /* PLPoetrySearchMainV */ = {
+			isa = PBXGroup;
+			children = (
+				869D340823D201D2008D761B /* PLPoetrySearchMainView.h */,
+				869D340923D201D2008D761B /* PLPoetrySearchMainView.m */,
+			);
+			path = PLPoetrySearchMainV;
+			sourceTree = "<group>";
+		};
+		869D340423D1FFC3008D761B /* PLPoetrySearchMainM */ = {
+			isa = PBXGroup;
+			children = (
+				869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */,
+				869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */,
+			);
+			path = PLPoetrySearchMainM;
+			sourceTree = "<group>";
+		};
 		86EB438123CF60A200BADA71 = {
 			isa = PBXGroup;
 			children = (
 				86EB438C23CF60A200BADA71 /* PoeticLanguage */,
 				86EB438B23CF60A200BADA71 /* Products */,
+				660F117F505B7CC145C53F70 /* Pods */,
+				5905B6CDA0EE1CC5B51DDE5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +180,7 @@
 		86EB43A723CF619E00BADA71 /* PLPoetrySearch */ = {
 			isa = PBXGroup;
 			children = (
+				869D340123D1FDDD008D761B /* PLPoetrySearchMain */,
 				86EB43A923CF61E700BADA71 /* PLPhotoRecognition */,
 				86EB43A823CF61CC00BADA71 /* PLKeywordSearch */,
 			);
@@ -175,6 +252,9 @@
 		86EB43AF23CF648B00BADA71 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				869D340E23D20A87008D761B /* pl_ps_camera.png */,
+				869D341023D21311008D761B /* pl_ps_tabbar.png */,
+				869D341123D21311008D761B /* pl_ps_tabbar_selected.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -238,6 +318,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86EB43A023CF60A200BADA71 /* Build configuration list for PBXNativeTarget "PoeticLanguage" */;
 			buildPhases = (
+				BAEBBAB13E78FEE0D7DF8A16 /* [CP] Check Pods Manifest.lock */,
 				86EB438623CF60A200BADA71 /* Sources */,
 				86EB438723CF60A200BADA71 /* Frameworks */,
 				86EB438823CF60A200BADA71 /* Resources */,
@@ -291,10 +372,38 @@
 				86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */,
 				86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */,
 				86EB439523CF60A200BADA71 /* Main.storyboard in Resources */,
+				869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */,
+				869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */,
+				869D341323D21311008D761B /* pl_ps_tabbar_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BAEBBAB13E78FEE0D7DF8A16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PoeticLanguage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86EB438623CF60A200BADA71 /* Sources */ = {
@@ -303,7 +412,10 @@
 			files = (
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
 				86EB439D23CF60A200BADA71 /* main.m in Sources */,
+				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
+				869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */,
+				869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +555,7 @@
 		};
 		86EB43A123CF60A200BADA71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -459,6 +572,7 @@
 		};
 		86EB43A223CF60A200BADA71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
