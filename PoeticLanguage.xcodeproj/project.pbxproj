@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; };
+		861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */; };
+		861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */; };
+		861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */; };
 		869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */; };
 		869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340923D201D2008D761B /* PLPoetrySearchMainView.m */; };
 		869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */; };
@@ -26,6 +29,10 @@
 		20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.debug.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.debug.xcconfig"; sourceTree = "<group>"; };
 		464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.release.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoeticLanguage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchTableViewCell.h; sourceTree = "<group>"; };
+		861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchTableViewCell.m; sourceTree = "<group>"; };
+		861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto.jpeg; sourceTree = "<group>"; };
+		861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_background_knot.jpeg; sourceTree = "<group>"; };
 		869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainModel.h; sourceTree = "<group>"; };
 		869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchMainModel.m; sourceTree = "<group>"; };
 		869D340823D201D2008D761B /* PLPoetrySearchMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainView.h; sourceTree = "<group>"; };
@@ -100,6 +107,8 @@
 			children = (
 				869D340823D201D2008D761B /* PLPoetrySearchMainView.h */,
 				869D340923D201D2008D761B /* PLPoetrySearchMainView.m */,
+				861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */,
+				861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */,
 			);
 			path = PLPoetrySearchMainV;
 			sourceTree = "<group>";
@@ -255,6 +264,8 @@
 				869D340E23D20A87008D761B /* pl_ps_camera.png */,
 				869D341023D21311008D761B /* pl_ps_tabbar.png */,
 				869D341123D21311008D761B /* pl_ps_tabbar_selected.png */,
+				861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */,
+				861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -370,7 +381,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */,
+				861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */,
 				86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */,
+				861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */,
 				86EB439523CF60A200BADA71 /* Main.storyboard in Resources */,
 				869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */,
 				869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */,
@@ -413,6 +426,7 @@
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
 				86EB439D23CF60A200BADA71 /* main.m in Sources */,
 				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
+				861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */,
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
 				869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */,
 				869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */,
