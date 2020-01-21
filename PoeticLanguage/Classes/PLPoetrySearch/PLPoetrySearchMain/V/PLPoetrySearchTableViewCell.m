@@ -16,11 +16,11 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
-    self.nameLabel = [[UILabel alloc] init];
-    [self addSubview:_nameLabel];
-    _nameLabel.font = [UIFont systemFontOfSize:17];
-    _nameLabel.backgroundColor = [UIColor clearColor];
-    _nameLabel.textColor = [UIColor colorWithRed:88/255.0 green:115/255.0 blue:150/255.0 alpha:1];
+    self.poetLabel = [[UILabel alloc] init];
+    [self addSubview:_poetLabel];
+    _poetLabel.font = [UIFont systemFontOfSize:17];
+    _poetLabel.backgroundColor = [UIColor clearColor];
+    _poetLabel.textColor = [UIColor colorWithRed:88/255.0 green:115/255.0 blue:150/255.0 alpha:1];
     
     self.contectTextView = [[UITextView alloc] init];
     [self addSubview:_contectTextView];
@@ -49,27 +49,27 @@
     
     [_photoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.mas_left).offset(10);
-        make.top.mas_equalTo(self.mas_top).offset(10);
+        make.top.mas_equalTo(self.mas_top).offset(20);
         make.width.and.height.equalTo(@(50));
     }];
     
-    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self -> _photoImageView.mas_right).offset(10);
+    [_poetLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self -> _photoImageView.mas_right).offset(20);
         make.width.equalTo(@(200));
         make.height.equalTo(@(20));
         make.top.mas_equalTo(self -> _photoImageView.mas_top);
     }];
     
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self -> _nameLabel.mas_left);
-        make.bottom.mas_equalTo(self.mas_bottom).offset(-30);
+        make.left.mas_equalTo(self -> _poetLabel.mas_left);
+        make.bottom.mas_equalTo(self.mas_bottom).offset(-20);
         make.width.equalTo(@(200));
         make.height.equalTo(@(15));
     }];
     
     [_contectTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self -> _nameLabel.mas_bottom).offset(10);
-        make.left.mas_equalTo(self -> _nameLabel.mas_left);
+        make.top.mas_equalTo(self -> _poetLabel.mas_bottom).offset(10);
+        make.left.mas_equalTo(self -> _poetLabel.mas_left);
         make.bottom.mas_equalTo(self -> _timeLabel.mas_top).offset(-10);
         make.right.mas_equalTo(self.mas_right).offset(-30);
     }];
