@@ -10,7 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class PoetryContent;
+
 @interface PLKeywordSearchDetailedView : UIView
+
+@property (nonatomic, strong) PoetryContent *poem;
+@property (nonatomic, strong) UIScrollView *mainScrollView;
+@property (nonatomic, strong) UILabel *mainFirstLabel;
+@property (nonatomic, strong) UILabel *mainSecondLabel;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *dynastyLabel;
+@property (nonatomic, strong) UILabel *allLabel;
+
+- (void)labelInit;
 
 @end
 

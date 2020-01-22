@@ -37,6 +37,7 @@
         poetry1.dynasty = @"晚唐人";
         poetry1.poet = @"唐温如";
         poetry1.imageName = @"pl_ps_tableview_exphoto.jpeg";
+        poetry1.all = @"西风吹老洞庭波，一夜湘君白发多。醉后不知天在水，满船清梦压星河。";
         [_poetryArray addObject:poetry1];
         
         PoetryContent *poetry2 = [[PoetryContent alloc] init];
@@ -45,6 +46,7 @@
         poetry2.dynasty = @"清代";
         poetry2.poet = @"王国维";
         poetry2.imageName = @"pl_ps_tableview_exphoto2.jpeg";
+        poetry2.all = @"阅尽天涯离别苦，不道归来，零落花如许。花底相看无一语，绿窗春与天俱莫。待把相思灯下诉，一缕新欢，旧恨千千缕。最是人间留不住，朱颜辞镜花辞树。";
         [_poetryArray addObject:poetry2];
         
     }
@@ -76,7 +78,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNotification *noti = [NSNotification notificationWithName:@"poetry" object:self userInfo:@{@"index":_poetryArray[indexPath.section]}];
+    NSNotification *noti = [NSNotification notificationWithName:@"poetry" object:self userInfo:@{@"key":_poetryArray[indexPath.section]}];
+    NSLog(@"_poetryArray[indexPath.section] == %@\n", _poetryArray[indexPath.section]);
     [[NSNotificationCenter defaultCenter] postNotification:noti];
 }
 

@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class PoetryContent;
+@class PLKeywordSearchDetailedView;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PLKeywordSearchDetailedViewController : UIViewController
+
+@property (nonatomic, strong) PLKeywordSearchDetailedView *myView;
+@property (nonatomic, strong) PoetryContent *keyword;
 
 @end
 
