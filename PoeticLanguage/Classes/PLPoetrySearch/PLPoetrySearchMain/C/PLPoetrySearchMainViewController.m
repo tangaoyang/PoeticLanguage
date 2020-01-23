@@ -38,22 +38,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.navigationBar.topItem.title = @"";
 }
 
 - (void)jumpView:(NSNotification *)keyword {
     
-    UIImage *highlighted_backImage = [[UIImage imageNamed:@"pl_ps_back_button.png"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
-    self.navigationItem.backBarButtonItem = item;
-    //设置返回图标
-    self.navigationController.navigationBar.backIndicatorImage = highlighted_backImage;
-    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = highlighted_backImage;
-    
     NSDictionary *getDictionary = keyword.userInfo;
     PLKeywordSearchViewController *search = [[PLKeywordSearchViewController alloc] init];
-    UINavigationController *navSearch = [[UINavigationController alloc] initWithRootViewController:search];
     search.keyword = getDictionary[@"key"];
-    [self presentViewController:navSearch animated:NO completion:nil];
+    [self.navigationController pushViewController:search animated:NO];
 }
 
 - (void)cancel {

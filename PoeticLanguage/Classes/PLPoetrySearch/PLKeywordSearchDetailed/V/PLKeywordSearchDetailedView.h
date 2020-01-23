@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *dynastyLabel;
 @property (nonatomic, strong) UILabel *allLabel;
+@property (nonatomic, strong) UILabel *historyLabel;
+@property int number;   //记录句号个数
 
 - (void)labelInit;
 
