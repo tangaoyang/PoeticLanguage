@@ -28,7 +28,22 @@
     
     self.myView = [[PLKeywordSearchDetailedView alloc] init];
     _myView.poem = _keyword;
-    NSLog(@"keyword == %@", _keyword);
+    int m = 0;  //用于记录换行个数
+    NSMutableString *all = [NSMutableString stringWithString:_myView.poem.all];
+    for (int i = 0; i < _keyword.all.length; i++) {
+        unichar str =   [_keyword.all characterAtIndex:i];
+//        NSLog(@"%C",str);
+        NSString *str1 = [NSString stringWithFormat:@"%C", str];
+        NSLog(@"%@", str1);
+        if ([str1 isEqualToString:@"。"]) {
+            [all insertString:@"\n" atIndex:i + m + 1];
+            m++;
+            _myView.number++;
+            NSLog(@"add");
+        }
+    }
+    _myView.poem.all = all;
+    self.title = _keyword.name;
     [_myView labelInit];
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];

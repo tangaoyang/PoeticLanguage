@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *all;       //诗所有内容
 @property (nonatomic, strong) NSString *dynasty;   //诗人朝代
 @property (nonatomic, strong) NSString *imageName; //诗人头像
+@property (nonatomic, strong) NSString *poetHistory;   //诗人简介
 
 @end
 

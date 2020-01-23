@@ -19,11 +19,13 @@
     if (self) {
         
         self.mainScrollView = [[UIScrollView alloc] init];
-        _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 2);
+        _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 3);
         _mainScrollView.alwaysBounceVertical = YES;
         _mainScrollView.scrollEnabled = YES;
         [self addSubview:_mainScrollView];
         _mainScrollView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+        
+        
     }
     return self;
 }
@@ -56,19 +58,18 @@
     self.nameLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_nameLabel];
     _nameLabel.text = _poem.name;
-    _nameLabel.font = [UIFont systemFontOfSize:32];
+    _nameLabel.font = [UIFont fontWithName:@"PingFang SC" size:32];
     _nameLabel.numberOfLines = 0;
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self -> _mainFirstLabel.mas_bottom).offset(300);
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
-        make.width.equalTo(@(self -> _poem.name.length * 38));
         make.height.mas_equalTo(@(35));
     }];
     
     self.dynastyLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_dynastyLabel];
     _dynastyLabel.text = _poem.dynasty;
-    _dynastyLabel.font = [UIFont systemFontOfSize:18];
+    _dynastyLabel.font = [UIFont fontWithName:@"Gurmukhi MN" size:18];
     _dynastyLabel.numberOfLines = 0;
     [_dynastyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self -> _nameLabel.mas_right).offset(-50);
@@ -80,13 +81,26 @@
     self.allLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_allLabel];
     _allLabel.text = _poem.all;
-    _allLabel.font = [UIFont systemFontOfSize:23];
+    _allLabel.font = [UIFont systemFontOfSize:20];
     _allLabel.numberOfLines = 0;
     [_allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.top.mas_equalTo(self -> _dynastyLabel.mas_bottom).offset(20);
-        make.width.equalTo(@(self -> _poem.all.length / 2 * 24));
-        make.height.mas_equalTo(@(2 * 28));
+        make.height.mas_equalTo(@(self -> _number * 25 + 25));
+    }];
+    
+    self.historyLabel = [[UILabel alloc] init];
+    [_mainScrollView addSubview:_historyLabel];
+    _historyLabel.text = _poem.poetHistory;
+    _historyLabel.font = [UIFont fontWithName:@"Copperplate" size:23];
+    _historyLabel.numberOfLines = 0;
+    NSDictionary *attri = @{NSFontAttributeName:_historyLabel.font};
+    CGSize cContentSize = [_poem.poetHistory boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, [UIScreen mainScreen].bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
+    [_historyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self -> _allLabel.mas_bottom).offset(30);
+        make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
+        make.width.equalTo(@(cContentSize.width));
+        make.height.equalTo(@(cContentSize.height + 30));
     }];
     
 }
