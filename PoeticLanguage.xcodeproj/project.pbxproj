@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; };
+		861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */ = {isa = PBXBuildFile; fileRef = 861854AE23E06876004AFC85 /* ChangeFontTay.m */; };
 		861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */; };
 		861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */; };
 		861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */; };
@@ -36,6 +37,8 @@
 		20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.debug.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.debug.xcconfig"; sourceTree = "<group>"; };
 		464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.release.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoeticLanguage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		861854AD23E06876004AFC85 /* ChangeFontTay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeFontTay.h; sourceTree = "<group>"; };
+		861854AE23E06876004AFC85 /* ChangeFontTay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeFontTay.m; sourceTree = "<group>"; };
 		861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchTableViewCell.h; sourceTree = "<group>"; };
 		861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchTableViewCell.m; sourceTree = "<group>"; };
 		861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto.jpeg; sourceTree = "<group>"; };
@@ -100,6 +103,15 @@
 				464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		861854AC23E06214004AFC85 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				861854AD23E06876004AFC85 /* ChangeFontTay.h */,
+				861854AE23E06876004AFC85 /* ChangeFontTay.m */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		869D340123D1FDDD008D761B /* PLPoetrySearchMain */ = {
@@ -346,6 +358,7 @@
 		86EB43AE23CF647900BADA71 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				861854AC23E06214004AFC85 /* Font */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -523,6 +536,7 @@
 				86BE9E2123D6F04F003F8DE6 /* PoetryContent.m in Sources */,
 				86BE9E1123D6E785003F8DE6 /* PLKeywordSearchViewController.m in Sources */,
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
+				861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */,
 				86EB439D23CF60A200BADA71 /* main.m in Sources */,
 				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
 				86BE9E1B23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m in Sources */,

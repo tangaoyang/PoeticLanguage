@@ -26,6 +26,8 @@
     backImageView.alpha = 0.3;
     [self.view insertSubview:backImageView atIndex:0];
     
+    self.tabBarController.tabBar.hidden = YES;
+    
     self.myView = [[PLKeywordSearchDetailedView alloc] init];
     _myView.poem = _keyword;
     int m = 0;  //用于记录换行个数
