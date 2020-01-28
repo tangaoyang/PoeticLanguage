@@ -113,15 +113,15 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [_searchTextField endEditing:YES];
-    [_searchTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    _searchTextField.text = @"";
+    [_searchTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.mas_width).offset(-70);
         make.height.mas_equalTo(@(40));
         make.left.mas_equalTo(self -> _photoButton.mas_right).offset(5);
         make.top.mas_equalTo(self.mas_top).offset(40);
     }];
-    
-    [_cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_searchTextField endEditing:YES];
+    [_cancelButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.and.height.equalTo(@(0));
         make.top.and.bottom.equalTo(@(0));
     }];

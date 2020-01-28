@@ -39,6 +39,20 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.navigationController.navigationBar.topItem.title = @"";
+    self.tabBarController.tabBar.hidden = NO;
+    NSLog(@"viewWillAppear");
+    [_myView.searchTextField endEditing:YES];
+    _myView.searchTextField.text = @"";
+    [_myView.searchTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(self.view.mas_width).offset(-70);
+        make.height.mas_equalTo(@(40));
+        make.left.mas_equalTo(self -> _myView.photoButton.mas_right).offset(5);
+        make.top.mas_equalTo(self.view.mas_top).offset(40);
+    }];
+    [_myView.cancelButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.and.height.equalTo(@(0));
+        make.top.and.bottom.equalTo(@(0));
+    }];
 }
 
 - (void)jumpView:(NSNotification *)keyword {
