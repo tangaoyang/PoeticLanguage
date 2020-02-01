@@ -7,7 +7,9 @@
 //
 //1792 * 828
 //350 200
+//610 * 280      2.94
 #import <UIKit/UIKit.h>
+#import "PLDIYBabyOthersView.h"
 #import "PLDIYBabyView.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -10,13 +10,16 @@
 #import "Masonry.h"
 
 @interface PLDIYBabyController ()
-@property PLDIYBabyView *diyView;
+@property PLDIYBabyOthersView *diyView;
 @property NSMutableArray *allTypeArray;
 @property UIScrollView *detailScrollView;
 @property NSInteger width;
 @property NSInteger hight;
 @property NSInteger firstClickBtnTag;
 @property UIButton *firstClickBtn;
+@property NSInteger tagForChange;
+@property UIButton *nowClickedBtn;
+@property PLDIYBabyView *babyView;
 @end
 
 @implementation PLDIYBabyController
@@ -28,7 +31,10 @@
     _hight = [UIScreen mainScreen].bounds.size.height;
     
     self.title = @"diy";
-    _diyView = [[PLDIYBabyView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    
+    
+    _diyView = [[PLDIYBabyOthersView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _diyView.delegate = self;
     [_diyView.lookButton setTitle:@"妆容" forState:UIControlStateNormal];
     [_diyView.hairButton setTitle:@"发型" forState:UIControlStateNormal];
@@ -41,7 +47,6 @@
     [self.view addSubview:_diyView];
     _allTypeArray = [[NSMutableArray alloc] init];
     
-    /*图片名称*/
     NSMutableArray *countArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:5], nil];
     NSMutableArray *typeArray = [NSMutableArray arrayWithObjects:@"look", @"hair", @"skirt", @"up", @"down", @"shoes", @"decoration", @"background", nil];
     for (int i = 0; i < 8; i++) {
@@ -58,11 +63,20 @@
     _detailScrollView.layer.cornerRadius = 5;
     _detailScrollView.scrollEnabled = YES;
     _detailScrollView.bounces = NO;
+    
+    _babyView = [[PLDIYBabyView alloc] init];
+    [_diyView addSubview:_babyView];
+    _babyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width
+    }
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:nil];
 }
 - (void)PressShowDetailClick:(UIButton *)btn {
+    _tagForChange = 0;
+    _nowClickedBtn = btn;
     if ([_diyView.clickTime isEqualToString:@"FirstClick"]){
         _firstClickBtnTag = btn.tag;
         _firstClickBtn = btn;
@@ -100,14 +114,19 @@
             if (i == 4) {
                 NSLog(@"%d", left);
             }
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", _allTypeArray[btn.tag - 1][i]]]];
-            [_detailScrollView addSubview:imageView];
-            [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            UIImage *image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", _allTypeArray[btn.tag - 1][i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [btn setImage: image forState:UIControlStateNormal];
+            
+            [_detailScrollView addSubview:btn];
+            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.width.equalTo(@(scrollViewImageHight / 1.75));
                 make.height.equalTo(@(scrollViewImageHight));
                 make.left.equalTo(self.detailScrollView.mas_left).offset(left);
                 make.top.equalTo(self.detailScrollView.mas_top).offset(5);
             }];
+            btn.tag = ++(_tagForChange);
+            [btn addTarget:self action:@selector(PressChange:) forControlEvents:UIControlEventTouchUpInside];
         }
         _diyView.clickTime = @"second";
     } else {
@@ -150,17 +169,28 @@
             int left;
             for (int i = 0; i < [_allTypeArray[btn.tag - 1] count]; i++) {
                 left = scrollViewImageHight * i + 10 * (i + 1);
-                UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", _allTypeArray[btn.tag - 1][i]]]];
-                [_detailScrollView addSubview:imageView];
-                [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+                UIImage *image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", _allTypeArray[btn.tag - 1][i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+                UIButton *choseToChangeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [choseToChangeBtn setImage: image forState:UIControlStateNormal];
+                
+                [_detailScrollView addSubview:choseToChangeBtn];
+                [choseToChangeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.width.equalTo(@(scrollViewImageHight / 1.75));
                     make.height.equalTo(@(scrollViewImageHight));
                     make.left.equalTo(self.detailScrollView.mas_left).offset(left);
                     make.top.equalTo(self.detailScrollView.mas_top).offset(5);
                 }];
+                choseToChangeBtn.tag = ++(_tagForChange);
+                [choseToChangeBtn addTarget:self action:@selector(PressChange:) forControlEvents:UIControlEventTouchUpInside];
             }
             _firstClickBtn = btn;
         }
+    }
+}
+
+- (void)PressChange:(UIButton*)btn {
+    if (_nowClickedBtn.tag == 8) {
+        _diyView.backgroundImageView.image = [UIImage imageNamed:_allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
     }
 }
 /*

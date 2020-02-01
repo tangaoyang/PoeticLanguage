@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; };
+		68022E5023DF393D0021FB4F /* PLDIYBabyOthersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68022E4F23DF393D0021FB4F /* PLDIYBabyOthersView.m */; };
+		68022E5323DF3AC30021FB4F /* PLDIYBabyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68022E5223DF3AC30021FB4F /* PLDIYBabyView.m */; };
 		68056C9D23D741390054F2F4 /* PLDIYBabyM.m in Sources */ = {isa = PBXBuildFile; fileRef = 68056C9C23D741390054F2F4 /* PLDIYBabyM.m */; };
-		68056CAB23D747600054F2F4 /* PLDIYBabyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68056CAA23D747600054F2F4 /* PLDIYBabyView.m */; };
 		681E08B223D899BE00E419DD /* roy3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 681E08B123D899BE00E419DD /* roy3.JPG */; };
 		681E08B623D89D9200E419DD /* background1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 681E08B423D89D9100E419DD /* background1.jpeg */; };
+		683E3A2323E4852F00D71DBC /* skirt1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 683E3A2223E4852F00D71DBC /* skirt1.jpeg */; };
+		683E3A2B23E485EF00D71DBC /* look1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 683E3A2A23E485EF00D71DBC /* look1.jpeg */; };
 		68563DC223DAB7AC00524C80 /* PLDIYBabyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68563DC123DAB7AB00524C80 /* PLDIYBabyController.m */; };
 		68563DC723DAB98000524C80 /* background2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68563DC323DAB98000524C80 /* background2.jpeg */; };
 		68563DC823DAB98000524C80 /* background4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68563DC423DAB98000524C80 /* background4.jpeg */; };
@@ -38,13 +41,17 @@
 		20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.debug.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.debug.xcconfig"; sourceTree = "<group>"; };
 		464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.release.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoeticLanguage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68022E4E23DF393D0021FB4F /* PLDIYBabyOthersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyOthersView.h; sourceTree = "<group>"; };
+		68022E4F23DF393D0021FB4F /* PLDIYBabyOthersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyOthersView.m; sourceTree = "<group>"; };
+		68022E5123DF3AC30021FB4F /* PLDIYBabyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyView.h; sourceTree = "<group>"; };
+		68022E5223DF3AC30021FB4F /* PLDIYBabyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyView.m; sourceTree = "<group>"; };
 		68056C9B23D741390054F2F4 /* PLDIYBabyM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyM.h; sourceTree = "<group>"; };
 		68056C9C23D741390054F2F4 /* PLDIYBabyM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyM.m; sourceTree = "<group>"; };
 		68056CA623D742470054F2F4 /* PLDIYBabyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyController.h; sourceTree = "<group>"; };
-		68056CA923D747600054F2F4 /* PLDIYBabyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyView.h; sourceTree = "<group>"; };
-		68056CAA23D747600054F2F4 /* PLDIYBabyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyView.m; sourceTree = "<group>"; };
 		681E08B123D899BE00E419DD /* roy3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roy3.JPG; sourceTree = "<group>"; };
 		681E08B423D89D9100E419DD /* background1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpeg; sourceTree = "<group>"; };
+		683E3A2223E4852F00D71DBC /* skirt1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt1.jpeg; sourceTree = "<group>"; };
+		683E3A2A23E485EF00D71DBC /* look1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = look1.jpeg; sourceTree = "<group>"; };
 		68563DC123DAB7AB00524C80 /* PLDIYBabyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyController.m; sourceTree = "<group>"; };
 		68563DC323DAB98000524C80 /* background2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpeg; sourceTree = "<group>"; };
 		68563DC423DAB98000524C80 /* background4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background4.jpeg; sourceTree = "<group>"; };
@@ -116,8 +123,10 @@
 		68056C9E23D741410054F2F4 /* V */ = {
 			isa = PBXGroup;
 			children = (
-				68056CA923D747600054F2F4 /* PLDIYBabyView.h */,
-				68056CAA23D747600054F2F4 /* PLDIYBabyView.m */,
+				68022E4E23DF393D0021FB4F /* PLDIYBabyOthersView.h */,
+				68022E4F23DF393D0021FB4F /* PLDIYBabyOthersView.m */,
+				68022E5123DF3AC30021FB4F /* PLDIYBabyView.h */,
+				68022E5223DF3AC30021FB4F /* PLDIYBabyView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -134,6 +143,12 @@
 		68056CAC23D74A700054F2F4 /* PLDIYBabyMaterial */ = {
 			isa = PBXGroup;
 			children = (
+				683E3A2923E485EF00D71DBC /* look */,
+				683E3A2C23E4863700D71DBC /* hair */,
+				683E3A2123E484F900D71DBC /* skirt */,
+				683E3A2E23E4863700D71DBC /* up */,
+				683E3A2D23E4863700D71DBC /* down */,
+				683E3A2F23E4863700D71DBC /* shoes */,
 				68056CAD23D74ABA0054F2F4 /* background */,
 			);
 			path = PLDIYBabyMaterial;
@@ -150,6 +165,50 @@
 				68563DC623DAB98000524C80 /* background5.jpeg */,
 			);
 			path = background;
+			sourceTree = "<group>";
+		};
+		683E3A2123E484F900D71DBC /* skirt */ = {
+			isa = PBXGroup;
+			children = (
+				683E3A2223E4852F00D71DBC /* skirt1.jpeg */,
+			);
+			path = skirt;
+			sourceTree = "<group>";
+		};
+		683E3A2923E485EF00D71DBC /* look */ = {
+			isa = PBXGroup;
+			children = (
+				683E3A2A23E485EF00D71DBC /* look1.jpeg */,
+			);
+			path = look;
+			sourceTree = "<group>";
+		};
+		683E3A2C23E4863700D71DBC /* hair */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = hair;
+			sourceTree = "<group>";
+		};
+		683E3A2D23E4863700D71DBC /* down */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = down;
+			sourceTree = "<group>";
+		};
+		683E3A2E23E4863700D71DBC /* up */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = up;
+			sourceTree = "<group>";
+		};
+		683E3A2F23E4863700D71DBC /* shoes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = shoes;
 			sourceTree = "<group>";
 		};
 		869D340123D1FDDD008D761B /* PLPoetrySearchMain */ = {
@@ -455,7 +514,9 @@
 			files = (
 				86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */,
 				861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */,
+				683E3A2323E4852F00D71DBC /* skirt1.jpeg in Resources */,
 				68563DC923DAB98000524C80 /* background3.jpeg in Resources */,
+				683E3A2B23E485EF00D71DBC /* look1.jpeg in Resources */,
 				86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */,
 				861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */,
 				68563DCA23DAB98000524C80 /* background5.jpeg in Resources */,
@@ -506,12 +567,13 @@
 				86EB439D23CF60A200BADA71 /* main.m in Sources */,
 				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
 				861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */,
+				68022E5323DF3AC30021FB4F /* PLDIYBabyView.m in Sources */,
 				68056C9D23D741390054F2F4 /* PLDIYBabyM.m in Sources */,
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
+				68022E5023DF393D0021FB4F /* PLDIYBabyOthersView.m in Sources */,
 				68563DC223DAB7AC00524C80 /* PLDIYBabyController.m in Sources */,
 				869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */,
 				869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */,
-				68056CAB23D747600054F2F4 /* PLDIYBabyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
