@@ -1,6 +1,6 @@
 PODS:
   - JSONModel (1.7.0)
-  - Masonry (1.1.0)
+  - Masonry (1.0.2)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -21,10 +21,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SOZOChromoplast: 8902f554d852844c2025b26558d3322f8fae668d
 
-PODFILE CHECKSUM: 3a7243ac7fec72eef4c188aa51af6c70d87f6445
+PODFILE CHECKSUM: cc03f4fdf4425f84120300a144d10750eb93a323
 
 COCOAPODS: 1.7.5
