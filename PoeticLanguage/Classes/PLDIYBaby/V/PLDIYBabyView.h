@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
+#import "PLImageView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PLDIYBabyView : UIView
-@property UIImageView *hairImageView;
-@property UIImageView *clothesImageView;
-@property UIImageView *upImageView;
-@property UIImageView *downImageView;
-@property UIImageView *shoesImageView;
+@property PLImageView *hairImageView;
+@property PLImageView *clothesImageView;
+@property PLImageView *upImageView;
+@property PLImageView *downImageView;
+@property PLImageView *shoesImageView;
 @property UIImageView *lookImageView;
 @property UIImageView *bodyImageView;
 @end

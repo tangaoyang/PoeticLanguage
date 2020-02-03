@@ -14,11 +14,11 @@
     self = [super initWithFrame:frame];
     
     _lookImageView = [[UIImageView alloc] init];
-    _hairImageView = [[UIImageView alloc] init];
-    _clothesImageView = [[UIImageView alloc] init];
-    _upImageView = [[UIImageView alloc] init];
-    _downImageView = [[UIImageView alloc] init];
-    _shoesImageView = [[UIImageView alloc] init];
+    _hairImageView = [[PLImageView alloc] init];
+    _clothesImageView = [[PLImageView alloc] init];
+    _upImageView = [[PLImageView alloc] init];
+    _downImageView = [[PLImageView alloc] init];
+    _shoesImageView = [[PLImageView alloc] init];
     _bodyImageView = [[UIImageView alloc] init];
     
     [self addSubview:_bodyImageView];
@@ -28,7 +28,7 @@
     [self addSubview:_upImageView];
     [self addSubview:_upImageView];
     [self addSubview:_hairImageView];
-//    self addSubview:
+    //    self addSubview:
     
     return self;
 }
@@ -37,36 +37,51 @@
     [super layoutSubviews];
     int width = [UIScreen mainScreen].bounds.size.width;
     int hight = [UIScreen mainScreen].bounds.size.height;
-    float width0 = 0.028 * hight;
+    float width0 = 0.06 * hight;
     float hight0;
-    float left = 0.355 * width;
-    float top = 0.246 * hight
-//    100 - 140 150 - 190
+    float top = 0.25 * hight;
+    float left = 0.35 * width;
+    // 90 - 140 140 - 190 0.082 0.23 0.32
     [_lookImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.and.height.equalTo(@(width0));
-        make.left.equalTo(self).offset(left);
         make.top.equalTo(self).offset(top);
+        make.left.equalTo(self).offset(left);
     }];
-//  100 - 140 500 - 520
+    
+    //70 * 335 left:80 top:170
+    width0 = 0.46 * width;
+    hight0 = 0.5496 * hight;
+    left = 0.18 * width;
+    top = 0.295 * hight;
+    [_bodyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(width0));
+        make.height.equalTo(@(hight0));
+        make.top.equalTo(self).offset(top);
+        make.left.equalTo(self).offset(left);
+    }];
+    _bodyImageView.image = [UIImage imageNamed:@"body.png"];
+    
+    //  100 - 140 500 - 520
     width0 = 0.142 * width;
     hight0 = 0.0328 *hight;
     top = 0.82 * hight;
     [_shoesImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
-        make.left.equalTo(self.lookImageView.mas_left);
         make.top.equalTo(self).offset(top);
+        make.left.equalTo(self.lookImageView.mas_left);
+        
     }];
     
     // 1792 828
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

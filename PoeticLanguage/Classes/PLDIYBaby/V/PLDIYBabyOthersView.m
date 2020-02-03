@@ -24,6 +24,7 @@
     _shoesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _decorationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _backgroundButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _babyView = [[PLDIYBabyView alloc] init];
     
     [self addSubview:_backgroundImageView];
     [self addSubview:_lookButton];
@@ -34,6 +35,7 @@
     [self addSubview:_shoesButton];
     [self addSubview:_decorationButton];
     [self addSubview:_backgroundButton];
+    [self addSubview:_babyView];
     
     return self;
 }
@@ -159,6 +161,11 @@
     [_backgroundButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
     [_backgroundButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
     _backgroundButton.tag = 8;
+    
+    [_babyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self);
+        make.height.equalTo(self);
+    }];
 }
 
 - (void)PressShowDetail:(UIButton*)btn {

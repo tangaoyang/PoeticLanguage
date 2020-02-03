@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PLDIYBabyView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property UIButton *backgroundButton;
 @property NSString *clickTime;
 @property NSInteger needRemake;
+@property PLDIYBabyView *babyView;
 @property id<DIYBabyViewDelegate>delegate;
 @end
 

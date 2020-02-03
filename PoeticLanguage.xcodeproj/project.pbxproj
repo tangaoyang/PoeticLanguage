@@ -13,13 +13,16 @@
 		68056C9D23D741390054F2F4 /* PLDIYBabyM.m in Sources */ = {isa = PBXBuildFile; fileRef = 68056C9C23D741390054F2F4 /* PLDIYBabyM.m */; };
 		681E08B223D899BE00E419DD /* roy3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 681E08B123D899BE00E419DD /* roy3.JPG */; };
 		681E08B623D89D9200E419DD /* background1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 681E08B423D89D9100E419DD /* background1.jpeg */; };
-		683E3A2323E4852F00D71DBC /* skirt1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 683E3A2223E4852F00D71DBC /* skirt1.jpeg */; };
 		683E3A2B23E485EF00D71DBC /* look1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 683E3A2A23E485EF00D71DBC /* look1.jpeg */; };
 		68563DC223DAB7AC00524C80 /* PLDIYBabyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68563DC123DAB7AB00524C80 /* PLDIYBabyController.m */; };
 		68563DC723DAB98000524C80 /* background2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68563DC323DAB98000524C80 /* background2.jpeg */; };
 		68563DC823DAB98000524C80 /* background4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68563DC423DAB98000524C80 /* background4.jpeg */; };
 		68563DC923DAB98000524C80 /* background3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68563DC523DAB98000524C80 /* background3.jpeg */; };
 		68563DCA23DAB98000524C80 /* background5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68563DC623DAB98000524C80 /* background5.jpeg */; };
+		686AD24D23E8459E00FBB590 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = 686AD24C23E8459E00FBB590 /* body.png */; };
+		686AD25123E8463500FBB590 /* PLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AD25023E8463500FBB590 /* PLImageView.m */; };
+		686AD25323E8501100FBB590 /* skirt1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 686AD25223E8501100FBB590 /* skirt1.jpeg */; };
+		686AD25723E8596000FBB590 /* hair1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 686AD25623E8596000FBB590 /* hair1.jpeg */; };
 		861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */; };
 		861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */; };
 		861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */; };
@@ -50,13 +53,17 @@
 		68056CA623D742470054F2F4 /* PLDIYBabyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyController.h; sourceTree = "<group>"; };
 		681E08B123D899BE00E419DD /* roy3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roy3.JPG; sourceTree = "<group>"; };
 		681E08B423D89D9100E419DD /* background1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpeg; sourceTree = "<group>"; };
-		683E3A2223E4852F00D71DBC /* skirt1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt1.jpeg; sourceTree = "<group>"; };
 		683E3A2A23E485EF00D71DBC /* look1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = look1.jpeg; sourceTree = "<group>"; };
 		68563DC123DAB7AB00524C80 /* PLDIYBabyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyController.m; sourceTree = "<group>"; };
 		68563DC323DAB98000524C80 /* background2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpeg; sourceTree = "<group>"; };
 		68563DC423DAB98000524C80 /* background4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background4.jpeg; sourceTree = "<group>"; };
 		68563DC523DAB98000524C80 /* background3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background3.jpeg; sourceTree = "<group>"; };
 		68563DC623DAB98000524C80 /* background5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background5.jpeg; sourceTree = "<group>"; };
+		686AD24C23E8459E00FBB590 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
+		686AD24F23E8463500FBB590 /* PLImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PLImageView.h; path = PoeticLanguage/Classes/PLDIYBaby/V/PLImageView.h; sourceTree = SOURCE_ROOT; };
+		686AD25023E8463500FBB590 /* PLImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLImageView.m; path = PoeticLanguage/Classes/PLDIYBaby/V/PLImageView.m; sourceTree = SOURCE_ROOT; };
+		686AD25223E8501100FBB590 /* skirt1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt1.jpeg; sourceTree = "<group>"; };
+		686AD25623E8596000FBB590 /* hair1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hair1.jpeg; sourceTree = "<group>"; };
 		861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchTableViewCell.h; sourceTree = "<group>"; };
 		861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchTableViewCell.m; sourceTree = "<group>"; };
 		861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto.jpeg; sourceTree = "<group>"; };
@@ -143,6 +150,7 @@
 		68056CAC23D74A700054F2F4 /* PLDIYBabyMaterial */ = {
 			isa = PBXGroup;
 			children = (
+				686AD24C23E8459E00FBB590 /* body.png */,
 				683E3A2923E485EF00D71DBC /* look */,
 				683E3A2C23E4863700D71DBC /* hair */,
 				683E3A2123E484F900D71DBC /* skirt */,
@@ -170,7 +178,7 @@
 		683E3A2123E484F900D71DBC /* skirt */ = {
 			isa = PBXGroup;
 			children = (
-				683E3A2223E4852F00D71DBC /* skirt1.jpeg */,
+				686AD25223E8501100FBB590 /* skirt1.jpeg */,
 			);
 			path = skirt;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 		683E3A2C23E4863700D71DBC /* hair */ = {
 			isa = PBXGroup;
 			children = (
+				686AD25623E8596000FBB590 /* hair1.jpeg */,
 			);
 			path = hair;
 			sourceTree = "<group>";
@@ -209,6 +218,16 @@
 			children = (
 			);
 			path = shoes;
+			sourceTree = "<group>";
+		};
+		686AD24E23E845B700FBB590 /* 自定义 */ = {
+			isa = PBXGroup;
+			children = (
+				686AD24F23E8463500FBB590 /* PLImageView.h */,
+				686AD25023E8463500FBB590 /* PLImageView.m */,
+			);
+			name = "自定义";
+			path = "../PLPersonalSettings/PoeticLanguage/Classes/PLPersonalSettings/自定义";
 			sourceTree = "<group>";
 		};
 		869D340123D1FDDD008D761B /* PLPoetrySearchMain */ = {
@@ -345,6 +364,7 @@
 				68056C9823D740D00054F2F4 /* M */,
 				68056C9E23D741410054F2F4 /* V */,
 				68056CA523D741FC0054F2F4 /* C */,
+				686AD24E23E845B700FBB590 /* 自定义 */,
 			);
 			path = PLDIYBaby;
 			sourceTree = "<group>";
@@ -514,7 +534,7 @@
 			files = (
 				86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */,
 				861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */,
-				683E3A2323E4852F00D71DBC /* skirt1.jpeg in Resources */,
+				686AD24D23E8459E00FBB590 /* body.png in Resources */,
 				68563DC923DAB98000524C80 /* background3.jpeg in Resources */,
 				683E3A2B23E485EF00D71DBC /* look1.jpeg in Resources */,
 				86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */,
@@ -528,6 +548,8 @@
 				681E08B223D899BE00E419DD /* roy3.JPG in Resources */,
 				869D341323D21311008D761B /* pl_ps_tabbar_selected.png in Resources */,
 				681E08B623D89D9200E419DD /* background1.jpeg in Resources */,
+				686AD25323E8501100FBB590 /* skirt1.jpeg in Resources */,
+				686AD25723E8596000FBB590 /* hair1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +591,7 @@
 				861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */,
 				68022E5323DF3AC30021FB4F /* PLDIYBabyView.m in Sources */,
 				68056C9D23D741390054F2F4 /* PLDIYBabyM.m in Sources */,
+				686AD25123E8463500FBB590 /* PLImageView.m in Sources */,
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
 				68022E5023DF393D0021FB4F /* PLDIYBabyOthersView.m in Sources */,
 				68563DC223DAB7AC00524C80 /* PLDIYBabyController.m in Sources */,
