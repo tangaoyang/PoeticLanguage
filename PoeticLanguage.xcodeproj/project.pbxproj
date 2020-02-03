@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; };
+
 		68022E5023DF393D0021FB4F /* PLDIYBabyOthersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68022E4F23DF393D0021FB4F /* PLDIYBabyOthersView.m */; };
 		68022E5323DF3AC30021FB4F /* PLDIYBabyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68022E5223DF3AC30021FB4F /* PLDIYBabyView.m */; };
 		68056C9D23D741390054F2F4 /* PLDIYBabyM.m in Sources */ = {isa = PBXBuildFile; fileRef = 68056C9C23D741390054F2F4 /* PLDIYBabyM.m */; };
@@ -23,15 +24,24 @@
 		686AD25123E8463500FBB590 /* PLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AD25023E8463500FBB590 /* PLImageView.m */; };
 		686AD25323E8501100FBB590 /* skirt1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 686AD25223E8501100FBB590 /* skirt1.jpeg */; };
 		686AD25723E8596000FBB590 /* hair1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 686AD25623E8596000FBB590 /* hair1.jpeg */; };
+		861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */ = {isa = PBXBuildFile; fileRef = 861854AE23E06876004AFC85 /* ChangeFontTay.m */; };
+
 		861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */; };
 		861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */; };
 		861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */; };
+		8621DB7E23D8AA9B00404A63 /* pl_ps_back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8621DB7D23D8AA9B00404A63 /* pl_ps_back_button.png */; };
 		869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */; };
 		869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340923D201D2008D761B /* PLPoetrySearchMainView.m */; };
 		869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */; };
 		869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D340E23D20A87008D761B /* pl_ps_camera.png */; };
 		869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D341023D21311008D761B /* pl_ps_tabbar.png */; };
 		869D341323D21311008D761B /* pl_ps_tabbar_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 869D341123D21311008D761B /* pl_ps_tabbar_selected.png */; };
+		86BE9E1123D6E785003F8DE6 /* PLKeywordSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E1023D6E785003F8DE6 /* PLKeywordSearchViewController.m */; };
+		86BE9E1423D6E7AC003F8DE6 /* PLKeywordSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E1323D6E7AC003F8DE6 /* PLKeywordSearchView.m */; };
+		86BE9E1B23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E1A23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m */; };
+		86BE9E1E23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E1D23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m */; };
+		86BE9E2123D6F04F003F8DE6 /* PoetryContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */; };
+		86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */; };
 		86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB438E23CF60A200BADA71 /* AppDelegate.m */; };
 		86EB439223CF60A200BADA71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB439123CF60A200BADA71 /* ViewController.m */; };
 		86EB439523CF60A200BADA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439323CF60A200BADA71 /* Main.storyboard */; };
@@ -44,6 +54,7 @@
 		20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.debug.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.debug.xcconfig"; sourceTree = "<group>"; };
 		464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.release.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoeticLanguage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		68022E4E23DF393D0021FB4F /* PLDIYBabyOthersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyOthersView.h; sourceTree = "<group>"; };
 		68022E4F23DF393D0021FB4F /* PLDIYBabyOthersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDIYBabyOthersView.m; sourceTree = "<group>"; };
 		68022E5123DF3AC30021FB4F /* PLDIYBabyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDIYBabyView.h; sourceTree = "<group>"; };
@@ -64,10 +75,14 @@
 		686AD25023E8463500FBB590 /* PLImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLImageView.m; path = PoeticLanguage/Classes/PLDIYBaby/V/PLImageView.m; sourceTree = SOURCE_ROOT; };
 		686AD25223E8501100FBB590 /* skirt1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt1.jpeg; sourceTree = "<group>"; };
 		686AD25623E8596000FBB590 /* hair1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hair1.jpeg; sourceTree = "<group>"; };
+		861854AD23E06876004AFC85 /* ChangeFontTay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeFontTay.h; sourceTree = "<group>"; };
+		861854AE23E06876004AFC85 /* ChangeFontTay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeFontTay.m; sourceTree = "<group>"; };
+
 		861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchTableViewCell.h; sourceTree = "<group>"; };
 		861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchTableViewCell.m; sourceTree = "<group>"; };
 		861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto.jpeg; sourceTree = "<group>"; };
 		861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_background_knot.jpeg; sourceTree = "<group>"; };
+		8621DB7D23D8AA9B00404A63 /* pl_ps_back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_back_button.png; sourceTree = "<group>"; };
 		869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainModel.h; sourceTree = "<group>"; };
 		869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchMainModel.m; sourceTree = "<group>"; };
 		869D340823D201D2008D761B /* PLPoetrySearchMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainView.h; sourceTree = "<group>"; };
@@ -77,6 +92,17 @@
 		869D340E23D20A87008D761B /* pl_ps_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_camera.png; sourceTree = "<group>"; };
 		869D341023D21311008D761B /* pl_ps_tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_tabbar.png; sourceTree = "<group>"; };
 		869D341123D21311008D761B /* pl_ps_tabbar_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_tabbar_selected.png; sourceTree = "<group>"; };
+		86BE9E0F23D6E785003F8DE6 /* PLKeywordSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordSearchViewController.h; sourceTree = "<group>"; };
+		86BE9E1023D6E785003F8DE6 /* PLKeywordSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLKeywordSearchViewController.m; sourceTree = "<group>"; };
+		86BE9E1223D6E7AC003F8DE6 /* PLKeywordSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordSearchView.h; sourceTree = "<group>"; };
+		86BE9E1323D6E7AC003F8DE6 /* PLKeywordSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLKeywordSearchView.m; sourceTree = "<group>"; };
+		86BE9E1923D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordSearchDetailedViewController.h; sourceTree = "<group>"; };
+		86BE9E1A23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLKeywordSearchDetailedViewController.m; sourceTree = "<group>"; };
+		86BE9E1C23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordSearchDetailedView.h; sourceTree = "<group>"; };
+		86BE9E1D23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLKeywordSearchDetailedView.m; sourceTree = "<group>"; };
+		86BE9E1F23D6F04F003F8DE6 /* PoetryContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PoetryContent.h; sourceTree = "<group>"; };
+		86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoetryContent.m; sourceTree = "<group>"; };
+		86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto2.jpeg; sourceTree = "<group>"; };
 		86EB438A23CF60A200BADA71 /* PoeticLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoeticLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB438D23CF60A200BADA71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86EB438E23CF60A200BADA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +144,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+
 		68056C9823D740D00054F2F4 /* M */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,28 +255,37 @@
 			);
 			name = "自定义";
 			path = "../PLPersonalSettings/PoeticLanguage/Classes/PLPersonalSettings/自定义";
+
+		861854AC23E06214004AFC85 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				861854AD23E06876004AFC85 /* ChangeFontTay.h */,
+				861854AE23E06876004AFC85 /* ChangeFontTay.m */,
+			);
+			path = Font;
+
 			sourceTree = "<group>";
 		};
 		869D340123D1FDDD008D761B /* PLPoetrySearchMain */ = {
 			isa = PBXGroup;
 			children = (
-				869D340423D1FFC3008D761B /* PLPoetrySearchMainM */,
-				869D340323D1FFB3008D761B /* PLPoetrySearchMainV */,
-				869D340223D1FF9D008D761B /* PLPoetrySearchMainC */,
+				869D340423D1FFC3008D761B /* M */,
+				869D340323D1FFB3008D761B /* V */,
+				869D340223D1FF9D008D761B /* C */,
 			);
 			path = PLPoetrySearchMain;
 			sourceTree = "<group>";
 		};
-		869D340223D1FF9D008D761B /* PLPoetrySearchMainC */ = {
+		869D340223D1FF9D008D761B /* C */ = {
 			isa = PBXGroup;
 			children = (
 				869D340B23D201F3008D761B /* PLPoetrySearchMainViewController.h */,
 				869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */,
 			);
-			path = PLPoetrySearchMainC;
+			path = C;
 			sourceTree = "<group>";
 		};
-		869D340323D1FFB3008D761B /* PLPoetrySearchMainV */ = {
+		869D340323D1FFB3008D761B /* V */ = {
 			isa = PBXGroup;
 			children = (
 				869D340823D201D2008D761B /* PLPoetrySearchMainView.h */,
@@ -257,16 +293,85 @@
 				861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */,
 				861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */,
 			);
-			path = PLPoetrySearchMainV;
+			path = V;
 			sourceTree = "<group>";
 		};
-		869D340423D1FFC3008D761B /* PLPoetrySearchMainM */ = {
+		869D340423D1FFC3008D761B /* M */ = {
 			isa = PBXGroup;
 			children = (
 				869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */,
 				869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */,
 			);
-			path = PLPoetrySearchMainM;
+			path = M;
+			sourceTree = "<group>";
+		};
+		86BE9E0C23D6E736003F8DE6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		86BE9E0D23D6E73B003F8DE6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				86BE9E1223D6E7AC003F8DE6 /* PLKeywordSearchView.h */,
+				86BE9E1323D6E7AC003F8DE6 /* PLKeywordSearchView.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		86BE9E0E23D6E740003F8DE6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				86BE9E0F23D6E785003F8DE6 /* PLKeywordSearchViewController.h */,
+				86BE9E1023D6E785003F8DE6 /* PLKeywordSearchViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		86BE9E1523D6EA62003F8DE6 /* PLKeywordSearchDetailed */ = {
+			isa = PBXGroup;
+			children = (
+				86BE9E1823D6EB26003F8DE6 /* M */,
+				86BE9E1723D6EB1E003F8DE6 /* V */,
+				86BE9E1623D6EB17003F8DE6 /* C */,
+			);
+			path = PLKeywordSearchDetailed;
+			sourceTree = "<group>";
+		};
+		86BE9E1623D6EB17003F8DE6 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				86BE9E1923D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.h */,
+				86BE9E1A23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		86BE9E1723D6EB1E003F8DE6 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				86BE9E1C23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.h */,
+				86BE9E1D23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		86BE9E1823D6EB26003F8DE6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		86BE9E2223D6F054003F8DE6 /* PoetryContent */ = {
+			isa = PBXGroup;
+			children = (
+				86BE9E1F23D6F04F003F8DE6 /* PoetryContent.h */,
+				86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */,
+			);
+			path = PoetryContent;
 			sourceTree = "<group>";
 		};
 		86EB438123CF60A200BADA71 = {
@@ -337,8 +442,9 @@
 			isa = PBXGroup;
 			children = (
 				869D340123D1FDDD008D761B /* PLPoetrySearchMain */,
-				86EB43A923CF61E700BADA71 /* PLPhotoRecognition */,
 				86EB43A823CF61CC00BADA71 /* PLKeywordSearch */,
+				86BE9E1523D6EA62003F8DE6 /* PLKeywordSearchDetailed */,
+				86EB43A923CF61E700BADA71 /* PLPhotoRecognition */,
 			);
 			path = PLPoetrySearch;
 			sourceTree = "<group>";
@@ -346,6 +452,9 @@
 		86EB43A823CF61CC00BADA71 /* PLKeywordSearch */ = {
 			isa = PBXGroup;
 			children = (
+				86BE9E0C23D6E736003F8DE6 /* M */,
+				86BE9E0D23D6E73B003F8DE6 /* V */,
+				86BE9E0E23D6E740003F8DE6 /* C */,
 			);
 			path = PLKeywordSearch;
 			sourceTree = "<group>";
@@ -406,6 +515,7 @@
 		86EB43AE23CF647900BADA71 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				861854AC23E06214004AFC85 /* Font */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -416,8 +526,10 @@
 				869D340E23D20A87008D761B /* pl_ps_camera.png */,
 				869D341023D21311008D761B /* pl_ps_tabbar.png */,
 				869D341123D21311008D761B /* pl_ps_tabbar_selected.png */,
-				861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */,
 				861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */,
+				861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */,
+				86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */,
+				8621DB7D23D8AA9B00404A63 /* pl_ps_back_button.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -463,6 +575,7 @@
 		86EB43B623CF651F00BADA71 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				86BE9E2223D6F054003F8DE6 /* PoetryContent */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -539,8 +652,13 @@
 				683E3A2B23E485EF00D71DBC /* look1.jpeg in Resources */,
 				86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */,
 				861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */,
+
 				68563DCA23DAB98000524C80 /* background5.jpeg in Resources */,
 				68563DC823DAB98000524C80 /* background4.jpeg in Resources */,
+
+				86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */,
+				8621DB7E23D8AA9B00404A63 /* pl_ps_back_button.png in Resources */,
+
 				86EB439523CF60A200BADA71 /* Main.storyboard in Resources */,
 				869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */,
 				869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */,
@@ -585,13 +703,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86BE9E2123D6F04F003F8DE6 /* PoetryContent.m in Sources */,
+				86BE9E1123D6E785003F8DE6 /* PLKeywordSearchViewController.m in Sources */,
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
+				861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */,
 				86EB439D23CF60A200BADA71 /* main.m in Sources */,
 				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
+				86BE9E1B23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m in Sources */,
+				86BE9E1423D6E7AC003F8DE6 /* PLKeywordSearchView.m in Sources */,
 				861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */,
+
 				68022E5323DF3AC30021FB4F /* PLDIYBabyView.m in Sources */,
 				68056C9D23D741390054F2F4 /* PLDIYBabyM.m in Sources */,
 				686AD25123E8463500FBB590 /* PLImageView.m in Sources */,
+
+				86BE9E1E23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m in Sources */,
+
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
 				68022E5023DF393D0021FB4F /* PLDIYBabyOthersView.m in Sources */,
 				68563DC223DAB7AC00524C80 /* PLDIYBabyController.m in Sources */,

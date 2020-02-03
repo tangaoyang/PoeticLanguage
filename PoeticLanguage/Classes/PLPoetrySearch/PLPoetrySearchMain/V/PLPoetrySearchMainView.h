@@ -19,7 +19,6 @@ UITableViewDataSource>
 @property (nonatomic, strong) UIButton *searchButton;
 @property (nonatomic, strong) UIButton *photoButton;
 @property (nonatomic, strong) UIButton *cancelButton;
-@property (nonatomic) NSInteger existTag;//标记是否已经设置了取消button
 @property (nonatomic, strong) UITableView *searchTableView;
 
 @end
