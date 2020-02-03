@@ -57,7 +57,7 @@
     _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look1.jpeg"];
     _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt1.jpeg"];
     _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair1.jpeg"];
-    // 340*250  0.888 0.557 0.015 0.03
+    // 340*250  0.888 0.557 0.015 0.03 --
     float width0 = 0.93 * _width;
     float hight0 = 0.557 * _hight;
     float top = 0.015 * _hight;
