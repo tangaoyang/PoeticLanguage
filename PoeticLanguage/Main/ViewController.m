@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PLPoetrySearchMainViewController.h"
+#import "PLDIYBabyController.h"
 
 @interface ViewController ()
 
@@ -56,17 +57,17 @@
     searchNav3.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     searchNav3.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
         
-    PLPoetrySearchMainViewController *search4 = [[PLPoetrySearchMainViewController alloc] init];
-    UINavigationController *searchNav4 = [[UINavigationController alloc] initWithRootViewController:search4];
-    searchNav4.title = @"DIY娃娃";
-    [searchNav4.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    PLDIYBabyController *diy = [[PLDIYBabyController alloc] init];
+    UINavigationController *diyNav4 = [[UINavigationController alloc] initWithRootViewController:diy];
+    diyNav4.title = @"DIY娃娃";
+    [diyNav4.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
     //设置title位置偏移
     UIOffset offset4;
     offset4.horizontal = 2;
     offset4.vertical = 13;
-    [searchNav4.tabBarItem setTitlePositionAdjustment:offset4];
-    searchNav4.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    searchNav.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
+    [diyNav4.tabBarItem setTitlePositionAdjustment:offset4];
+    diyNav4.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    diyNav4.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
         
     PLPoetrySearchMainViewController *search5 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav5 = [[UINavigationController alloc] initWithRootViewController:search5];
@@ -80,7 +81,7 @@
     searchNav5.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     searchNav5.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
         
-    NSArray *navArr = [NSArray arrayWithObjects:searchNav, searchNav2, searchNav3, searchNav4, searchNav5, nil];
+    NSArray *navArr = [NSArray arrayWithObjects:searchNav, searchNav2, searchNav3, diyNav4, searchNav5, nil];
         
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = navArr;
