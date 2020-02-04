@@ -23,7 +23,7 @@
 - (void)go {
     PLPoetrySearchMainViewController *search = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav = [[UINavigationController alloc] initWithRootViewController:search];
-    searchNav.title = @"搜索";
+    searchNav.title = @"每日分享";
     [searchNav.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
         //设置title位置偏移
     UIOffset offset1;
@@ -35,7 +35,7 @@
         
     PLPoetrySearchMainViewController *search2 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav2 = [[UINavigationController alloc] initWithRootViewController:search2];
-    searchNav2.title = @"搜索";
+    searchNav2.title = @"诗词挑战";
     [searchNav2.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
         //设置title位置偏移
     UIOffset offset2;
@@ -47,7 +47,7 @@
         
     PLPoetrySearchMainViewController *search3 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav3 = [[UINavigationController alloc] initWithRootViewController:search3];
-    searchNav3.title = @"搜索";
+    searchNav3.title = @"诗词搜索";
     [searchNav3.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
         //设置title位置偏移
     UIOffset offset3;
@@ -57,10 +57,11 @@
     searchNav3.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     searchNav3.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
         
-    PLDIYBabyController *search4 = [[PLDIYBabyController alloc] init];
-    UINavigationController *diyBabyNav4 = [[UINavigationController alloc] initWithRootViewController:search4];
-    diyBabyNav4.title = @"diy";
-    [diyBabyNav4.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    PLPoetrySearchMainViewController *search4 = [[PLPoetrySearchMainViewController alloc] init];
+    UINavigationController *searchNav4 = [[UINavigationController alloc] initWithRootViewController:search4];
+    searchNav4.title = @"DIY娃娃";
+    [searchNav4.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
+
     //设置title位置偏移
     UIOffset offset4;
     offset4.horizontal = 2;
@@ -71,7 +72,7 @@
         
     PLPoetrySearchMainViewController *search5 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav5 = [[UINavigationController alloc] initWithRootViewController:search5];
-    searchNav5.title = @"搜索";
+    searchNav5.title = @"个人设置";
     [searchNav5.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
     //设置title位置偏移
     UIOffset offset5;
@@ -85,11 +86,12 @@
         
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = navArr;
-    tabBarController.view.tintColor = [UIColor colorWithRed:0.18 green:0.69 blue:0.33 alpha:1.0];
+    tabBarController.view.tintColor = [UIColor colorWithRed:228/255.0 green:20/255.0 blue:20/255.0 alpha:1.0];
     tabBarController.view.backgroundColor = [UIColor whiteColor];
     tabBarController.tabBar.translucent = NO;
         
     self.view.window.rootViewController = tabBarController;
+    self.view.window.backgroundColor = [UIColor whiteColor];
 }
 
 @end

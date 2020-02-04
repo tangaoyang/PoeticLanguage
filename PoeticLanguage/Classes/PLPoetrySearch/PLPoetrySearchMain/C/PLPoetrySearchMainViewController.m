@@ -9,6 +9,7 @@
 #import "PLPoetrySearchMainViewController.h"
 #import "PLPoetrySearchMainView.h"
 #import "Masonry.h"
+#import "PLKeywordSearchViewController.h"
 
 @interface PLPoetrySearchMainViewController ()
 
@@ -30,25 +31,49 @@
     _myView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [_myView.cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"search" object:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.navigationBar.topItem.title = @"";
+    self.tabBarController.tabBar.hidden = NO;
+    NSLog(@"viewWillAppear");
+    [_myView.searchTextField endEditing:YES];
+    _myView.searchTextField.text = @"";
+    [_myView.searchTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(self.view.mas_width).offset(-70);
+        make.height.mas_equalTo(@(40));
+        make.left.mas_equalTo(self -> _myView.photoButton.mas_right).offset(5);
+        make.top.mas_equalTo(self.view.mas_top).offset(40);
+    }];
+    [_myView.cancelButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.and.height.equalTo(@(0));
+        make.top.and.bottom.equalTo(@(0));
+    }];
+}
+
+- (void)jumpView:(NSNotification *)keyword {
+    
+    NSDictionary *getDictionary = keyword.userInfo;
+    PLKeywordSearchViewController *search = [[PLKeywordSearchViewController alloc] init];
+    search.keyword = getDictionary[@"key"];
+    [self.navigationController pushViewController:search animated:NO];
 }
 
 - (void)cancel {
-    NSLog(@"cancel");
-    _myView.existTag = 0;
-//    _myView.cancelButton.hidden = YES;
-    [_myView.searchTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+    _myView.searchTextField.text = @"";
+    [_myView.searchTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(self.view.mas_width).offset(-70);
         make.height.mas_equalTo(@(40));
         make.left.mas_equalTo(self -> _myView.photoButton.mas_right).offset(5);
         make.top.mas_equalTo(self.view.mas_top).offset(40);
     }];
     [_myView.searchTextField endEditing:YES];
-    [_myView.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_myView.cancelButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.and.height.equalTo(@(0));
         make.top.and.bottom.equalTo(@(0));
     }];

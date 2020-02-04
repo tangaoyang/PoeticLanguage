@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PLPoetrySearchTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *poetLabel;
 @property (nonatomic, strong) UITextView *contectTextView;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UIImageView *photoImageView;
