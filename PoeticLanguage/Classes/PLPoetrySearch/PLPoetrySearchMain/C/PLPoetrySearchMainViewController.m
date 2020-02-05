@@ -10,6 +10,7 @@
 #import "PLPoetrySearchMainView.h"
 #import "Masonry.h"
 #import "PLKeywordSearchViewController.h"
+#import "PLPhotoRecogitionView.h"
 
 @interface PLPoetrySearchMainViewController ()
 
@@ -30,6 +31,7 @@
     [self.view addSubview:_myView];
     _myView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [_myView.cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+    [_myView.photoButton addTarget:self action:@selector(camera) forControlEvents:UIControlEventTouchUpInside];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"search" object:nil];
     
@@ -78,6 +80,13 @@
         make.top.and.bottom.equalTo(@(0));
     }];
     
+}
+
+- (void)camera {
+    PLPhotoRecogitionView *photoRecogitionView = [[PLPhotoRecogitionView alloc] init];
+    [self.view addSubview:photoRecogitionView];
+    photoRecogitionView.frame = self.view.bounds;
+    NSLog(@"camera");
 }
 
 /*
