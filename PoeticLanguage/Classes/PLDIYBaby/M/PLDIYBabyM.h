@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PLDIYBabyM : NSObject
 
+- (void)LoadData;
+
 @property NSMutableArray *allTypeArray;
 
 @end

@@ -10,6 +10,7 @@
 #import "Masonry.h"
 
 @interface PLDIYBabyController ()
+
 @property PLDIYBabyOthersView *diyView;
 @property UIScrollView *detailScrollView;
 @property NSInteger width;
@@ -19,6 +20,7 @@
 @property NSInteger tagForChange;
 @property UIButton *nowClickedBtn;
 @property PLDIYBabyM *model;
+
 @end
 
 @implementation PLDIYBabyController
@@ -26,11 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     _width = [UIScreen mainScreen].bounds.size.width;
     _hight = [UIScreen mainScreen].bounds.size.height;
     
-    self.title = @"diy";
-
+    self.title = @"DIY娃娃";
+    _model = [[PLDIYBabyM alloc] init];
+    [_model LoadData];
     
     
     _diyView = [[PLDIYBabyOthersView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -54,9 +58,9 @@
     _detailScrollView.bounces = NO;
     
 # pragma mark
-    _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look1.jpeg"];
-    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt1.jpeg"];
-    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair1.jpeg"];
+    _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look1.png"];
+    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt1.png"];
+    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair1.png"];
     // 340*250  0.888 0.557 0.015 0.03 --
     float width0 = 0.93 * _width;
     float hight0 = 0.557 * _hight;
@@ -68,17 +72,22 @@
         make.left.equalTo(self.diyView.babyView).offset(-left);
         make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset(-top);
     }];
-    width0 = 0.93 * _width;
+    width0 = 0.4 * _width;
     hight0 = 0.15 * _hight;
-    top = 0.01 * _hight;
-    left = 0.1 * _width;
+    top = 0.218  * _hight;
+    left = 0.19 * _width;
     [_diyView.babyView.hairImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
-        make.height.equalTo(@(hight0));
+        make.height.equalTo(@(width0 + 20));
         make.left.equalTo(self.diyView.babyView).offset(left);
         make.top.equalTo(self.diyView.babyView).offset(top);
     }];
+    
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:1], [NSNumber numberWithFloat:2], [NSNumber numberWithFloat:3], [NSNumber numberWithFloat:4], [NSNumber numberWithFloat:5], nil];
+ //   dictionary
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:nil];
 }
@@ -86,6 +95,7 @@
     _tagForChange = 0;
     _nowClickedBtn = btn;
     if ([_diyView.clickTime isEqualToString:@"FirstClick"]){
+        [_detailScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         _firstClickBtnTag = btn.tag;
         _firstClickBtn = btn;
         /*改变按钮*/
@@ -102,7 +112,7 @@
         }];
         _diyView.lookButton.layer.cornerRadius = 5;
         /*scrollView建立*/
-       
+        
         [_diyView addSubview:_detailScrollView];
         [_detailScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.diyView.lookButton.mas_top);
@@ -124,6 +134,7 @@
             }
             UIImage *image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", _model.allTypeArray[btn.tag - 1][i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            btn.contentMode = UIViewContentModeScaleToFill;
             [btn setImage: image forState:UIControlStateNormal];
             
             [_detailScrollView addSubview:btn];
@@ -171,7 +182,7 @@
                 make.height.equalTo(self.diyView.lookButton.mas_height);
                 make.left.equalTo(self.diyView.mas_left).offset(10);
             }];
-        
+            
             int scrollViewImageHight;
             scrollViewImageHight = hight0 - 10;
             int left;
@@ -179,6 +190,7 @@
                 left = scrollViewImageHight * i + 10 * (i + 1);
                 UIImage *image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", _model.allTypeArray[btn.tag - 1][i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
                 UIButton *choseToChangeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                btn.contentMode = UIViewContentModeScaleToFill;
                 [choseToChangeBtn setImage: image forState:UIControlStateNormal];
                 
                 [_detailScrollView addSubview:choseToChangeBtn];
@@ -190,6 +202,7 @@
                 }];
                 choseToChangeBtn.tag = ++(_tagForChange);
                 [choseToChangeBtn addTarget:self action:@selector(PressChange:) forControlEvents:UIControlEventTouchUpInside];
+                
             }
             _firstClickBtn = btn;
         }
@@ -197,10 +210,15 @@
 }
 
 - (void)PressChange:(UIButton*)btn {
+    if (_nowClickedBtn.tag == 1) {
+        _diyView.babyView.lookImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+    }
     if (_nowClickedBtn.tag == 8) {
         _diyView.backgroundImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
     }
+    
 }
+
 /*
 #pragma mark - Navigation
 

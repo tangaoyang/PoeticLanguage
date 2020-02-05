@@ -40,7 +40,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.navigationController.navigationBar.topItem.title = @"";
     self.tabBarController.tabBar.hidden = NO;
-    NSLog(@"viewWillAppear");
+    
     [_myView.searchTextField endEditing:YES];
     _myView.searchTextField.text = @"";
     [_myView.searchTextField mas_remakeConstraints:^(MASConstraintMaker *make) {
