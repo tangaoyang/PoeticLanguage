@@ -19,6 +19,8 @@ UITableViewDataSource
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *toolNameArray;
+@property (nonatomic, strong) UIImagePickerController* pickController;
+
 
 @end
 

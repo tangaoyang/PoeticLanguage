@@ -13,8 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class PLPoetrySearchMainView;
 
 @interface PLPoetrySearchMainViewController : UIViewController
+<
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate
+>
 
 @property (nonatomic, strong) PLPoetrySearchMainView *myView;
+@property (nonatomic, copy) NSString *access_token;
+@property (nonatomic, strong) UIImageView *showImageView;
 
 @end
 

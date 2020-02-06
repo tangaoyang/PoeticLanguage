@@ -11,6 +11,10 @@
 #import "Masonry.h"
 #import "PLKeywordSearchViewController.h"
 #import "PLPhotoRecogitionView.h"
+#import <Photos/Photos.h>
+#import "ImageManager.h"
+#import "ImageModel.h"
+#import "AccessModel.h"
 
 @interface PLPoetrySearchMainViewController ()
 
@@ -34,6 +38,8 @@
     [_myView.photoButton addTarget:self action:@selector(camera) forControlEvents:UIControlEventTouchUpInside];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"search" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photo) name:@"photo" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useCamera) name:@"camera" object:nil];
     
 }
 
@@ -82,11 +88,102 @@
     
 }
 
+#pragma mark - 弹出使用接口
 - (void)camera {
     PLPhotoRecogitionView *photoRecogitionView = [[PLPhotoRecogitionView alloc] init];
     [self.view addSubview:photoRecogitionView];
     photoRecogitionView.frame = self.view.bounds;
-    NSLog(@"camera");
+    
+    //提前请求access_token
+    [[ImageManager sharedManger] getAccess:^(AccessModel * _Nonnull AccessModel) {
+        self.access_token = AccessModel.access_token;
+        NSLog(@"self.access_token == %@", self.access_token);
+    } error:^(NSError * _Nonnull error) {
+        NSLog(@"error == %@", error);
+    }];
+    
+    [self addObserver:[ImageManager sharedManger] forKeyPath:@"access_token" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+#pragma mark - 使用相机
+- (void)useCamera {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *pickController = [[UIImagePickerController alloc] init];
+        pickController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        pickController.mediaTypes = @[@"public.image"];
+        pickController.delegate = self;
+        //设置闪光灯模式
+        pickController.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            //相册访问权限
+            if (status == PHAuthorizationStatusAuthorized) {
+                NSLog(@"Authorized");
+            }else{
+                NSLog(@"Denied or Restricted");
+            }
+        }];
+        [self presentViewController:pickController animated:YES completion:nil];
+    }else{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"无可用摄像头" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *sure = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
+        [alert addAction:sure];
+        [self presentViewController:alert animated:NO completion:nil];
+    }
+}
+
+#pragma mark - 访问相册
+- (void)photo {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+#pragma mark - 协议方法的实现
+//协议方法，选择完毕以后，开始人脸识别
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"%@",info);  //UIImagePickerControllerMediaType,UIImagePickerControllerOriginalImage,UIImagePickerControllerReferenceURL
+    NSString *mediaType = info[@"UIImagePickerControllerMediaType"];
+    if ([mediaType isEqualToString:@"public.image"]) {  //判断是否为图片
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        self.showImageView = [[UIImageView alloc] init];
+        [_showImageView setImage:image];
+        NSData *data = UIImageJPEGRepresentation(image, 1.0f);
+        
+        [ImageManager sharedManger].data = data;
+        
+        //通过判断picker的sourceType，如果是拍照则保存到相册去
+        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }
+        
+        if ([ImageManager sharedManger].access) {
+            [self faceRecognition];
+        }
+    }
+    //  else  如果是视频,没写
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - 人脸识别
+- (void)faceRecognition {
+    
+    [[ImageManager sharedManger] identification:^(ImageModel *resultImageModel) {
+        ImageModel *model = [[ImageModel alloc] init];
+        model = resultImageModel;
+        ListModel *list = [[ListModel alloc] init];
+        list = model.result.face_list[0];
+        NSLog(@"年龄为%@岁， 性别为%@的可能性是%@， 表情为%@的可能性是%@", list.age, list.gender.type, list.gender.probability, list.expression.type, list.expression.probability);
+    }];
+    
+}
+
+#pragma mark - 保存照片
+//此方法就在UIImageWriteToSavedPhotosAlbum的上方
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    NSLog(@"已保存");
 }
 
 /*

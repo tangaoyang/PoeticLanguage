@@ -71,7 +71,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%ld", (long)indexPath.row);
+    self.pickController = [[UIImagePickerController alloc]init];
+    if (indexPath.row == 0) {
+        [self useCamera];
+    } else if (indexPath.row == 1) {
+        [self usePhotoLibrary];
+    } else {
+        [self dismiss];
+    }
 }
+
+- (void)useCamera {
+    NSNotification *camera = [NSNotification notificationWithName:@"camera" object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:camera];
+}
+
+- (void)usePhotoLibrary {
+    NSNotification *photo = [NSNotification notificationWithName:@"photo" object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:photo];
+}
+
+- (void)dismiss {
+    [self removeFromSuperview];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
