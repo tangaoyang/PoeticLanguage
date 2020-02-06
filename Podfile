@@ -3,6 +3,6 @@ target 'PoeticLanguage' do
 pod 'Masonry'
 pod 'JSONModel'
 pod 'SDWebImage'
-pod 'AFNetworking'
 pod 'SOZOChromoplast'
+pod 'AFNetworking'
 end
