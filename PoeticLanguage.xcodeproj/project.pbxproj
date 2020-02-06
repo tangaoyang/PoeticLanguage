@@ -296,6 +296,8 @@
 				869D340923D201D2008D761B /* PLPoetrySearchMainView.m */,
 				861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */,
 				861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */,
+				869FE0C123EB16C20038BF72 /* PLPhotoRecogitionView.h */,
+				869FE0C223EB16C20038BF72 /* PLPhotoRecogitionView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -319,8 +321,6 @@
 		869FE0B923EB13D90038BF72 /* V */ = {
 			isa = PBXGroup;
 			children = (
-				869FE0C123EB16C20038BF72 /* PLPhotoRecogitionView.h */,
-				869FE0C223EB16C20038BF72 /* PLPhotoRecogitionView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
