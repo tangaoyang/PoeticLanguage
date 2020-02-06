@@ -24,6 +24,9 @@
 		8604983F23E885D1007C91FB /* look1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8604983E23E885D1007C91FB /* look1.jpeg */; };
 		8604984123E885D8007C91FB /* skirt1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8604984023E885D8007C91FB /* skirt1.jpeg */; };
 		861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */ = {isa = PBXBuildFile; fileRef = 861854AE23E06876004AFC85 /* ChangeFontTay.m */; };
+		861AFC3923EC52DE00355738 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 861AFC3823EC52DE00355738 /* ImageManager.m */; };
+		861AFC3E23EC53F500355738 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861AFC3D23EC53F500355738 /* ImageModel.m */; };
+		861AFC4123EC54C200355738 /* AccessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861AFC4023EC54C200355738 /* AccessModel.m */; };
 		861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */; };
 		861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */; };
 		861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */; };
@@ -75,6 +78,12 @@
 		8604984023E885D8007C91FB /* skirt1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skirt1.jpeg; sourceTree = "<group>"; };
 		861854AD23E06876004AFC85 /* ChangeFontTay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeFontTay.h; sourceTree = "<group>"; };
 		861854AE23E06876004AFC85 /* ChangeFontTay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeFontTay.m; sourceTree = "<group>"; };
+		861AFC3723EC52DE00355738 /* ImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		861AFC3823EC52DE00355738 /* ImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
+		861AFC3C23EC53F500355738 /* ImageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		861AFC3D23EC53F500355738 /* ImageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		861AFC3F23EC54C200355738 /* AccessModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessModel.h; sourceTree = "<group>"; };
+		861AFC4023EC54C200355738 /* AccessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessModel.m; sourceTree = "<group>"; };
 		861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchTableViewCell.h; sourceTree = "<group>"; };
 		861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchTableViewCell.m; sourceTree = "<group>"; };
 		861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto.jpeg; sourceTree = "<group>"; };
@@ -230,6 +239,35 @@
 				861854AE23E06876004AFC85 /* ChangeFontTay.m */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		861AFC3623EC526F00355738 /* FaceRecognition  */ = {
+			isa = PBXGroup;
+			children = (
+				861AFC3B23EC53D200355738 /* Model */,
+				861AFC3A23EC53C600355738 /* ImageManager */,
+			);
+			path = "FaceRecognition ";
+			sourceTree = "<group>";
+		};
+		861AFC3A23EC53C600355738 /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				861AFC3723EC52DE00355738 /* ImageManager.h */,
+				861AFC3823EC52DE00355738 /* ImageManager.m */,
+			);
+			path = ImageManager;
+			sourceTree = "<group>";
+		};
+		861AFC3B23EC53D200355738 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				861AFC3C23EC53F500355738 /* ImageModel.h */,
+				861AFC3D23EC53F500355738 /* ImageModel.m */,
+				861AFC3F23EC54C200355738 /* AccessModel.h */,
+				861AFC4023EC54C200355738 /* AccessModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		869D340123D1FDDD008D761B /* PLPoetrySearchMain */ = {
@@ -506,6 +544,7 @@
 		86EB43AE23CF647900BADA71 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				861AFC3623EC526F00355738 /* FaceRecognition  */,
 				861854AC23E06214004AFC85 /* Font */,
 			);
 			path = Util;
@@ -698,8 +737,11 @@
 				8604982023E88430007C91FB /* PLDIYBabyM.m in Sources */,
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
 				8604982923E88546007C91FB /* PLImageView.m in Sources */,
+				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
 				8604982323E8848D007C91FB /* PLDIYBabyView.m in Sources */,
+				861AFC3E23EC53F500355738 /* ImageModel.m in Sources */,
 				861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */,
+				861AFC4123EC54C200355738 /* AccessModel.m in Sources */,
 				86EB439D23CF60A200BADA71 /* main.m in Sources */,
 				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
 				86BE9E1B23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m in Sources */,
