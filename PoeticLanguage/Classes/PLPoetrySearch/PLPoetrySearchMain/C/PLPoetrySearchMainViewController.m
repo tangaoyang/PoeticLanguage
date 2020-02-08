@@ -10,7 +10,6 @@
 #import "PLPoetrySearchMainView.h"
 #import "Masonry.h"
 #import "PLKeywordSearchViewController.h"
-#import "PLPhotoRecogitionView.h"
 #import <Photos/Photos.h>
 #import "ImageManager.h"
 #import "ImageModel.h"
@@ -90,9 +89,22 @@
 
 #pragma mark - 弹出使用接口
 - (void)camera {
-    PLPhotoRecogitionView *photoRecogitionView = [[PLPhotoRecogitionView alloc] init];
-    [self.view addSubview:photoRecogitionView];
-    photoRecogitionView.frame = self.view.bounds;
+    
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"选择方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *camera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self useCamera];
+    }];
+    [camera setValue:[UIColor blackColor] forKey:@"titleTextColor"];
+    [alert addAction:camera];
+    UIAlertAction *photo = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self photo];
+    }];
+    [photo setValue:[UIColor blackColor] forKey:@"titleTextColor"];
+    [alert addAction:photo];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [cancel setValue:[UIColor blackColor] forKey:@"titleTextColor"];
+    [alert addAction:cancel];
+    [self presentViewController:alert animated:NO completion:nil];
     
     //提前请求access_token
     [[ImageManager sharedManger] getAccess:^(AccessModel * _Nonnull AccessModel) {
@@ -156,7 +168,7 @@
         
         //通过判断picker的sourceType，如果是拍照则保存到相册去
         if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            [self save];
         }
         
         if ([ImageManager sharedManger].access) {
@@ -181,10 +193,63 @@
 }
 
 #pragma mark - 保存照片
-//此方法就在UIImageWriteToSavedPhotosAlbum的上方
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    NSLog(@"已保存");
+//获取相册
+- (PHAssetCollection *)createdCollection {
+    //获取APP名称
+    NSString *title = [NSBundle mainBundle].infoDictionary[@"CFBundleName"];
+    //抓取所有自定义相册
+    PHFetchResult<PHAssetCollection*> *collections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    //查找当前的app的自定义相册
+    for (PHAssetCollection *collection in collections) {
+        if ([collection.localizedTitle isEqualToString:title]) {
+            return collection;
+        }
+    }
+    //当前对象没有被创建过
+    NSError *error = nil;
+    __block  NSString *creatCollectionID = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        //创建一个自定义字典
+        creatCollectionID = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title].placeholderForCreatedAssetCollection.localIdentifier;
+    } error:&error];
+    if (error) {
+        NSLog(@"error == %@", error);
+        NSLog(@"创建相册失败");
+        return nil;
+    } else {
+        NSLog(@"创建相册成功");
+    }
+    
+    //根据唯一标识创建相册
+    return [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[creatCollectionID] options:nil].firstObject;
 }
+//保存照片
+-(void)save {
+    
+    //保存函数到相机胶卷
+    // 同步
+    __block PHObjectPlaceholder *placeholder = nil;
+    NSError *error = nil;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        placeholder = [PHAssetChangeRequest creationRequestForAssetFromImage:self->_showImageView.image].placeholderForCreatedAsset;
+    } error:&error];
+    if (error) {
+        NSLog(@"保存失败");
+    } else {
+        NSLog(@"保存成功");
+    }
+    //获得相册
+    PHAssetCollection *createdCollection = [self createdCollection];
+    //添加图片到指定相册
+    //    PHAsset : 一个PHAsset对象就代表相册中的一张图片或者一个视频
+    //    PHAssetCollection : 一个PHAssetCollection 对象就代表一个相册
+    //    凡是涉及增删改的操作，均需要放在performChanges里面执行。
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        PHAssetCollectionChangeRequest *request =  [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createdCollection];
+        [request insertAssets:@[placeholder] atIndexes:[NSIndexSet indexSetWithIndex:0]];
+    } error:&error];
+}
+
 
 /*
 #pragma mark - Navigation
