@@ -4,4 +4,5 @@ pod 'Masonry'
 pod 'JSONModel'
 pod 'SDWebImage'
 pod 'SOZOChromoplast'
+pod 'AFNetworking'
 end
