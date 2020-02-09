@@ -12,12 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PLDIYBabyM : NSObject
 
-- (void)LoadData;
-
-@property float width;
-@property float hight;
 @property NSMutableArray *allTypeArray;
-@property NSMutableDictionary *masonryDictionary;
 
 @end
 
