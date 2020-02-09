@@ -27,6 +27,7 @@
     _babyView = [[PLDIYBabyView alloc] init];
     
     [self addSubview:_backgroundImageView];
+    [self addSubview:_babyView];
     [self addSubview:_lookButton];
     [self addSubview:_hairButton];
     [self addSubview:_skirtButton];
@@ -35,7 +36,6 @@
     [self addSubview:_shoesButton];
     [self addSubview:_decorationButton];
     [self addSubview:_backgroundButton];
-    [self addSubview:_babyView];
     
     return self;
 }
@@ -47,7 +47,7 @@
     int width0;
     int hight0;
     _backgroundImageView.frame = [UIScreen mainScreen].bounds;
-    _backgroundImageView.image = [UIImage imageNamed:@"background2.jpeg"];
+    _backgroundImageView.image = [[UIImage imageNamed:@"background2.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     _backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     // 超出边框的内容都剪掉
     _backgroundImageView.clipsToBounds = YES;
