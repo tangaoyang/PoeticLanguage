@@ -33,7 +33,10 @@
     _hight = [UIScreen mainScreen].bounds.size.height;
     
     self.title = @"DIY娃娃";
-    
+    _model = [[PLDIYBabyM alloc] init];
+    _model.width = _width;
+    _model.hight = _hight;
+    [_model LoadData];
     
     
     _diyView = [[PLDIYBabyOthersView alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -59,8 +62,8 @@
 # pragma mark
     _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look1.jpeg"];
     _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt1.jpeg"];
-    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair1.jpeg"];
-    // 340*250  0.888 0.557 0.015 0.03
+    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair2.jpeg"];
+    // 340*250  0.888 0.557 0.015 0.03 --
     float width0 = 0.93 * _width;
     float hight0 = 0.557 * _hight;
     float top = 0.015 * _hight;
@@ -71,17 +74,20 @@
         make.left.equalTo(self.diyView.babyView).offset(-left);
         make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset(-top);
     }];
-    width0 = 0.93 * _width;
-    hight0 = 0.15 * _hight;
-    top = 0.01 * _hight;
-    left = 0.1 * _width;
+    width0 = 0.8 * _width;
+    hight0 = 1.16 * width0;
+    top = 0.19  * _hight;
+    left = 0.05 * _width;
     [_diyView.babyView.hairImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
-        make.left.equalTo(self.diyView.babyView).offset(left);
+        make.left.equalTo(self.diyView.babyView).offset(-left);
         make.top.equalTo(self.diyView.babyView).offset(top);
     }];
     
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:1], [NSNumber numberWithFloat:2], [NSNumber numberWithFloat:3], [NSNumber numberWithFloat:4], [NSNumber numberWithFloat:5], nil];
+ //   dictionary
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -91,6 +97,7 @@
     _tagForChange = 0;
     _nowClickedBtn = btn;
     if ([_diyView.clickTime isEqualToString:@"FirstClick"]){
+        [_detailScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         _firstClickBtnTag = btn.tag;
         _firstClickBtn = btn;
         /*改变按钮*/
@@ -129,6 +136,7 @@
             }
             UIImage *image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", _model.allTypeArray[btn.tag - 1][i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            btn.contentMode = UIViewContentModeScaleToFill;
             [btn setImage: image forState:UIControlStateNormal];
             
             [_detailScrollView addSubview:btn];
@@ -161,16 +169,33 @@
             width0 = 0.07 * _width;
             hight0 = 0.11 *_hight;
             [_detailScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-            [_firstClickBtn setTitle:_diyView.lookButton.titleLabel.text forState:UIControlStateNormal];
-            [_diyView.lookButton setTitle:btn.titleLabel.text forState:UIControlStateNormal] ;
-            if (![btn.titleLabel.text isEqualToString:@"妆容"]) {
+            
+            if ([_diyView.lookButton.titleLabel.text isEqualToString:@"妆容"]) {
+                [_diyView.lookButton setTitle:btn.titleLabel.text forState:UIControlStateNormal] ;
                 [btn setTitle:@"妆容" forState:UIControlStateNormal];
+            } else {
+                if ([btn.titleLabel.text isEqualToString:@"妆容"]) {
+                    [btn setTitle:_diyView.lookButton.titleLabel.text forState:UIControlStateNormal];
+                    [_diyView.lookButton setTitle:@"妆容" forState:UIControlStateNormal];
+                } else {
+                    [_firstClickBtn setTitle:_diyView.lookButton.titleLabel.text forState:UIControlStateNormal];
+                    [_diyView.lookButton setTitle:btn.titleLabel.text forState:UIControlStateNormal] ;
+                    [btn setTitle:@"妆容" forState:UIControlStateNormal];
+                }
             }
             
-            [_diyView addSubview:_detailScrollView];
-            long scrollViewWidth = (btn.tag) * [_model.allTypeArray[btn.tag - 1] count] + (btn.tag + 1) * 10;
+            
+            if (![btn.titleLabel.text isEqualToString:@"妆容"]) {
+                _firstClickBtn = btn;
+            } else {
+                btn = _diyView.lookButton;
+                _firstClickBtn = _nowClickedBtn;
+            }
+            
+      //      [_diyView addSubview:_detailScrollView];
+            long scrollViewWidth = (0.11 *_hight - 10) * [_model.allTypeArray[btn.tag - 1] count] + [_model.allTypeArray[btn.tag - 1] count] * 10 - ((0.11 *_hight - 10) - (0.11 *_hight - 10) / 1.75) + 10;
             _detailScrollView.contentSize = CGSizeMake(scrollViewWidth, hight0);
-            [_detailScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            [_detailScrollView mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(self.diyView.lookButton.mas_top);
                 make.right.equalTo(self.diyView.lookButton.mas_left).offset(-10);
                 make.height.equalTo(self.diyView.lookButton.mas_height);
@@ -184,6 +209,7 @@
                 left = scrollViewImageHight * i + 10 * (i + 1);
                 UIImage *image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@", _model.allTypeArray[btn.tag - 1][i]]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
                 UIButton *choseToChangeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                btn.contentMode = UIViewContentModeScaleToFill;
                 [choseToChangeBtn setImage: image forState:UIControlStateNormal];
                 
                 [_detailScrollView addSubview:choseToChangeBtn];
@@ -195,16 +221,30 @@
                 }];
                 choseToChangeBtn.tag = ++(_tagForChange);
                 [choseToChangeBtn addTarget:self action:@selector(PressChange:) forControlEvents:UIControlEventTouchUpInside];
+                
             }
-            _firstClickBtn = btn;
+            
         }
     }
 }
 
 - (void)PressChange:(UIButton*)btn {
+    if (_nowClickedBtn.tag == 1) {
+        _diyView.babyView.lookImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+    }
+    if (_nowClickedBtn.tag == 2) {
+        _diyView.babyView.hairImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+        [_diyView.babyView.hairImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@([self.model.masonryDictionary[@"hair"][@"width"][btn.tag - 1] floatValue]));
+            make.height.equalTo(@([self.model.masonryDictionary[@"hair"][@"hight"][btn.tag - 1] floatValue]));
+            make.left.equalTo(self.diyView.babyView).offset([self.model.masonryDictionary[@"hair"][@"left"][btn.tag - 1] floatValue]);
+            make.top.equalTo(self.diyView.babyView).offset([self.model.masonryDictionary[@"hair"][@"top"][btn.tag - 1] floatValue]);
+        }];
+    }
     if (_nowClickedBtn.tag == 8) {
         _diyView.backgroundImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
     }
+    
 }
 
 /*

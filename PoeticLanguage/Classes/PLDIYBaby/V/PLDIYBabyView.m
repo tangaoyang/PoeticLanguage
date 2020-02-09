@@ -59,7 +59,7 @@
         make.top.equalTo(self).offset(top);
         make.left.equalTo(self).offset(left);
     }];
-    _bodyImageView.image = [UIImage imageNamed:@"body.png"];
+    _bodyImageView.image = [UIImage imageNamed:@"body.jpeg"];
     
     //  100 - 140 500 - 520
     width0 = 0.142 * width;
