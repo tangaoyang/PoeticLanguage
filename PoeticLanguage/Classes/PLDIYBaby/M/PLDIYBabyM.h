@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)LoadData;
 
+@property float width;
+@property float hight;
 @property NSMutableArray *allTypeArray;
+@property NSMutableDictionary *masonryDictionary;
 
 @end
 
