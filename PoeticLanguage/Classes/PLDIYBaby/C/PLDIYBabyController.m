@@ -61,27 +61,27 @@
     
 # pragma mark
     _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look1.jpeg"];
-    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt1.jpeg"];
-    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair2.jpeg"];
+    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt6.jpeg"];
+    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hai2.jpeg"];
     // 340*250  0.888 0.557 0.015 0.03 --
-    float width0 = 0.93 * _width;
-    float hight0 = 0.557 * _hight;
-    float top = 0.015 * _hight;
-    float left = 0.03 * _width;
+    float width0 = 0.8 * _width;
+    float hight0 = 1.517 * width0;
+    float top = -0.048 * _hight;
+    float left = 0.215 * _width;
     [_diyView.babyView.clothesImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
-        make.left.equalTo(self.diyView.babyView).offset(-left);
-        make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset(-top);
+        make.left.equalTo(self.diyView.babyView).offset(left);
+        make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset(top);
     }];
-    width0 = 0.8 * _width;
-    hight0 = 1.16 * width0;
-    top = 0.19  * _hight;
-    left = 0.05 * _width;
+    width0 = 0.4 * _width;
+    hight0 = 0.4 * _width + 20;
+    top = 0.218  * _hight;
+    left = 0.19 * _width;
     [_diyView.babyView.hairImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
-        make.left.equalTo(self.diyView.babyView).offset(-left);
+        make.left.equalTo(self.diyView.babyView).offset(left);
         make.top.equalTo(self.diyView.babyView).offset(top);
     }];
     
@@ -229,8 +229,9 @@
 }
 
 - (void)PressChange:(UIButton*)btn {
-    if (_nowClickedBtn.tag == 1) {
+    if ((_nowClickedBtn.tag == 1)) {
         _diyView.babyView.lookImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+        return;
     }
     if (_nowClickedBtn.tag == 2) {
         _diyView.babyView.hairImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
@@ -239,6 +240,15 @@
             make.height.equalTo(@([self.model.masonryDictionary[@"hair"][@"hight"][btn.tag - 1] floatValue]));
             make.left.equalTo(self.diyView.babyView).offset([self.model.masonryDictionary[@"hair"][@"left"][btn.tag - 1] floatValue]);
             make.top.equalTo(self.diyView.babyView).offset([self.model.masonryDictionary[@"hair"][@"top"][btn.tag - 1] floatValue]);
+        }];
+    }
+    if (_nowClickedBtn.tag == 3) {
+        _diyView.babyView.clothesImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+        [_diyView.babyView.clothesImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@([self.model.masonryDictionary[@"clothes"][@"width"][btn.tag - 1] floatValue]));
+            make.height.equalTo(@([self.model.masonryDictionary[@"clothes"][@"hight"][btn.tag - 1] floatValue]));
+            make.left.equalTo(self.diyView.babyView).offset([self.model.masonryDictionary[@"clothes"][@"left"][btn.tag - 1] floatValue]);
+            make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset([self.model.masonryDictionary[@"clothes"][@"top"][btn.tag - 1] floatValue]);
         }];
     }
     if (_nowClickedBtn.tag == 8) {
@@ -258,3 +268,10 @@
 */
 
 @end
+/*
+ float width0 = 0.9 * _width;
+ float hight0 = 1.25 * width0;
+ float top = 0.06 * _hight;
+ float left = 0.18 * _width;
+  || ([_nowClickedBtn.titleLabel.text isEqualToString:@"妆容"])
+ */
