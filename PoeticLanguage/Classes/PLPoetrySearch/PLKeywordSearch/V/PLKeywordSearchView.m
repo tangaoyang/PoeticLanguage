@@ -81,7 +81,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSNotification *noti = [NSNotification notificationWithName:@"poetry" object:self userInfo:@{@"key":_poetryArray[indexPath.section]}];
-    NSLog(@"_poetryArray[indexPath.section] == %@\n", _poetryArray[indexPath.section]);
     [[NSNotificationCenter defaultCenter] postNotification:noti];
 }
 

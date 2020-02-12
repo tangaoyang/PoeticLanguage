@@ -48,7 +48,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
-    self.navigationController.navigationBar.topItem.title = @"";
+    self.navigationController.navigationBar.topItem.title = _keyword;
 }
 
 - (void)jumpView:(NSNotification *)keyword {

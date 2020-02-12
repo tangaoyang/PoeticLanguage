@@ -30,8 +30,8 @@
     offset1.horizontal = 2;
     offset1.vertical = 13;
     [searchNav.tabBarItem setTitlePositionAdjustment:offset1];
-    searchNav.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    searchNav.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
+    searchNav.tabBarItem.image = [[UIImage imageNamed:@"pl_ds_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    searchNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_ds_tabbar_selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
     PLPoetrySearchMainViewController *search2 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav2 = [[UINavigationController alloc] initWithRootViewController:search2];
@@ -42,8 +42,8 @@
     offset2.horizontal = 2;
     offset2.vertical = 13;
     [searchNav2.tabBarItem setTitlePositionAdjustment:offset2];
-    searchNav2.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    searchNav2.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
+    searchNav2.tabBarItem.image = [[UIImage imageNamed:@"pl_pc_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    searchNav2.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_pc_tabbar_selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
     PLPoetrySearchMainViewController *search3 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav3 = [[UINavigationController alloc] initWithRootViewController:search3];
@@ -55,7 +55,7 @@
     offset3.vertical = 13;
     [searchNav3.tabBarItem setTitlePositionAdjustment:offset3];
     searchNav3.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    searchNav3.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
+    searchNav3.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_ps_tabbar_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
     PLDIYBabyController *diy = [[PLDIYBabyController alloc] init];
     UINavigationController *diyNav4 = [[UINavigationController alloc] initWithRootViewController:diy];
@@ -66,8 +66,8 @@
     offset4.horizontal = 2;
     offset4.vertical = 13;
     [diyNav4.tabBarItem setTitlePositionAdjustment:offset4];
-    diyNav4.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    diyNav4.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
+    diyNav4.tabBarItem.image = [[UIImage imageNamed:@"pl_diy_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    diyNav4.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_diy_tabbar_selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
     PLPoetrySearchMainViewController *search5 = [[PLPoetrySearchMainViewController alloc] init];
     UINavigationController *searchNav5 = [[UINavigationController alloc] initWithRootViewController:search5];
@@ -78,8 +78,8 @@
     offset5.horizontal = 2;
     offset5.vertical = 13;
     [searchNav5.tabBarItem setTitlePositionAdjustment:offset5];
-    searchNav5.tabBarItem.image = [[UIImage imageNamed:@"pl_ps_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    searchNav5.tabBarItem.selectedImage = [UIImage imageNamed:@"pl_ps_tabbar_selected.png"];
+    searchNav5.tabBarItem.image = [[UIImage imageNamed:@"pl_pset_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    searchNav5.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_pset_tabbar_selected.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
     NSArray *navArr = [NSArray arrayWithObjects:searchNav, searchNav2, searchNav3, diyNav4, searchNav5, nil];
         

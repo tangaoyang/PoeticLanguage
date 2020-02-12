@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "PLPoetrySearchTableViewCell.h"
 #import "PLKeywordSearchViewController.h"
+#import "PoetryContent.h"
 
 @implementation PLPoetrySearchMainView
 
@@ -17,6 +18,17 @@
 {
     self = [super init];
     if (self) {
+        
+        _poetryArray = [[NSMutableArray alloc] init];
+        PoetryContent *poetry1 = [[PoetryContent alloc] init];
+        poetry1.name = @"题龙阳县青草湖";
+        poetry1.content = @"醉后不知天在水，满船清梦压星河。";
+        poetry1.dynasty = @"晚唐人";
+        poetry1.poet = @"唐温如";
+        poetry1.imageName = @"pl_ps_tableview_exphoto.jpeg";
+        poetry1.all = @"西风吹老洞庭波，一夜湘君白发多。醉后不知天在水，满船清梦压星河。";
+        poetry1.poetHistory = @"唐珙，字温如，会稽山阴（今浙江绍兴）人。其父南宋义士、词人唐珏在至元中与林景熙等收拾宋陵遗骨，重新安葬，并在上面移植南宋故宫冬青树为标志。珙豪于诗。 生平仅略见于《御选元诗》卷首《姓名爵里》、《元诗选补遗》小传。";
+        [_poetryArray addObject:poetry1];
         
         _photoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self addSubview:_photoButton];
@@ -94,12 +106,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
+    for (int i = 0; i < _poetryArray.count; i++) {
+        PoetryContent *poetry = _poetryArray[i];
+        cell.poetLabel.text = poetry.poet;
+        cell.contectTextView.text = poetry.content;
+        cell.timeLabel.text = poetry.dynasty;
+        [cell.photoImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", poetry.imageName]]];
+        cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UIAccessibilityTraitNone;
-    cell.poetLabel.text = @"唐温如";
-    cell.contectTextView.text = @"醉后不知天在水，满船清梦压星河。";
-    cell.timeLabel.text = @"晚唐人";
-    [cell.photoImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"pl_ps_tableview_exphoto.jpeg"]]];
+    }
     
     return cell;
 }
@@ -109,7 +124,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _poetryArray.count;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -133,4 +148,8 @@
     return YES;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNotification *poem = [NSNotification notificationWithName:@"poem" object:self userInfo:@{@"poem":_poetryArray[indexPath.section]}];
+    [[NSNotificationCenter defaultCenter] postNotification:poem];
+}
 @end
