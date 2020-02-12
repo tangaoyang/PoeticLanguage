@@ -181,20 +181,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		86011B7F23F449A400C19F00 /* tabbar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tabbar;
-			sourceTree = "<group>";
-		};
-		86011B8223F449BD00C19F00 /* pl_ps */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = pl_ps;
-			sourceTree = "<group>";
-		};
 		8604981623E8832F007C91FB /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,8 +603,6 @@
 				86011B7323F4489D00C19F00 /* pl_diy_tabbar_selected.png */,
 				86011B8423F44CAA00C19F00 /* pl_pset_tabbar.png */,
 				86011B8323F44CAA00C19F00 /* pl_pset_tabbar_selected.png */,
-				86011B8223F449BD00C19F00 /* pl_ps */,
-				86011B7F23F449A400C19F00 /* tabbar */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
