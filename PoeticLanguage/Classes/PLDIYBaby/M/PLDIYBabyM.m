@@ -15,8 +15,8 @@
     _masonryDictionary = [[NSMutableDictionary alloc] init];
     
     /* 图片名称 */
-    NSMutableArray *countArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:6], [NSNumber numberWithInt:2], [NSNumber numberWithInt:8], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:5], nil];
-    NSMutableArray *typeArray = [NSMutableArray arrayWithObjects:@"look", @"hair", @"skirt", @"up", @"down", @"shoes", @"decoration", @"background", nil];
+    NSMutableArray *countArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:6], [NSNumber numberWithInt:2], [NSNumber numberWithInt:8], [NSNumber numberWithInt:5], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:5], nil];
+    NSMutableArray *typeArray = [NSMutableArray arrayWithObjects:@"look", @"hair", @"skirt", @"background", @"down", @"shoes", @"decoration", @"background", nil];
     for (int i = 0; i < 8; i++) {
         NSMutableArray *detailArray = [[NSMutableArray alloc] init];
         for (int j = 0; j < [countArray[i] intValue]; j++) {

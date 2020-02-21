@@ -60,9 +60,9 @@
     _detailScrollView.bounces = NO;
     
 # pragma mark
-    _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look1.jpeg"];
-    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt6.jpeg"];
-    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hai2.jpeg"];
+    _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look2.jpeg"];
+    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt8.jpeg"];
+    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair1.jpeg"];
     // 340*250  0.888 0.557 0.015 0.03 --
     float width0 = 0.8 * _width;
     float hight0 = 1.517 * width0;
@@ -251,7 +251,7 @@
             make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset([self.model.masonryDictionary[@"clothes"][@"top"][btn.tag - 1] floatValue]);
         }];
     }
-    if (_nowClickedBtn.tag == 8) {
+    if (_nowClickedBtn.tag == 4) {
         _diyView.backgroundImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
     }
     

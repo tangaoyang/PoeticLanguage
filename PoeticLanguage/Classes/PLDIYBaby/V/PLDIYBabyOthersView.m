@@ -97,7 +97,7 @@
     [_skirtButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
     _skirtButton.tag = 3;
     
-    [_upButton mas_makeConstraints:^(MASConstraintMaker *make) {
+/*    [_upButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
         make.right.equalTo(self).offset(-30);
@@ -148,19 +148,19 @@
     [_decorationButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
     [_decorationButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
     _decorationButton.tag = 7;
-    
+*/
     [_backgroundButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
         make.right.equalTo(self).offset(-30);
-        make.top.equalTo(self.decorationButton.mas_bottom).offset(20);
+        make.top.equalTo(self.skirtButton.mas_bottom).offset(20);
     }];
     _backgroundButton.clipsToBounds = YES;
     _backgroundButton.layer.cornerRadius = hight0 / 2;
     _backgroundButton.backgroundColor = [UIColor colorWithRed:0.19f green:0.26f blue:0.33f alpha:1.00f];
     [_backgroundButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
     [_backgroundButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
-    _backgroundButton.tag = 8;
+    _backgroundButton.tag = 4;
     
     [_babyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self);
