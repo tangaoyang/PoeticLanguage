@@ -10,6 +10,7 @@
 #import "PLPoetrySearchMainView.h"
 #import "Masonry.h"
 #import "PLKeywordSearchViewController.h"
+#import "PLKeyWordSearchDetailedViewController.h"
 #import <Photos/Photos.h>
 #import "ImageManager.h"
 #import "ImageModel.h"
@@ -39,6 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"search" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photo) name:@"photo" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useCamera) name:@"camera" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDetail:) name:@"poem" object:nil];
     
 }
 
@@ -68,6 +70,15 @@
     PLKeywordSearchViewController *search = [[PLKeywordSearchViewController alloc] init];
     search.keyword = getDictionary[@"key"];
     [self.navigationController pushViewController:search animated:NO];
+}
+
+- (void)showDetail:(NSNotification *)keyword {
+    
+    NSDictionary *getDictionary = keyword.userInfo;
+    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
+    detail.keyword = getDictionary[@"poem"];
+    [self.navigationController pushViewController:detail animated:NO];
+    
 }
 
 - (void)cancel {

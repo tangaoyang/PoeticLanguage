@@ -52,6 +52,12 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    self.navigationController.navigationBar.topItem.title = _keyword.name;
+}
+
 /*
 #pragma mark - Navigation
 

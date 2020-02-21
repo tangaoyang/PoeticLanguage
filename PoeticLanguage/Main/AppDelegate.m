@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PLLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,7 +19,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    _window.backgroundColor = [UIColor whiteColor];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyWindow];
+    
+    PLLoginViewController *root = [[PLLoginViewController alloc] init];
+    self.window.rootViewController = root;
+    
     return YES;
 }
 

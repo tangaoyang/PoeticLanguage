@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class PoetryContent;
+
 @interface PLPoetrySearchMainView : UIView
 <UITextFieldDelegate,
 UITableViewDelegate,
@@ -20,6 +22,7 @@ UITableViewDataSource>
 @property (nonatomic, strong) UIButton *photoButton;
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UITableView *searchTableView;
+@property (nonatomic, strong) NSMutableArray *poetryArray;
 
 @end
 
