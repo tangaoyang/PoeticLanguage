@@ -198,7 +198,16 @@
         model = resultImageModel;
         ListModel *list = [[ListModel alloc] init];
         list = model.result.face_list[0];
-        NSLog(@"年龄为%@岁， 性别为%@的可能性是%@， 表情为%@的可能性是%@", list.age, list.gender.type, list.gender.probability, list.expression.type, list.expression.probability);
+        if (list.age == NULL) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"请选择含有人像的图片！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self photo];
+            }];
+            [alert addAction:sureAction];
+            [self presentViewController:alert animated:NO completion:nil];
+        } else {
+            NSLog(@"年龄为%@岁， 性别为%@的可能性是%@， 表情为%@的可能性是%@", list.age, list.gender.type, list.gender.probability, list.expression.type, list.expression.probability);
+        }
     }];
     
 }
