@@ -39,6 +39,11 @@
 		8604982623E88502007C91FB /* PLDIYBabyOthersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604982523E88502007C91FB /* PLDIYBabyOthersView.m */; };
 		8604982923E88546007C91FB /* PLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604982823E88546007C91FB /* PLImageView.m */; };
 		8604983723E885C4007C91FB /* roy3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 8604983123E885C4007C91FB /* roy3.JPG */; };
+		860BBA302408162300E52BE3 /* PLSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA2F2408162300E52BE3 /* PLSettingView.m */; };
+		860BBA3D2408203000E52BE3 /* PLSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA3C2408203000E52BE3 /* PLSettingViewController.m */; };
+		860BBA40240824DB00E52BE3 /* PLSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA3F240824DB00E52BE3 /* PLSettingTableViewCell.m */; };
+		860BBA45240827B800E52BE3 /* PLSettingPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA44240827B800E52BE3 /* PLSettingPersonalTableViewCell.m */; };
+		860BBA47240829EE00E52BE3 /* pl_pset_ex_personal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 860BBA46240829EE00E52BE3 /* pl_pset_ex_personal.jpg */; };
 		861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */ = {isa = PBXBuildFile; fileRef = 861854AE23E06876004AFC85 /* ChangeFontTay.m */; };
 		861A660D23FD595B00515A0B /* PLRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861A660C23FD595B00515A0B /* PLRegisterViewController.m */; };
 		861A661023FD597E00515A0B /* PLRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 861A660F23FD597E00515A0B /* PLRegisterView.m */; };
@@ -112,6 +117,15 @@
 		8604982723E88546007C91FB /* PLImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLImageView.h; sourceTree = "<group>"; };
 		8604982823E88546007C91FB /* PLImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLImageView.m; sourceTree = "<group>"; };
 		8604983123E885C4007C91FB /* roy3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roy3.JPG; sourceTree = "<group>"; };
+		860BBA2E2408162300E52BE3 /* PLSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingView.h; sourceTree = "<group>"; };
+		860BBA2F2408162300E52BE3 /* PLSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSettingView.m; sourceTree = "<group>"; };
+		860BBA3B2408203000E52BE3 /* PLSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingViewController.h; sourceTree = "<group>"; };
+		860BBA3C2408203000E52BE3 /* PLSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSettingViewController.m; sourceTree = "<group>"; };
+		860BBA3E240824DB00E52BE3 /* PLSettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingTableViewCell.h; sourceTree = "<group>"; };
+		860BBA3F240824DB00E52BE3 /* PLSettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSettingTableViewCell.m; sourceTree = "<group>"; };
+		860BBA43240827B800E52BE3 /* PLSettingPersonalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingPersonalTableViewCell.h; sourceTree = "<group>"; };
+		860BBA44240827B800E52BE3 /* PLSettingPersonalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSettingPersonalTableViewCell.m; sourceTree = "<group>"; };
+		860BBA46240829EE00E52BE3 /* pl_pset_ex_personal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_pset_ex_personal.jpg; sourceTree = "<group>"; };
 		861854AD23E06876004AFC85 /* ChangeFontTay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeFontTay.h; sourceTree = "<group>"; };
 		861854AE23E06876004AFC85 /* ChangeFontTay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeFontTay.m; sourceTree = "<group>"; };
 		861A660B23FD595B00515A0B /* PLRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLRegisterViewController.h; sourceTree = "<group>"; };
@@ -282,6 +296,35 @@
 				681EFE2F23F059BF007EAA72 /* skirt3.jpeg */,
 			);
 			path = skirt;
+			sourceTree = "<group>";
+		};
+		860BBA2B2408159C00E52BE3 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				860BBA3B2408203000E52BE3 /* PLSettingViewController.h */,
+				860BBA3C2408203000E52BE3 /* PLSettingViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		860BBA2C240815BC00E52BE3 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				860BBA2E2408162300E52BE3 /* PLSettingView.h */,
+				860BBA2F2408162300E52BE3 /* PLSettingView.m */,
+				860BBA43240827B800E52BE3 /* PLSettingPersonalTableViewCell.h */,
+				860BBA44240827B800E52BE3 /* PLSettingPersonalTableViewCell.m */,
+				860BBA3E240824DB00E52BE3 /* PLSettingTableViewCell.h */,
+				860BBA3F240824DB00E52BE3 /* PLSettingTableViewCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		860BBA2D240815C100E52BE3 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 		861854AC23E06214004AFC85 /* Font */ = {
@@ -648,6 +691,9 @@
 		86EB43AB23CF621D00BADA71 /* PLPersonalSettings */ = {
 			isa = PBXGroup;
 			children = (
+				860BBA2D240815C100E52BE3 /* M */,
+				860BBA2C240815BC00E52BE3 /* V */,
+				860BBA2B2408159C00E52BE3 /* C */,
 			);
 			path = PLPersonalSettings;
 			sourceTree = "<group>";
@@ -708,6 +754,7 @@
 				86011B7323F4489D00C19F00 /* pl_diy_tabbar_selected.png */,
 				86011B8423F44CAA00C19F00 /* pl_pset_tabbar.png */,
 				86011B8323F44CAA00C19F00 /* pl_pset_tabbar_selected.png */,
+				860BBA46240829EE00E52BE3 /* pl_pset_ex_personal.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -855,6 +902,7 @@
 				86011B6D23F4483600C19F00 /* pl_ds_tabbar.png in Resources */,
 				6811D56423EB1CA5002EC195 /* background2.jpeg in Resources */,
 				869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */,
+				860BBA47240829EE00E52BE3 /* pl_pset_ex_personal.jpg in Resources */,
 				86011B7623F4489D00C19F00 /* pl_diy_tabbar.png in Resources */,
 				68B02B7423EC288500437F45 /* look6.jpeg in Resources */,
 				68B02B6523EC279900437F45 /* background1.jpeg in Resources */,
@@ -905,6 +953,8 @@
 				8604982923E88546007C91FB /* PLImageView.m in Sources */,
 				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
 				8604982323E8848D007C91FB /* PLDIYBabyView.m in Sources */,
+				860BBA40240824DB00E52BE3 /* PLSettingTableViewCell.m in Sources */,
+				860BBA45240827B800E52BE3 /* PLSettingPersonalTableViewCell.m in Sources */,
 				861AFC3E23EC53F500355738 /* ImageModel.m in Sources */,
 				861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */,
 				861AFC4123EC54C200355738 /* AccessModel.m in Sources */,
@@ -915,7 +965,9 @@
 				861A662323FD765500515A0B /* UnderlineTextField.m in Sources */,
 				86BE9E1423D6E7AC003F8DE6 /* PLKeywordSearchView.m in Sources */,
 				861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */,
+				860BBA3D2408203000E52BE3 /* PLSettingViewController.m in Sources */,
 				86BE9E1E23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m in Sources */,
+				860BBA302408162300E52BE3 /* PLSettingView.m in Sources */,
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
 				869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */,
 				861A661023FD597E00515A0B /* PLRegisterView.m in Sources */,

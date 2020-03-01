@@ -11,6 +11,7 @@
 #import "PLLoginView.h"
 #import "PLPoetrySearchMainViewController.h"
 #import "PLDIYBabyController.h"
+#import "PLSettingViewController.h"
 
 @interface PLLoginViewController ()
 
@@ -79,7 +80,7 @@
     diyNav4.tabBarItem.image = [[UIImage imageNamed:@"pl_diy_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     diyNav4.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_diy_tabbar_selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    PLPoetrySearchMainViewController *search5 = [[PLPoetrySearchMainViewController alloc] init];
+    PLSettingViewController *search5 = [[PLSettingViewController alloc] init];
     UINavigationController *searchNav5 = [[UINavigationController alloc] initWithRootViewController:search5];
     searchNav5.title = @"个人设置";
     [searchNav5.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];
