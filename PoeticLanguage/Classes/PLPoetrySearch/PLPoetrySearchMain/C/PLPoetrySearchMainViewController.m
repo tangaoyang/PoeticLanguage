@@ -11,13 +11,15 @@
 #import "Masonry.h"
 #import "PLKeywordSearchViewController.h"
 #import "PLKeyWordSearchDetailedViewController.h"
+#import "PLPoetrySearchTableViewCell.h"
 #import <Photos/Photos.h>
 #import "ImageManager.h"
 #import "ImageModel.h"
 #import "AccessModel.h"
+#import "PLPSCellButton.h"
 
 @interface PLPoetrySearchMainViewController ()
-
+<PLPSCellDelegate>
 @end
 
 @implementation PLPoetrySearchMainViewController
@@ -36,6 +38,8 @@
     _myView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [_myView.cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [_myView.photoButton addTarget:self action:@selector(camera) forControlEvents:UIControlEventTouchUpInside];
+    _myView.plpsCellDelegate = self;
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"search" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photo) name:@"photo" object:nil];
@@ -270,6 +274,18 @@
     } error:&error];
 }
 
+#pragma mark - 收藏
+- (void)passButton:(PLPSCellButton *)button {
+    if(button.selected == NO) {
+        button.selected = YES;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"已收藏";
+    } else {
+        button.selected = NO;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"收藏";
+    }
+}
 
 /*
 #pragma mark - Navigation

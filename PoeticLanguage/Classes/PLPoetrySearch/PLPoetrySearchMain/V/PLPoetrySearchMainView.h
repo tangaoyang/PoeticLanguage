@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class PoetryContent;
+@class PLPSCellButton;
+
+@protocol PLPSCellDelegate <NSObject>
+
+- (void)passButton:(PLPSCellButton *) button;
+
+@end
 
 @interface PLPoetrySearchMainView : UIView
 <UITextFieldDelegate,
@@ -23,6 +30,7 @@ UITableViewDataSource>
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UITableView *searchTableView;
 @property (nonatomic, strong) NSMutableArray *poetryArray;
+@property id <PLPSCellDelegate> plpsCellDelegate;
 
 @end
 

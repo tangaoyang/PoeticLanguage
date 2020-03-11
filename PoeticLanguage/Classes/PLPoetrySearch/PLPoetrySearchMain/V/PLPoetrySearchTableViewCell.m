@@ -10,6 +10,7 @@
 #import "PLPoetrySearchTableViewCell.h"
 #import "Masonry.h"
 #import "ChangeFontTay.h"
+#import "PLPSCellButton.h"
 
 @implementation PLPoetrySearchTableViewCell
 
@@ -40,6 +41,13 @@
     [self addSubview:_photoImageView];
     _photoImageView.layer.masksToBounds = YES;
     _photoImageView.layer.cornerRadius = 10;
+    
+    self.collectionButton = [[PLPSCellButton alloc] init];
+    [self addSubview:_collectionButton];
+    [_collectionButton.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    _collectionButton.buttonLabel.text = @"收藏";
+    [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaitiSC-Regular" withLabel:_collectionButton.buttonLabel withSize:15];
+    _collectionButton.selected = NO;
     
     return self;
     
@@ -73,6 +81,13 @@
         make.left.mas_equalTo(self -> _poetLabel.mas_left);
         make.bottom.mas_equalTo(self -> _timeLabel.mas_top).offset(-10);
         make.right.mas_equalTo(self.mas_right).offset(-30);
+    }];
+    
+    [_collectionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self -> _timeLabel).offset(-10);
+        make.right.mas_equalTo(self).offset(-30);
+        make.width.equalTo(@70);
+        make.bottom.mas_equalTo(self -> _timeLabel);
     }];
     
 }

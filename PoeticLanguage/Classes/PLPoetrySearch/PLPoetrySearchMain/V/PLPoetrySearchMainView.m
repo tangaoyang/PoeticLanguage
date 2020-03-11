@@ -11,6 +11,7 @@
 #import "PLPoetrySearchTableViewCell.h"
 #import "PLKeywordSearchViewController.h"
 #import "PoetryContent.h"
+#import "PLPSCellButton.h"
 
 @implementation PLPoetrySearchMainView
 
@@ -114,6 +115,7 @@
         [cell.photoImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", poetry.imageName]]];
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UIAccessibilityTraitNone;
+        [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return cell;
@@ -152,4 +154,12 @@
     NSNotification *poem = [NSNotification notificationWithName:@"poem" object:self userInfo:@{@"poem":_poetryArray[indexPath.section]}];
     [[NSNotificationCenter defaultCenter] postNotification:poem];
 }
+
+- (void)collect:(PLPSCellButton *) button {
+    if ([_plpsCellDelegate respondsToSelector:@selector(passButton:)]) {
+        [_plpsCellDelegate passButton:button];
+    }
+}
+
+
 @end

@@ -12,6 +12,7 @@
 #import "PLPoetrySearchMainViewController.h"
 #import "PLDIYBabyController.h"
 #import "PLSettingViewController.h"
+#import "PLPoetryChallengeMainViewController.h"
 
 @interface PLLoginViewController ()
 
@@ -44,7 +45,7 @@
     searchNav.tabBarItem.image = [[UIImage imageNamed:@"pl_ds_tabbar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     searchNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"pl_ds_tabbar_selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    PLPoetrySearchMainViewController *search2 = [[PLPoetrySearchMainViewController alloc] init];
+    PLPoetryChallengeMainViewController *search2 = [[PLPoetryChallengeMainViewController alloc] init];
     UINavigationController *searchNav2 = [[UINavigationController alloc] initWithRootViewController:search2];
     searchNav2.title = @"诗词挑战";
     [searchNav2.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];

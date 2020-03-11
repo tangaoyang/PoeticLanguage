@@ -60,7 +60,7 @@
         PLSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         cell.selectionStyle = UIAccessibilityTraitNone;
         
-        NSArray *nameArr = @[@"我收藏的", @"我的等级", @"个人设置", @"关于诗语"];
+        NSArray *nameArr = @[@"我收藏的", @"我背过的",  @"我的等级", @"个人设置", @"关于诗语"];
         cell.nameLabel.text = nameArr[indexPath.row] ;
         cell.nameLabel.font = [UIFont systemFontOfSize:15] ;
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"img%ld.png", indexPath.row + 2]] ;
@@ -87,7 +87,7 @@
     if(section == 0) {
         return 1;
     } else if (section == 1){
-        return 4;
+        return 5;
     } else {
         return 2;
     }
