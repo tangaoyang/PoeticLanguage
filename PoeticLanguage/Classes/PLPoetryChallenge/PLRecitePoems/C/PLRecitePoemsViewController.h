@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class PLRecitePoemsView;
+
 @interface PLRecitePoemsViewController : UIViewController
+
+@property (nonatomic, strong) PLRecitePoemsView *myView;
 
 @end
 

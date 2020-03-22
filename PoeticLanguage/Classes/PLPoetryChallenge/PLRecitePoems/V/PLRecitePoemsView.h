@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PLRecitePoemsView : UIView
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+
+@property (nonatomic, strong) NSMutableArray *poetryArray;
+@property (nonatomic, strong) UITableView *reciteTableView;
 
 @end
 

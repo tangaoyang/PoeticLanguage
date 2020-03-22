@@ -12,12 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class PLPoetryChallengeButtonView;
 @class PLPoetryCompetitionView;
+@class PLRecitePoemsView;
 
 @interface PLPoetryChallengeMainView : UIView
 
 @property (nonatomic, strong) NSArray *buttonNamesArray;
 @property (nonatomic, strong) PLPoetryChallengeButtonView *buttonView;
 @property (nonatomic, strong) PLPoetryCompetitionView *competitionView;
+@property (nonatomic, strong) PLRecitePoemsView *reciteView;
 @property (nonatomic, strong) UIScrollView *challengeScrollView;
 
 @end

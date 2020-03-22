@@ -9,6 +9,7 @@
 
 #import "PLPoetryChallengeMainView.h"
 #import "PLPoetryChallengeButtonView.h"
+#import "PLRecitePoemsView.h"
 #import "PLPoetryCompetitionView.h"
 #import <Masonry.h>
 
@@ -32,6 +33,10 @@
         _challengeScrollView.scrollEnabled = NO;
         _challengeScrollView.pagingEnabled = YES;
         [self addSubview:_challengeScrollView];
+        
+        self.reciteView = [[PLRecitePoemsView alloc] init];
+        [_challengeScrollView addSubview:_reciteView];
+        _reciteView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height);
         
         self.competitionView = [[PLPoetryCompetitionView alloc] init];
         [_challengeScrollView addSubview:_competitionView];
