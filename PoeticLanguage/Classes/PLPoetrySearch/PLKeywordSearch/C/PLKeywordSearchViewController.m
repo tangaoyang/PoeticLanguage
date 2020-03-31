@@ -22,7 +22,7 @@
     // Do any additional setup after loading the view.
     
     self.tabBarController.tabBar.hidden = YES;
-    UIImage *backImage = [[UIImage imageNamed:@"pl_ps_background_knot.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *backImage = [[UIImage imageNamed:@"pl_pc_fly.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.5;

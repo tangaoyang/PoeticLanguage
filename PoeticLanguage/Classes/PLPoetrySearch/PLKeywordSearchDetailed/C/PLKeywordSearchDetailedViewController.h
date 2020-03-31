@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) PLKeywordSearchDetailedView *myView;
 @property (nonatomic, strong) PoetryContent *keyword;
+@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 
 @end
 

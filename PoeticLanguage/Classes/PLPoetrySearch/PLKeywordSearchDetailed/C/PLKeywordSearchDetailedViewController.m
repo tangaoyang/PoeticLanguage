@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *backImage = [[UIImage imageNamed:@"pl_ps_background_knot.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *backImage = [[UIImage imageNamed:@"pl_pc_fly.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.3;
@@ -31,20 +31,23 @@
     self.myView = [[PLKeywordSearchDetailedView alloc] init];
     _myView.poem = _keyword;
     int m = 0;  //用于记录换行个数
+    
     NSMutableString *all = [NSMutableString stringWithString:_myView.poem.all];
-    for (int i = 0; i < _keyword.all.length; i++) {
+    for (int i = 0; i < _keyword.all.length - 1; i++) {
         unichar str =   [_keyword.all characterAtIndex:i];
-//        NSLog(@"%C",str);
         NSString *str1 = [NSString stringWithFormat:@"%C", str];
-        NSLog(@"%@", str1);
-        if ([str1 isEqualToString:@"。"]) {
+        unichar str2 = [_keyword.all characterAtIndex:i + 1];
+        NSString *str3 = [NSString stringWithFormat:@"%C", str2];
+        if ([str1 isEqualToString:@"。"] && ![str3 isEqualToString:@"\n"]) {
             [all insertString:@"\n" atIndex:i + m + 1];
             m++;
+        }
+        if ([str1 isEqualToString:@"。"]) {
             _myView.number++;
-            NSLog(@"add");
         }
     }
     _myView.poem.all = all;
+    NSLog(@"%d", _myView.number);
     self.title = _keyword.name;
     [_myView labelInit];
     _myView.frame = self.view.bounds;
@@ -56,6 +59,21 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.topItem.title = _keyword.name;
+    
+    //原生方法无效
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    //设置手势
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(openMenuClick)];
+    [self.view addGestureRecognizer:self.panGestureRecognizer];
+}
+
+- (void)openMenuClick {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜，您已完成这篇诗词的背诵！" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:NO];
+    }];
+    [alert addAction:sure];
+    [self presentViewController:alert animated:NO completion:nil];
 }
 
 /*

@@ -9,6 +9,9 @@
 
 #import "PLPoetryChallengeMainViewController.h"
 #import "PLPoetryChallengeMainView.h"
+#import "PLRecitePoemsView.h"
+#import "PLPSCellButton.h"
+#import "PLKeywordSearchDetailedViewController.h"
 
 @interface PLPoetryChallengeMainViewController ()
 
@@ -18,17 +21,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.myView = [[PLPoetryChallengeMainView alloc] init];
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonClick:) name:@"buttonClick" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goPoem:) name:@"recitePoem" object:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:nil];
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.navigationBar.topItem.title = @"";
+    self.tabBarController.tabBar.hidden = NO;
 }
+
+- (void)buttonClick:(NSNotification *)keyword {
+    NSDictionary *getDictionary = keyword.userInfo;
+    PLPSCellButton *button = getDictionary[@"button"];
+    if(button.selected == NO) {
+        button.selected = YES;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"已收藏";
+    } else {
+        button.selected = NO;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"收藏";
+    }
+}
+
+- (void)goPoem:(NSNotification *)keyword {
+    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
+    NSDictionary *getDictionary = keyword.userInfo;
+    detail.keyword = getDictionary[@"key"];
+    [self.navigationController pushViewController:detail animated:NO];
+}
+
 /*
 #pragma mark - Navigation
 

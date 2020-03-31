@@ -30,6 +30,7 @@ UITableViewDataSource>
 @property (nonatomic, strong) UIButton *cancelButton;
 @property (nonatomic, strong) UITableView *searchTableView;
 @property (nonatomic, strong) NSMutableArray *poetryArray;
+@property (nonatomic, strong) NSMutableArray *sizeHeightArray;
 @property id <PLPSCellDelegate> plpsCellDelegate;
 
 @end

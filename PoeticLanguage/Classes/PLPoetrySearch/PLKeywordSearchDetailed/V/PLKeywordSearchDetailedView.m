@@ -18,6 +18,8 @@
     self = [super init];
     if (self) {
         
+        _poem = [[PoetryContent alloc] init];
+        _number = 0;
         self.mainScrollView = [[UIScrollView alloc] init];
         _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 3);
         _mainScrollView.alwaysBounceVertical = YES;
@@ -88,6 +90,7 @@
         make.top.mas_equalTo(self -> _dynastyLabel.mas_bottom).offset(20);
         make.height.mas_equalTo(@(self -> _number * 25 + 25));
     }];
+    NSLog(@"%d", _number);
     
     self.historyLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_historyLabel];

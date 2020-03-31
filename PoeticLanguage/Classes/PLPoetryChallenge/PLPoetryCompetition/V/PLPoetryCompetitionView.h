@@ -14,8 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *introduceLabel;
-@property (nonatomic, strong) UIButton *randomButton;
-@property (nonatomic, strong) UIButton *friendButton;
+@property (nonatomic, strong) UIButton *beginButton;
 
 @end
 

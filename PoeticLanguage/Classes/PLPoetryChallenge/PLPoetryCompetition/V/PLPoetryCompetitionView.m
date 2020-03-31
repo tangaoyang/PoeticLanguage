@@ -44,42 +44,17 @@
             make.height.equalTo(@(introduceSize.height + 20));
         }];
         
-        self.friendButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self addSubview:_friendButton];
-        [_friendButton setTitle:@"和好友对战" forState:UIControlStateNormal];
-        [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaitiSC-Regular" withLabel:_friendButton.titleLabel withSize:23];
-        _friendButton.titleLabel.textColor = [UIColor whiteColor];
-        _friendButton.backgroundColor = [UIColor blackColor];
-        [_friendButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self -> _introduceLabel.mas_bottom).offset(30);
-            make.left.mas_equalTo(self -> _introduceLabel);
-            make.height.equalTo(@60);
-            make.width.mas_equalTo(@140);
-        }];
-        _friendButton.tintColor = [UIColor whiteColor];
-        _friendButton.layer.cornerRadius = 5;
-        _friendButton.layer.shadowColor = [UIColor grayColor].CGColor;//阴影的颜色
-        _friendButton.layer.shadowOffset = CGSizeMake(5, 5);//阴影偏移量
-        _friendButton.layer.shadowOpacity = 0.8;//阴影的透明度
-        _friendButton.layer.shadowRadius = 5;//阴影的圆角
-        
-        self.randomButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self addSubview:_randomButton];
-        [_randomButton setTitle:@"随机对战" forState:UIControlStateNormal];
-        [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaitiSC-Regular" withLabel:_randomButton.titleLabel withSize:23];
-        _randomButton.titleLabel.textColor = [UIColor whiteColor];
-        _randomButton.backgroundColor = [UIColor blackColor];
-        [_randomButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self -> _friendButton);
-            make.right.mas_equalTo(self -> _introduceLabel);
-            make.width.height.mas_equalTo(self -> _friendButton);
-        }];
-        _randomButton.tintColor = [UIColor whiteColor];
-        _randomButton.layer.cornerRadius = 5;
-        _randomButton.layer.shadowColor = [UIColor grayColor].CGColor;//阴影的颜色
-        _randomButton.layer.shadowOffset = CGSizeMake(5, 5);//阴影偏移量
-        _randomButton.layer.shadowOpacity = 0.8;//阴影的透明度
-        _randomButton.layer.shadowRadius = 5;//阴影的圆角
+        self.beginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [_beginButton setTitle:@"开始对战" forState:UIControlStateNormal];
+        [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaitiSC-Regular" withLabel:_beginButton.titleLabel withSize:23];
+        _beginButton.titleLabel.textColor = [UIColor whiteColor];
+        _beginButton.backgroundColor = [UIColor blackColor];
+        _beginButton.tintColor = [UIColor whiteColor];
+        _beginButton.layer.cornerRadius = 5;
+        _beginButton.layer.shadowColor = [UIColor grayColor].CGColor;//阴影的颜色
+        _beginButton.layer.shadowOffset = CGSizeMake(5, 5);//阴影偏移量
+        _beginButton.layer.shadowOpacity = 0.8;//阴影的透明度
+        _beginButton.layer.shadowRadius = 5;//阴影的圆角
         
     }
     return self;

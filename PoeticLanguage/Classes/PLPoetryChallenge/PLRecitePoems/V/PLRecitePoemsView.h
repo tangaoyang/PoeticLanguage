@@ -10,6 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//@class PLPSCellButton;
+/*
+@protocol PLRPCellDelegate <NSObject>
+
+- (void)passButton:(PLPSCellButton *) button;
+
+@end
+*/
 @interface PLRecitePoemsView : UIView
 <
 UITableViewDelegate,
@@ -18,6 +26,7 @@ UITableViewDataSource
 
 @property (nonatomic, strong) NSMutableArray *poetryArray;
 @property (nonatomic, strong) UITableView *reciteTableView;
+//@property id <PLRPCellDelegate> plrpCellDelegate;
 
 @end
 
