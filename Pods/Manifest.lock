@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - JSONModel (1.7.0)
+  - JSONModel (1.8.0)
   - Masonry (1.1.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -38,7 +38,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SOZOChromoplast: 8902f554d852844c2025b26558d3322f8fae668d
