@@ -30,14 +30,15 @@
     self.nameLabel = [[UILabel alloc] init];
     [self.contentView addSubview:_nameLabel];
     
-    self.writerLabel = [[UILabel alloc] init];
-    [self.contentView addSubview:_writerLabel];
+    self.gradeLabel = [[UILabel alloc] init];
+    [self.contentView addSubview:_gradeLabel];
     
     self.contentLabel = [[UILabel alloc] init];
     [self.contentView addSubview:_contentLabel];
     
-    self.personalImageView = [[UIImageView alloc] init];
-    [self.contentView addSubview:_personalImageView];
+    self.personalImageButton = [[UIButton alloc] init];
+    [self.contentView addSubview:_personalImageButton];
+    [_personalImageButton addTarget:self action:@selector(changeImage) forControlEvents:UIControlEventTouchUpInside];
     
     return self;
     
@@ -48,12 +49,17 @@
     
     _nameLabel.frame = CGRectMake(150, 0, 180, 60);
     
-    _writerLabel.frame = CGRectMake(150, 43, 100, 20);
+    _gradeLabel.frame = CGRectMake(150, 43, 100, 20);
     
     _contentLabel.frame = CGRectMake(150, 63, 300, 15);
     
-    _personalImageView.frame = CGRectMake(30, 15, 100, 100);
+    _personalImageButton.frame = CGRectMake(30, 15, 100, 100);
     
+}
+
+- (void)changeImage {
+    NSNotification *changeImage = [NSNotification notificationWithName:@"changeImage" object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:changeImage];
 }
 
 @end

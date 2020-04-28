@@ -45,7 +45,7 @@
         }];
         
         self.beginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_beginButton setTitle:@"开始对战" forState:UIControlStateNormal];
+        [_beginButton setTitle:@"开始游戏" forState:UIControlStateNormal];
         [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaitiSC-Regular" withLabel:_beginButton.titleLabel withSize:23];
         _beginButton.titleLabel.textColor = [UIColor whiteColor];
         _beginButton.backgroundColor = [UIColor blackColor];

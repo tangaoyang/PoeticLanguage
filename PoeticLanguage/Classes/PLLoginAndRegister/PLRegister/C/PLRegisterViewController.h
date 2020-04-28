@@ -12,9 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class PLRegisterView;
 
+@protocol AccountToLoginDelegate <NSObject> //给登陆界面传账号
+
+- (void)pass:(NSString *)accountString;
+
+@end
+
 @interface PLRegisterViewController : UIViewController
 
 @property (nonatomic, strong) PLRegisterView *myView;
+@property id <AccountToLoginDelegate> accountDelegate;
 
 @end
 

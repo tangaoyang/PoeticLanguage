@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PLRegisterViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class PLLoginView;
 
 @interface PLLoginViewController : UIViewController
+<
+AccountToLoginDelegate
+>
 
 @property (nonatomic, strong) PLLoginView *myView;
 

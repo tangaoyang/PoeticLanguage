@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "PLLoginViewController.h"
+#import "PLLoginModel.h"
+#import "PLMainViewController.h"
+#import "PLLoginManager.h"
 
 @interface AppDelegate ()
 
@@ -15,17 +18,22 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:@"accountNumber"]) {
+        PLMainViewController *main = [[PLMainViewController alloc] init];
+        self.window.rootViewController = main;
+    } else {
+        PLLoginViewController *login = [[PLLoginViewController alloc] init];
+        self.window.rootViewController = login;
+    }
+    
     [self.window makeKeyWindow];
-    
-    PLLoginViewController *root = [[PLLoginViewController alloc] init];
-    self.window.rootViewController = root;
-    
     return YES;
 }
 

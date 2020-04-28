@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class PLSettingView;
 
 @interface PLSettingViewController : UIViewController
+<
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate
+>
 
 @property (nonatomic, strong) PLSettingView *myView;
 

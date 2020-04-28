@@ -44,6 +44,10 @@
 		8604982623E88502007C91FB /* PLDIYBabyOthersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604982523E88502007C91FB /* PLDIYBabyOthersView.m */; };
 		8604982923E88546007C91FB /* PLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604982823E88546007C91FB /* PLImageView.m */; };
 		8604983723E885C4007C91FB /* roy3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 8604983123E885C4007C91FB /* roy3.JPG */; };
+		86059B852457DB8E00A280A6 /* PLRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B842457DB8E00A280A6 /* PLRegisterManager.m */; };
+		86059B882457E94800A280A6 /* PLLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B872457E94800A280A6 /* PLLoginModel.m */; };
+		86059B8D2457E9AE00A280A6 /* PLLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B8C2457E9AE00A280A6 /* PLLoginManager.m */; };
+		86059B902457FDD500A280A6 /* PLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B8F2457FDD500A280A6 /* PLMainViewController.m */; };
 		860BBA302408162300E52BE3 /* PLSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA2F2408162300E52BE3 /* PLSettingView.m */; };
 		860BBA3D2408203000E52BE3 /* PLSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA3C2408203000E52BE3 /* PLSettingViewController.m */; };
 		860BBA40240824DB00E52BE3 /* PLSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA3F240824DB00E52BE3 /* PLSettingTableViewCell.m */; };
@@ -68,6 +72,7 @@
 		8621DB7E23D8AA9B00404A63 /* pl_ps_back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8621DB7D23D8AA9B00404A63 /* pl_ps_back_button.png */; };
 		8625D4C0240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8625D4BF240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m */; };
 		8625D4C9240BA37B00C022F2 /* PLPoetryChallengeMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8625D4C8240BA37B00C022F2 /* PLPoetryChallengeMainView.m */; };
+		862D323E2457428300AD5E02 /* PLRegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 862D323D2457428300AD5E02 /* PLRegisterModel.m */; };
 		869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */; };
 		869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340923D201D2008D761B /* PLPoetrySearchMainView.m */; };
 		869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */; };
@@ -138,6 +143,14 @@
 		8604982723E88546007C91FB /* PLImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLImageView.h; sourceTree = "<group>"; };
 		8604982823E88546007C91FB /* PLImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLImageView.m; sourceTree = "<group>"; };
 		8604983123E885C4007C91FB /* roy3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roy3.JPG; sourceTree = "<group>"; };
+		86059B832457DB8E00A280A6 /* PLRegisterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PLRegisterManager.h; path = Manager/Register/PLRegisterManager.h; sourceTree = SOURCE_ROOT; };
+		86059B842457DB8E00A280A6 /* PLRegisterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLRegisterManager.m; path = Manager/Register/PLRegisterManager.m; sourceTree = SOURCE_ROOT; };
+		86059B862457E94800A280A6 /* PLLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLLoginModel.h; sourceTree = "<group>"; };
+		86059B872457E94800A280A6 /* PLLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLLoginModel.m; sourceTree = "<group>"; };
+		86059B8B2457E9AE00A280A6 /* PLLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PLLoginManager.h; path = Manager/Login/PLLoginManager.h; sourceTree = SOURCE_ROOT; };
+		86059B8C2457E9AE00A280A6 /* PLLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLLoginManager.m; path = Manager/Login/PLLoginManager.m; sourceTree = SOURCE_ROOT; };
+		86059B8E2457FDD500A280A6 /* PLMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLMainViewController.h; sourceTree = "<group>"; };
+		86059B8F2457FDD500A280A6 /* PLMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLMainViewController.m; sourceTree = "<group>"; };
 		860BBA2E2408162300E52BE3 /* PLSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingView.h; sourceTree = "<group>"; };
 		860BBA2F2408162300E52BE3 /* PLSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSettingView.m; sourceTree = "<group>"; };
 		860BBA3B2408203000E52BE3 /* PLSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingViewController.h; sourceTree = "<group>"; };
@@ -180,6 +193,8 @@
 		8625D4BF240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetryChallengeMainViewController.m; sourceTree = "<group>"; };
 		8625D4C7240BA37B00C022F2 /* PLPoetryChallengeMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetryChallengeMainView.h; sourceTree = "<group>"; };
 		8625D4C8240BA37B00C022F2 /* PLPoetryChallengeMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetryChallengeMainView.m; sourceTree = "<group>"; };
+		862D323C2457428300AD5E02 /* PLRegisterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLRegisterModel.h; sourceTree = "<group>"; };
+		862D323D2457428300AD5E02 /* PLRegisterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLRegisterModel.m; sourceTree = "<group>"; };
 		869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainModel.h; sourceTree = "<group>"; };
 		869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchMainModel.m; sourceTree = "<group>"; };
 		869D340823D201D2008D761B /* PLPoetrySearchMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetrySearchMainView.h; sourceTree = "<group>"; };
@@ -343,6 +358,24 @@
 			path = skirt;
 			sourceTree = "<group>";
 		};
+		86059B892457E97C00A280A6 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				86059B832457DB8E00A280A6 /* PLRegisterManager.h */,
+				86059B842457DB8E00A280A6 /* PLRegisterManager.m */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		86059B8A2457E99600A280A6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				86059B8B2457E9AE00A280A6 /* PLLoginManager.h */,
+				86059B8C2457E9AE00A280A6 /* PLLoginManager.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		860BBA2B2408159C00E52BE3 /* C */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +428,8 @@
 			children = (
 				861A661A23FD616D00515A0B /* PLLoginViewController.h */,
 				861A661B23FD616D00515A0B /* PLLoginViewController.m */,
+				86059B8E2457FDD500A280A6 /* PLMainViewController.h */,
+				86059B8F2457FDD500A280A6 /* PLMainViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -411,6 +446,8 @@
 		861A660523FD590900515A0B /* M */ = {
 			isa = PBXGroup;
 			children = (
+				86059B862457E94800A280A6 /* PLLoginModel.h */,
+				86059B872457E94800A280A6 /* PLLoginModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -456,6 +493,8 @@
 		861A660A23FD594600515A0B /* M */ = {
 			isa = PBXGroup;
 			children = (
+				862D323C2457428300AD5E02 /* PLRegisterModel.h */,
+				862D323D2457428300AD5E02 /* PLRegisterModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -916,6 +955,8 @@
 		86EB43B123CF64B400BADA71 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				86059B8A2457E99600A280A6 /* Login */,
+				86059B892457E97C00A280A6 /* Register */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1102,12 +1143,16 @@
 				86B99D67240EB4840013D89B /* PLRecitePoemsView.m in Sources */,
 				8604982623E88502007C91FB /* PLDIYBabyOthersView.m in Sources */,
 				8604982023E88430007C91FB /* PLDIYBabyM.m in Sources */,
+				86059B902457FDD500A280A6 /* PLMainViewController.m in Sources */,
 				861A661C23FD616D00515A0B /* PLLoginViewController.m in Sources */,
+				86059B8D2457E9AE00A280A6 /* PLLoginManager.m in Sources */,
 				861A660D23FD595B00515A0B /* PLRegisterViewController.m in Sources */,
+				86059B852457DB8E00A280A6 /* PLRegisterManager.m in Sources */,
 				86B99D73240EB5590013D89B /* PLPoetryCompetitionViewController.m in Sources */,
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
 				8604982923E88546007C91FB /* PLImageView.m in Sources */,
 				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
+				862D323E2457428300AD5E02 /* PLRegisterModel.m in Sources */,
 				8625D4C0240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m in Sources */,
 				8604982323E8848D007C91FB /* PLDIYBabyView.m in Sources */,
 				860BBA40240824DB00E52BE3 /* PLSettingTableViewCell.m in Sources */,
@@ -1129,6 +1174,7 @@
 				86BE9E1E23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m in Sources */,
 				860BBA302408162300E52BE3 /* PLSettingView.m in Sources */,
 				86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */,
+				86059B882457E94800A280A6 /* PLLoginModel.m in Sources */,
 				869D340723D2000C008D761B /* PLPoetrySearchMainModel.m in Sources */,
 				861A661023FD597E00515A0B /* PLRegisterView.m in Sources */,
 				869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */,

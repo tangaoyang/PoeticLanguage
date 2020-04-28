@@ -18,6 +18,7 @@
 {
     self = [super init];
     if (self) {
+        
         self.mainTableView = [[UITableView alloc] init];
         [self addSubview:_mainTableView];
         [_mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,15 +44,17 @@
         PLSettingPersonalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"personal" forIndexPath:indexPath];
         cell.selectionStyle = UIAccessibilityTraitNone;
         
-        [cell.personalImageView setImage:[UIImage imageNamed:@"pl_pset_ex_personal.jpg"]];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         
-        cell.nameLabel.text = @"月亮";
+        [cell.personalImageButton setImage:[UIImage imageNamed:@"pl_pset_ex_personal.jpg"] forState:UIControlStateNormal];
+        
+        cell.nameLabel.text = [userDefaults objectForKey:@"name"];
         cell.nameLabel.font = [UIFont systemFontOfSize:20];
         
-        cell.writerLabel.text = @"";
-        cell.writerLabel.font = [UIFont systemFontOfSize:12];
+        cell.gradeLabel.text = [NSString stringWithFormat:@"LV.%@", [userDefaults objectForKey:@"grades"]];
+        cell.gradeLabel.font = [UIFont systemFontOfSize:13];
         
-        cell.contentLabel.text = @"纵拥千千晚星";
+        cell.contentLabel.text = [userDefaults objectForKey:@"signature"];
         cell.contentLabel.font = [UIFont systemFontOfSize:15];
         
         return cell;
@@ -120,6 +123,14 @@
         return @" ";
     } else {
         return @"";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //退出
+    if (indexPath.section == 2 && indexPath.row == 1) {
+        NSNotification *exit = [NSNotification notificationWithName:@"exit" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:exit];
     }
 }
 

@@ -175,15 +175,13 @@
     if ([mediaType isEqualToString:@"public.image"]) {  //判断是否为图片
         
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        self.showImageView = [[UIImageView alloc] init];
-        [_showImageView setImage:image];
         NSData *data = UIImageJPEGRepresentation(image, 1.0f);
         
         [ImageManager sharedManger].data = data;
         
         //通过判断picker的sourceType，如果是拍照则保存到相册去
         if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-            [self save];
+            [self save:image];
         }
         
         if ([ImageManager sharedManger].access) {
@@ -248,14 +246,14 @@
     return [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[creatCollectionID] options:nil].firstObject;
 }
 //保存照片
--(void)save {
+-(void)save:(UIImage *)image {
     
     //保存函数到相机胶卷
     // 同步
     __block PHObjectPlaceholder *placeholder = nil;
     NSError *error = nil;
     [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-        placeholder = [PHAssetChangeRequest creationRequestForAssetFromImage:self->_showImageView.image].placeholderForCreatedAsset;
+        placeholder = [PHAssetChangeRequest creationRequestForAssetFromImage:image].placeholderForCreatedAsset;
     } error:&error];
     if (error) {
         NSLog(@"保存失败");

@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PLSettingPersonalTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *writerLabel;
+@property (nonatomic, strong) UILabel *gradeLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
-@property (nonatomic, strong) UIImageView *personalImageView;
+@property (nonatomic, strong) UIButton *personalImageButton;
 
 @end
 
