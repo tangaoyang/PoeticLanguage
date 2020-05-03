@@ -11,7 +11,6 @@
 #import "UnderlineTextField.h"
 #import "PLLoginManager.h"
 #import "PLLoginModel.h"
-#import "APPDelegate.h"
 #import "PLMainViewController.h"
 
 @interface PLLoginViewController ()

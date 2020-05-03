@@ -23,7 +23,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
+    [self.window makeKeyAndVisible];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:@"accountNumber"]) {
         PLMainViewController *main = [[PLMainViewController alloc] init];
@@ -33,7 +33,6 @@
         self.window.rootViewController = login;
     }
     
-    [self.window makeKeyWindow];
     return YES;
 }
 

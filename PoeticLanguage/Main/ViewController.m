@@ -20,9 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
-    [self performSelector:@selector(go) withObject:self afterDelay:0];
+//    [self performSelector:@selector(go) withObject:self afterDelay:0];
 }
 - (void)go {
     PLPoetrySearchMainViewController *search = [[PLPoetrySearchMainViewController alloc] init];

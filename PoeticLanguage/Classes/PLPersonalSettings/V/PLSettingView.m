@@ -63,7 +63,7 @@
         PLSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         cell.selectionStyle = UIAccessibilityTraitNone;
         
-        NSArray *nameArr = @[@"我收藏的", @"我背过的",  @"我的等级", @"个人设置", @"关于诗语"];
+        NSArray *nameArr = @[@"我收藏的", @"我背过的",  @"我的等级", @"修改资料", @"关于诗语"];
         cell.nameLabel.text = nameArr[indexPath.row] ;
         cell.nameLabel.font = [UIFont systemFontOfSize:15] ;
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"img%ld.png", indexPath.row + 2]] ;
@@ -127,6 +127,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //修改资料
+    if (indexPath.section == 1 && indexPath.row == 3) {
+        NSNotification *update = [NSNotification notificationWithName:@"update" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:update];
+    }
     //退出
     if (indexPath.section == 2 && indexPath.row == 1) {
         NSNotification *exit = [NSNotification notificationWithName:@"exit" object:self];

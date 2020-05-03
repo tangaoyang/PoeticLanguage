@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class PLLoginModel;
+@class PLSettingUpdateModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^ErrorBlock)(NSError *error);
 
 typedef void (^LoginModelBlock)(PLLoginModel *loginModel);
+typedef void (^UpdateModelBlock)(PLSettingUpdateModel *updateModel);
 
 @interface PLLoginManager : NSObject
 
@@ -22,6 +24,7 @@ typedef void (^LoginModelBlock)(PLLoginModel *loginModel);
 
 + (instancetype)sharedManager;
 - (void)getLoginMessage:(LoginModelBlock)successBlock error:(ErrorBlock)errorBlock account:(NSString *)account password:(NSString *)password;
+- (void)updateMessage:(UpdateModelBlock)successBlock error:(ErrorBlock)errorBlock name:(NSString *)name signature:(NSString *)signature;
 
 @end
 

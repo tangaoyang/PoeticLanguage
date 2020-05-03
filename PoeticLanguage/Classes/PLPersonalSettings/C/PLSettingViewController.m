@@ -9,6 +9,7 @@
 #import "PLSettingViewController.h"
 #import "PLSettingView.h"
 #import "PLLoginViewController.h"
+#import "PLSettingUpdateViewController.h"
 #import <Photos/Photos.h>
 
 @interface PLSettingViewController ()
@@ -27,9 +28,21 @@
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:@"update" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exit) name:@"exit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImage) name:@"changeImage" object:nil];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.myView = [[PLSettingView alloc] init];
+    _myView.frame = self.view.bounds;
+    [self.view addSubview:_myView];
+}
+
+- (void)update {
+    PLSettingUpdateViewController *updateViewController = [[PLSettingUpdateViewController alloc] init];
+    [self.navigationController pushViewController:updateViewController animated:NO];
 }
 
 - (void)exit {
