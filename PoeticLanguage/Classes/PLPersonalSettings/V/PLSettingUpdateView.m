@@ -21,7 +21,10 @@
         [self addSubview:_headerImageView];
         _headerImageView.layer.masksToBounds = YES;
         _headerImageView.layer.cornerRadius = 40;
-        _headerImageView.image = [userDefaults objectForKey:@"header"];
+        
+        NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        _headerImageView.image = [UIImage imageWithData:imageData];
         [_headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.and.height.equalTo(@80);
             make.left.equalTo(@20);

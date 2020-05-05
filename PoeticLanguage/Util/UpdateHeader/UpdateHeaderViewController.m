@@ -1,90 +1,35 @@
 //
-//  PLSettingViewController.m
+//  UpdateHeaderViewController.m
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/2/28.
+//  Created by cinderella on 2020/5/4.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
-#import "PLSettingViewController.h"
-#import "PLSettingView.h"
-#import "PLLoginViewController.h"
-#import "PLLoginManager.h"
-#import "PLSettingUpdateViewController.h"
-#import "PLSettingUpdateHeaderModel.h"
+#import "UpdateHeaderViewController.h"
 #import <Photos/Photos.h>
 
-@interface PLSettingViewController ()
+@interface UpdateHeaderViewController ()
 
 @end
 
-@implementation PLSettingViewController
+static UpdateHeaderViewController *manager = nil;
+
+@implementation UpdateHeaderViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.navigationItem.title = @"个人设置";
-    
-    self.myView = [[PLSettingView alloc] init];
-    _myView.frame = self.view.bounds;
-    [self.view addSubview:_myView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:@"update" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collect) name:@"collect" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exit) name:@"exit" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImage) name:@"changeImage" object:nil];
-    
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.myView = [[PLSettingView alloc] init];
-    _myView.frame = self.view.bounds;
-    [self.view addSubview:_myView];
-}
-
-- (void)update {
-    PLSettingUpdateViewController *updateViewController = [[PLSettingUpdateViewController alloc] init];
-    [self.navigationController pushViewController:updateViewController animated:NO];
-}
-
-- (void)exit {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults removeObjectForKey:@"accountNumber"];
-    [userDefaults removeObjectForKey:@"password"];
-    [userDefaults removeObjectForKey:@"id"];
-    [userDefaults removeObjectForKey:@"name"];
-    [userDefaults removeObjectForKey:@"phone"];
-    [userDefaults removeObjectForKey:@"header"];
-    [userDefaults removeObjectForKey:@"signature"];
-    [userDefaults removeObjectForKey:@"grades"];
-    [userDefaults synchronize];
-    
-    PLLoginViewController *login = [[PLLoginViewController alloc] init];
-    [self presentViewController:login animated:NO completion:nil];
-}
-
-- (void)collect {
-    
-}
-
-- (void)changeImage {
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"修改头像" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *camera = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self useCamera];
-    }];
-    [camera setValue:[UIColor blackColor] forKey:@"titleTextColor"];
-    [alert addAction:camera];
-    UIAlertAction *photo = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self photo];
-    }];
-    [photo setValue:[UIColor blackColor] forKey:@"titleTextColor"];
-    [alert addAction:photo];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [cancel setValue:[UIColor blackColor] forKey:@"titleTextColor"];
-    [alert addAction:cancel];
-    [self presentViewController:alert animated:NO completion:nil];
-    
++ (instancetype)sharedManger {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (manager == nil) {
+            manager = [[UpdateHeaderViewController alloc] init];
+        }
+    });
+    return manager;
 }
 
 #pragma mark - 使用相机
@@ -126,18 +71,8 @@
     NSString *mediaType = info[@"UIImagePickerControllerMediaType"];
     //判断是否为图片
     if ([mediaType isEqualToString:@"public.image"]) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        [[PLLoginManager sharedManager] updateHeaderMessage:^(PLSettingUpdateHeaderModel * _Nonnull updateHeaderModel) {
-            if ([updateHeaderModel.msg isEqualToString: @"ok"]) {
-                [userDefaults setObject:updateHeaderModel.url forKey:@"header"];
-                [self -> _myView.mainTableView reloadData];
-            } else {
-                NSLog(@"%@", updateHeaderModel.msg);
-            }
-        } error:^(NSError * _Nonnull error) {
-            NSLog(@"error == %@", error);
-        } image:image file:[info objectForKey:UIImagePickerControllerImageURL] account:[userDefaults objectForKey:@"accountNumber"] password:[userDefaults objectForKey:@"password"]];
         
         //通过判断picker的sourceType，如果是拍照则保存到相册去
         if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {

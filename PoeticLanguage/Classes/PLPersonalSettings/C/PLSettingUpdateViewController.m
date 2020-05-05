@@ -30,20 +30,19 @@
 }
 
 - (void)updateSure {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [[PLLoginManager sharedManager] updateMessage:^(PLSettingUpdateModel * _Nonnull updateModel) {
         if ([updateModel.msg isEqualToString:@"ok"]) {
             UserModel *userModel = updateModel.user;
-            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             [userDefaults setObject:userModel.name forKey:@"name"];
             [userDefaults setObject:userModel.signature forKey:@"signature"];
             [userDefaults synchronize];
-            NSLog(@"%@", userModel);
         } else {
             NSLog(@"%@", updateModel.msg);
         }
     } error:^(NSError * _Nonnull error) {
         NSLog(@"error = %@", error);
-    } name:_myView.nameTextField.text signature:_myView.contentTextField.text];
+    } name:_myView.nameTextField.text signature:_myView.contentTextField.text account:[userDefaults objectForKey:@"accountNumber"] password:[userDefaults objectForKey:@"password"]];
 }
 
 /*

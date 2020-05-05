@@ -12,7 +12,6 @@
 #import "PLRecitePoemsView.h"
 #import "PLPoetryCompetitionView.h"
 #import <Masonry.h>
-
 #import "PoetryContent.h"
 #import "ChangeFontTay.h"
 #import "PLPoetrySearchTableViewCell.h"

@@ -10,12 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PLKeywordSearchView : UIView
-<UITableViewDelegate,
-UITableViewDataSource>
+@class PLPoetryChallengeButtonView;
+@class PLKeywordPoetView;
+@class PLKeywordAuthorView;
 
-@property (nonatomic, strong) UITableView *searchTableView;
-@property (nonatomic, strong) NSMutableArray *poetryArray;
+@interface PLKeywordSearchView : UIView
+
+
+@property (nonatomic, strong) NSArray *buttonNamesArray;
+@property (nonatomic, strong) UIScrollView *searchScrollView;
+@property (nonatomic, strong) PLPoetryChallengeButtonView *buttonView;
+@property (nonatomic, strong) PLKeywordPoetView *poetView;
+@property (nonatomic, strong) PLKeywordAuthorView *authorView;
+@property (nonatomic, strong) NSArray *poetryArray;
+@property (nonatomic, strong) NSArray *authorArray;
+
+- (void)updatePoetAndAuthor;
 
 @end
 

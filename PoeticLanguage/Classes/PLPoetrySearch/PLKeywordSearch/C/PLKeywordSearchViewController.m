@@ -10,6 +10,8 @@
 #import "PLKeywordSearchDetailedViewController.h"
 #import "PoetryContent.h"
 #import "PLKeywordSearchView.h"
+#import "PLSearchManager.h"
+#import "PLPoetrySearchMainModel.h"
 
 @interface PLKeywordSearchViewController ()
 
@@ -28,19 +30,21 @@
     backImageView.alpha = 0.5;
     [self.view insertSubview:backImageView atIndex:0];
     
-    self.myView = [[PLKeywordSearchView alloc] init];
-    NSUInteger n = _myView.poetryArray.count; //用于记录数组数量，确保循环次数
-    int m = 0;  //用于记录删除个数，同于对应数组中的元素
-    for (int i = 0; i < n; i++) {
-        PoetryContent *poetry = [[PoetryContent alloc] init];
-        poetry = _myView.poetryArray[i - m];
-        if (![poetry.poet isEqualToString:_keyword]) {
-            [_myView.poetryArray removeObjectAtIndex:i - m];
-            m++;
+    [[PLSearchManager sharedManager] collectMessage:^(PLPoetrySearchMainModel * _Nullable searchMainModel) {
+        if ([searchMainModel.msg isEqualToString:@"ok"]) {
+            self.myView = [[PLKeywordSearchView alloc] init];
+            [self.view addSubview:self->_myView];
+            self->_myView.frame = self.view.bounds;
+            self -> _myView.poetryArray = searchMainModel.poets;
+            self -> _myView.authorArray = searchMainModel.author;
+            [self->_myView updatePoetAndAuthor];
+            NSLog(@"self -> _myView.poetryArray == %lu", (unsigned long)self -> _myView.authorArray.count);
+        } else {
+            NSLog(@"searchMainModel.msg == %@", searchMainModel.msg);
         }
-    }
-    [self.view addSubview:_myView];
-    _myView.frame = self.view.bounds;
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"search error = %@", error);
+    } key:_keyword];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"poetry" object:nil];
 }

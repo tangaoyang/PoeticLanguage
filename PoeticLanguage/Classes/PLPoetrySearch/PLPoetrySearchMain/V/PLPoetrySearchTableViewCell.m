@@ -40,7 +40,7 @@
     self.photoImageView = [[UIImageView alloc] init];
     [self addSubview:_photoImageView];
     _photoImageView.layer.masksToBounds = YES;
-    _photoImageView.layer.cornerRadius = 10;
+    _photoImageView.layer.cornerRadius = 25;
     
     self.collectionButton = [[PLPSCellButton alloc] init];
     [self addSubview:_collectionButton];

@@ -45,8 +45,9 @@
         cell.selectionStyle = UIAccessibilityTraitNone;
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        
-        [cell.personalImageButton setImage:[UIImage imageNamed:@"pl_pset_ex_personal.jpg"] forState:UIControlStateNormal];
+        NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        [cell.personalImageButton setImage:[[UIImage imageWithData:imageData] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         
         cell.nameLabel.text = [userDefaults objectForKey:@"name"];
         cell.nameLabel.font = [UIFont systemFontOfSize:20];
@@ -131,6 +132,11 @@
     if (indexPath.section == 1 && indexPath.row == 3) {
         NSNotification *update = [NSNotification notificationWithName:@"update" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:update];
+    }
+    //收藏
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        NSNotification *collect = [NSNotification notificationWithName:@"collect" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:collect];
     }
     //退出
     if (indexPath.section == 2 && indexPath.row == 1) {

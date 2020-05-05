@@ -74,6 +74,7 @@
     PLKeywordSearchViewController *search = [[PLKeywordSearchViewController alloc] init];
     search.keyword = getDictionary[@"key"];
     [self.navigationController pushViewController:search animated:NO];
+    
 }
 
 - (void)showDetail:(NSNotification *)keyword {
