@@ -12,6 +12,9 @@
 #import "PLKeywordSearchView.h"
 #import "PLSearchManager.h"
 #import "PLPoetrySearchMainModel.h"
+#import "PLKeywordPoetView.h"
+#import "PLPSCellButton.h"
+#import "PLKeywordSearchDetailModel.h"
 
 @interface PLKeywordSearchViewController ()
 
@@ -38,7 +41,6 @@
             self -> _myView.poetryArray = searchMainModel.poets;
             self -> _myView.authorArray = searchMainModel.author;
             [self->_myView updatePoetAndAuthor];
-            NSLog(@"self -> _myView.poetryArray == %lu", (unsigned long)self -> _myView.authorArray.count);
         } else {
             NSLog(@"searchMainModel.msg == %@", searchMainModel.msg);
         }
@@ -47,6 +49,7 @@
     } key:_keyword];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"poetry" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonClick:) name:@"buttonCollection" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,10 +59,34 @@
 }
 
 - (void)jumpView:(NSNotification *)keyword {
-    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
     NSDictionary *getDictionary = keyword.userInfo;
-    detail.keyword = getDictionary[@"key"];
-    [self.navigationController pushViewController:detail animated:NO];
+    [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
+        if ([searchDetailModel.msg isEqualToString:@"ok"]) {
+            PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
+            detail.keyword = searchDetailModel.poet;
+            detail.content = getDictionary[@"poemContent"];
+            [self.navigationController pushViewController:detail animated:NO];
+        } else {
+            NSLog(@"searchMainModel.msg == %@", searchDetailModel.msg);
+        }
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"detailError == %@", error);
+    } id:getDictionary[@"key"]];
+    
+}
+
+- (void)buttonClick:(NSNotification *)keyword {
+    NSDictionary *getDictionary = keyword.userInfo;
+    PLPSCellButton *button = getDictionary[@"button"];
+    if(button.selected == NO) {
+        button.selected = YES;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"已收藏";
+    } else {
+        button.selected = NO;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"收藏";
+    }
 }
 
 /*

@@ -10,6 +10,7 @@
 #import <Masonry.h>
 #import "PLPoetrySearchTableViewCell.h"
 #import "PLPoetrySearchMainModel.h"
+#import "PLPSCellButton.h"
 #define H [UIScreen mainScreen].bounds.size.height
 #define W [UIScreen mainScreen].bounds.size.width
 
@@ -23,7 +24,7 @@
         _searchTableView.dataSource = self;
         _searchTableView.backgroundColor = [UIColor clearColor];
         [_searchTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"searchCell"];
-        _searchTableView.frame = CGRectMake(0, 0, W, H);
+        _searchTableView.frame = CGRectMake(0, 0, W, H - 142);
         _poetryArray = array;
     }
     return self;
@@ -38,6 +39,7 @@
     cell.poetLabel.text = poetry.author;
     cell.contectTextView.text = [poetry.paragraphs substringWithRange:NSMakeRange(0, poetry.paragraphs.length - 1)];
     cell.timeLabel.text = poetry.dynasty;
+    [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
@@ -47,10 +49,12 @@
         return 150;
     } else {
         PoetsModel *poetry = _poetryArray[indexPath.row];
-        NSDictionary *attri = @{NSFontAttributeName:[UIFont systemFontOfSize:19]};
+        NSDictionary *attri = @{NSFontAttributeName:[UIFont systemFontOfSize:20]};
+        NSLog(@"poetry.paragraphs = %@", poetry.paragraphs);
         //自适应高度
-        CGSize size = [poetry.paragraphs boundingRectWithSize:CGSizeMake(W * 0.1, H) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
-        return size.height;
+        CGSize size = [poetry.paragraphs boundingRectWithSize:CGSizeMake(W * 0.5, H) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
+        NSLog(@"size.height == %f", size.height);
+        return size.height + 120;
     }
 }
 
@@ -59,8 +63,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNotification *noti = [NSNotification notificationWithName:@"poetry" object:self userInfo:@{@"key":_poetryArray[indexPath.section]}];
+    PoetsModel *poetry = _poetryArray[indexPath.row];
+    NSNotification *noti = [NSNotification notificationWithName:@"poetry" object:self userInfo:@{@"key":poetry.sid,@"poemContent":poetry.paragraphs}];
     [[NSNotificationCenter defaultCenter] postNotification:noti];
+}
+
+- (void)collect:(PLPSCellButton *) button {
+    NSNotification *buttonNsno = [NSNotification notificationWithName:@"buttonCollection" object:self userInfo:@{@"button":button}];
+    [[NSNotificationCenter defaultCenter] postNotification:buttonNsno];
 }
 
 /*

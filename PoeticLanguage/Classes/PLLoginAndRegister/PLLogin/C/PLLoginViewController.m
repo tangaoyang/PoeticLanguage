@@ -51,7 +51,6 @@
         } else {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"账号与密码不匹配!" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                self->_myView.accountTextField.text = @"";
                 self->_myView.passwordTextField.text = @"";
             }];
             [alert addAction:sureAction];

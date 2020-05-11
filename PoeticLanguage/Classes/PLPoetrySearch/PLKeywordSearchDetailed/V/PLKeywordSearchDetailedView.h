@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class PoetryContent;
+@class PoetModel;
 
 @interface PLKeywordSearchDetailedView : UIView
 
-@property (nonatomic, strong) PoetryContent *poem;
+@property (nonatomic, strong) PoetModel *poem;
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) UILabel *mainFirstLabel;
 @property (nonatomic, strong) UILabel *mainSecondLabel;
@@ -22,7 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *dynastyLabel;
 @property (nonatomic, strong) UILabel *allLabel;
 @property (nonatomic, strong) UILabel *historyLabel;
-@property int number;   //记录句号个数
+@property (nonatomic, strong) NSString *content;
+@property int number;
 
 - (void)labelInit;
 
