@@ -11,13 +11,15 @@
 #import "Masonry.h"
 #import "PLKeywordSearchViewController.h"
 #import "PLKeyWordSearchDetailedViewController.h"
+#import "PLPoetrySearchTableViewCell.h"
 #import <Photos/Photos.h>
 #import "ImageManager.h"
 #import "ImageModel.h"
 #import "AccessModel.h"
+#import "PLPSCellButton.h"
 
 @interface PLPoetrySearchMainViewController ()
-
+<PLPSCellDelegate>
 @end
 
 @implementation PLPoetrySearchMainViewController
@@ -25,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *backImage = [[UIImage imageNamed:@"pl_ps_background_knot.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *backImage = [[UIImage imageNamed:@"pl_pc_fly.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.5;
@@ -36,6 +38,8 @@
     _myView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [_myView.cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [_myView.photoButton addTarget:self action:@selector(camera) forControlEvents:UIControlEventTouchUpInside];
+    _myView.plpsCellDelegate = self;
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"search" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photo) name:@"photo" object:nil];
@@ -70,6 +74,7 @@
     PLKeywordSearchViewController *search = [[PLKeywordSearchViewController alloc] init];
     search.keyword = getDictionary[@"key"];
     [self.navigationController pushViewController:search animated:NO];
+    
 }
 
 - (void)showDetail:(NSNotification *)keyword {
@@ -171,15 +176,13 @@
     if ([mediaType isEqualToString:@"public.image"]) {  //判断是否为图片
         
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        self.showImageView = [[UIImageView alloc] init];
-        [_showImageView setImage:image];
         NSData *data = UIImageJPEGRepresentation(image, 1.0f);
         
         [ImageManager sharedManger].data = data;
         
         //通过判断picker的sourceType，如果是拍照则保存到相册去
         if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-            [self save];
+            [self save:image];
         }
         
         if ([ImageManager sharedManger].access) {
@@ -198,7 +201,16 @@
         model = resultImageModel;
         ListModel *list = [[ListModel alloc] init];
         list = model.result.face_list[0];
-        NSLog(@"年龄为%@岁， 性别为%@的可能性是%@， 表情为%@的可能性是%@", list.age, list.gender.type, list.gender.probability, list.expression.type, list.expression.probability);
+        if (list.age == NULL) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"请选择含有人像的图片！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self photo];
+            }];
+            [alert addAction:sureAction];
+            [self presentViewController:alert animated:NO completion:nil];
+        } else {
+            NSLog(@"年龄为%@岁， 性别为%@的可能性是%@， 表情为%@的可能性是%@", list.age, list.gender.type, list.gender.probability, list.expression.type, list.expression.probability);
+        }
     }];
     
 }
@@ -235,14 +247,14 @@
     return [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[creatCollectionID] options:nil].firstObject;
 }
 //保存照片
--(void)save {
+-(void)save:(UIImage *)image {
     
     //保存函数到相机胶卷
     // 同步
     __block PHObjectPlaceholder *placeholder = nil;
     NSError *error = nil;
     [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
-        placeholder = [PHAssetChangeRequest creationRequestForAssetFromImage:self->_showImageView.image].placeholderForCreatedAsset;
+        placeholder = [PHAssetChangeRequest creationRequestForAssetFromImage:image].placeholderForCreatedAsset;
     } error:&error];
     if (error) {
         NSLog(@"保存失败");
@@ -261,6 +273,18 @@
     } error:&error];
 }
 
+#pragma mark - 收藏
+- (void)passButton:(PLPSCellButton *)button {
+    if(button.selected == NO) {
+        button.selected = YES;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"已收藏";
+    } else {
+        button.selected = NO;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"收藏";
+    }
+}
 
 /*
 #pragma mark - Navigation

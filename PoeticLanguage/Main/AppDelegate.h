@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class CurrentUserModel;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end
 

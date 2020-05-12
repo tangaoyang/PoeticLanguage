@@ -8,6 +8,26 @@
 
 #import "PLPoetrySearchMainModel.h"
 
+@implementation AuthorModel
+
++(BOOL)propertyIsOptional:(NSString *)propertyName{
+    return  YES;
+}
+
+@end
+
+@implementation PoetsModel
+
++(BOOL)propertyIsOptional:(NSString *)propertyName{
+    return  YES;
+}
+
+@end
+
 @implementation PLPoetrySearchMainModel
+
++(BOOL)propertyIsOptional:(NSString *)propertyName{
+    return  YES;
+}
 
 @end

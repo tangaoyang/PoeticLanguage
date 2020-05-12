@@ -10,13 +10,16 @@
 
 @class PoetryContent;
 @class PLKeywordSearchDetailedView;
+@class PoetModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PLKeywordSearchDetailedViewController : UIViewController
 
 @property (nonatomic, strong) PLKeywordSearchDetailedView *myView;
-@property (nonatomic, strong) PoetryContent *keyword;
+@property (nonatomic, strong) PoetModel *keyword;
+@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, strong) NSString *content;
 
 @end
 

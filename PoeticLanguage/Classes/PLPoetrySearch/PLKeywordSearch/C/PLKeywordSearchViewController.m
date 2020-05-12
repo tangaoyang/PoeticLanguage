@@ -10,6 +10,11 @@
 #import "PLKeywordSearchDetailedViewController.h"
 #import "PoetryContent.h"
 #import "PLKeywordSearchView.h"
+#import "PLSearchManager.h"
+#import "PLPoetrySearchMainModel.h"
+#import "PLKeywordPoetView.h"
+#import "PLPSCellButton.h"
+#import "PLKeywordSearchDetailModel.h"
 
 @interface PLKeywordSearchViewController ()
 
@@ -22,27 +27,29 @@
     // Do any additional setup after loading the view.
     
     self.tabBarController.tabBar.hidden = YES;
-    UIImage *backImage = [[UIImage imageNamed:@"pl_ps_background_knot.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *backImage = [[UIImage imageNamed:@"pl_pc_fly.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.5;
     [self.view insertSubview:backImageView atIndex:0];
     
-    self.myView = [[PLKeywordSearchView alloc] init];
-    NSUInteger n = _myView.poetryArray.count; //用于记录数组数量，确保循环次数
-    int m = 0;  //用于记录删除个数，同于对应数组中的元素
-    for (int i = 0; i < n; i++) {
-        PoetryContent *poetry = [[PoetryContent alloc] init];
-        poetry = _myView.poetryArray[i - m];
-        if (![poetry.poet isEqualToString:_keyword]) {
-            [_myView.poetryArray removeObjectAtIndex:i - m];
-            m++;
+    [[PLSearchManager sharedManager] collectMessage:^(PLPoetrySearchMainModel * _Nullable searchMainModel) {
+        if ([searchMainModel.msg isEqualToString:@"ok"]) {
+            self.myView = [[PLKeywordSearchView alloc] init];
+            [self.view addSubview:self->_myView];
+            self->_myView.frame = self.view.bounds;
+            self -> _myView.poetryArray = searchMainModel.poets;
+            self -> _myView.authorArray = searchMainModel.author;
+            [self->_myView updatePoetAndAuthor];
+        } else {
+            NSLog(@"searchMainModel.msg == %@", searchMainModel.msg);
         }
-    }
-    [self.view addSubview:_myView];
-    _myView.frame = self.view.bounds;
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"search error = %@", error);
+    } key:_keyword];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"poetry" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonClick:) name:@"buttonCollection" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,10 +59,34 @@
 }
 
 - (void)jumpView:(NSNotification *)keyword {
-    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
     NSDictionary *getDictionary = keyword.userInfo;
-    detail.keyword = getDictionary[@"key"];
-    [self.navigationController pushViewController:detail animated:NO];
+    [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
+        if ([searchDetailModel.msg isEqualToString:@"ok"]) {
+            PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
+            detail.keyword = searchDetailModel.poet;
+            detail.content = getDictionary[@"poemContent"];
+            [self.navigationController pushViewController:detail animated:NO];
+        } else {
+            NSLog(@"searchMainModel.msg == %@", searchDetailModel.msg);
+        }
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"detailError == %@", error);
+    } id:getDictionary[@"key"]];
+    
+}
+
+- (void)buttonClick:(NSNotification *)keyword {
+    NSDictionary *getDictionary = keyword.userInfo;
+    PLPSCellButton *button = getDictionary[@"button"];
+    if(button.selected == NO) {
+        button.selected = YES;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"已收藏";
+    } else {
+        button.selected = NO;
+        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        button.buttonLabel.text = @"收藏";
+    }
 }
 
 /*

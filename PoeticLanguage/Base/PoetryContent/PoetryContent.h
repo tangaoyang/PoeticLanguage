@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *dynasty;   //诗人朝代
 @property (nonatomic, copy) NSString *imageName; //诗人头像
 @property (nonatomic, copy) NSString *poetHistory;   //诗人简介
+@property (nonatomic, copy) NSString *id;      //诗id
 
 @end
 

@@ -7,9 +7,9 @@
 //
 
 #import "PLKeywordSearchDetailedView.h"
-#import "PoetryContent.h"
 #import "Masonry.h"
 #import "ChangeFontTay.h"
+#import "PLKeywordSearchDetailModel.h"
 
 /* 整首诗的位置top改为离屏幕一个屏幕高度*/
 
@@ -21,13 +21,14 @@
     self = [super init];
     if (self) {
         
+        _number = 0;
         self.mainScrollView = [[UIScrollView alloc] init];
         _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 3);
         _mainScrollView.alwaysBounceVertical = YES;
         _mainScrollView.scrollEnabled = YES;
         [self addSubview:_mainScrollView];
         _mainScrollView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-        
+      
         _characterImageView = [[UIImageView alloc] init];
         [self.mainScrollView addSubview:_characterImageView];
     }
@@ -35,35 +36,37 @@
 }
 
 - (void)labelInit {
+
     float hight = [UIScreen mainScreen].bounds.size.height;
-    
+  
+    _content = [_content stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     self.mainFirstLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_mainFirstLabel];
-    _mainFirstLabel.text = [_poem.content substringToIndex:self->_poem.content.length / 2];
-    [[ChangeFontTay sharedManger] downloadWithFontName:@"HannotateSC-W5" withLabel:_mainFirstLabel withSize:25];
+    _mainFirstLabel.text = [_content substringToIndex:self-> _content.length / 2];
+    [[ChangeFontTay sharedManger] downloadWithFontName:@"HannotateSC-W5" withLabel:_mainFirstLabel withSize:32];
     _mainFirstLabel.numberOfLines = 0;
     [_mainFirstLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self -> _mainScrollView.mas_top).offset(0);
         make.left.mas_equalTo(self -> _mainScrollView.mas_left).offset(80);
-        make.width.equalTo(@(28));
-        make.height.equalTo(@((int)self->_poem.content.length / 2 * 50));
+        make.width.equalTo(@(34));
+        make.height.equalTo(@((int)self->_content.length / 2 * 50));
     }];
     
     self.mainSecondLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_mainSecondLabel];
-    _mainSecondLabel.text = [_poem.content substringFromIndex:_poem.content.length / 2];
-    [[ChangeFontTay sharedManger] downloadWithFontName:@"HannotateSC-W5" withLabel:_mainSecondLabel withSize:25];
+    _mainSecondLabel.text = [_content substringFromIndex:self-> _content.length / 2];
+    [[ChangeFontTay sharedManger] downloadWithFontName:@"HannotateSC-W5" withLabel:_mainSecondLabel withSize:32];
     _mainSecondLabel.numberOfLines = 0;
     [_mainSecondLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self -> _mainFirstLabel.mas_top).offset(80);
-        make.left.mas_equalTo(self -> _mainFirstLabel.mas_left).offset(60);
-        make.width.equalTo(@(28));
-        make.height.mas_equalTo(self -> _mainFirstLabel.mas_height);
+        make.top.mas_equalTo(self -> _mainFirstLabel.mas_top).offset(100);
+        make.left.mas_equalTo(self -> _mainFirstLabel.mas_left).offset(80);
+        make.width.equalTo(@(34));
+        make.height.mas_equalTo(self -> _mainFirstLabel.mas_height).offset(30);
     }];
     
     self.nameLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_nameLabel];
-    _nameLabel.text = _poem.name;
+    _nameLabel.text = _poem.title;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_nameLabel withSize:32];
     _nameLabel.numberOfLines = 0;
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -86,15 +89,19 @@
     
     self.allLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_allLabel];
-    _allLabel.text = _poem.all;
+    _allLabel.text = _poem.paragraphs;
+    NSLog(@"_poem.paragraphs = %@", _poem.paragraphs);
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_allLabel withSize:20];
     _allLabel.numberOfLines = 0;
     [_allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.top.mas_equalTo(self -> _dynastyLabel.mas_bottom).offset(20);
         make.height.mas_equalTo(@(self -> _number * 25 + 25));
+//        make.height.mas_equalTo(@(400));
     }];
     
+    NSLog(@"_number = %d", _number);
+   /*
     self.historyLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_historyLabel];
     _historyLabel.text = _poem.poetHistory;
@@ -108,8 +115,9 @@
         make.width.equalTo(@(cContentSize.width));
         make.height.equalTo(@(cContentSize.height + 30));
     }];
+
     
-    
+    */
     
     /* 蒲悦蓉写的人物动画部分 */
     float width = [UIScreen mainScreen].bounds.size.width;
@@ -140,6 +148,8 @@
     moveAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(width,hight0)];
     moveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(left,hight0)];
     [_characterImageView.layer addAnimation:moveAnimation forKey:@"poistion"];
+
+
 }
 
 
