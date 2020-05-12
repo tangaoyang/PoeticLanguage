@@ -131,7 +131,7 @@
         make.centerX.equalTo(self.mainScrollView.mas_left).offset(left);
  //       make.left.equalTo(self.mainScrollView.mas_left).offset(left);
     }];
-    _characterImageView.image = [UIImage imageNamed:@"CharacterAnimation5.jpeg"];
+    _characterImageView.image = [UIImage imageNamed:@"CharacterAnimation1.jpeg"];
     _characterImageView.contentMode = UIViewContentModeScaleAspectFit;
     CABasicAnimation* moveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
     moveAnimation.duration = 1;
@@ -152,3 +152,7 @@
 */
 
 @end
+
+
+
+
