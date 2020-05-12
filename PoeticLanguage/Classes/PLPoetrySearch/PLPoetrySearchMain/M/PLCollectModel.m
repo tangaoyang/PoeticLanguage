@@ -1,25 +1,27 @@
 //
-//  PLKeywordAuthorModel.m
+//  PLCollectModel.m
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/5/12.
+//  Created by cinderella on 2020/5/13.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
-#import "PLKeywordAuthorModel.h"
+#import "PLCollectModel.h"
 
-@implementation AuthorsModel
+@implementation InfoModel
 
 +(BOOL)propertyIsOptional:(NSString *)propertyName{
     return  YES;
 }
+
 
 @end
 
-@implementation PLKeywordAuthorModel
+@implementation PLCollectModel
 
 +(BOOL)propertyIsOptional:(NSString *)propertyName{
     return  YES;
 }
+
 
 @end

@@ -26,6 +26,7 @@ static PLSearchManager *manager = nil;
     });
     return manager;
 }
+
 - (void)collectMessage:(SearchMainModelBlock)successBlock error:(ErrorBlock)errorBlock key:(NSString *)key {
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
     NSString *sureURLStr = [NSString stringWithFormat:@"%@/poet/select.do?key=%@", HTTP, key];
@@ -38,7 +39,7 @@ static PLSearchManager *manager = nil;
     }];
 }
 
-- (void)getPoet:(SearchDetailModelBlock)successBlock error:(ErrorBlock)errorBlock id:(NSString *)sid {
+- (void)getPoet:(SearchDetailModelBlock)successBlock error:(ErrorBlock)errorBlock sid:(NSString *)sid {
     
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
     NSString *sureURLStr = [NSString stringWithFormat:@"%@/poet/get_poet.do?id=%@", HTTP, sid];

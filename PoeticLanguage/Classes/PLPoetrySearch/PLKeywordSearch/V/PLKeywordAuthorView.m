@@ -55,8 +55,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSNotification *noti = [NSNotification notificationWithName:@"poetry" object:self userInfo:@{@"key":_poetryArray[indexPath.section]}];
-//    [[NSNotificationCenter defaultCenter] postNotification:noti];
+    AuthorModel *author = _authorArray[indexPath.row];
+    NSNotification *noti = [NSNotification notificationWithName:@"author" object:self userInfo:@{@"key":author.mid}];
+    [[NSNotificationCenter defaultCenter] postNotification:noti];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

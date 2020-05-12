@@ -9,6 +9,8 @@
 #import "PLKeywordSearchDetailedViewController.h"
 #import "PLKeywordSearchDetailedView.h"
 #import "PLKeywordSearchDetailModel.h"
+#define W ([UIScreen mainScreen].bounds.size.width)
+#define H ([UIScreen mainScreen].bounds.size.height)
 
 @interface PLKeywordSearchDetailedViewController ()
 
@@ -22,7 +24,6 @@
     
 
     UIImage *backImage = [[UIImage imageNamed:@"animation1.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.3;
@@ -49,9 +50,8 @@
     }
     NSString *para = [all stringByReplacingOccurrencesOfString:@"\",\"" withString:@""];
     _myView.poem.paragraphs = [para stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-    NSLog(@"all == %@", _myView.poem.paragraphs);
-    NSLog(@"_myView.number = %d", _myView.number);
-    
+    _myView.poem.paragraphs = [_myView.poem.paragraphs stringByReplacingOccurrencesOfString:@"[" withString:@""];
+    _myView.poem.paragraphs = [_myView.poem.paragraphs stringByReplacingOccurrencesOfString:@"]" withString:@""];
     self.title = _keyword.title;
     _myView.content = _content;
     [_myView labelInit];
@@ -64,7 +64,9 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.topItem.title = _keyword.title;
-    
+}
+
+- (void)setHand {
     //原生方法无效
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     //设置手势

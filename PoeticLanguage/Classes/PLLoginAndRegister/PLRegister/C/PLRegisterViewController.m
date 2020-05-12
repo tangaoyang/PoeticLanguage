@@ -72,7 +72,7 @@
         [alert addAction:sure];
         [self presentViewController:alert animated:NO completion:nil];
     } error:^(NSError * _Nonnull error) {
-        NSLog(@"error = %@", error);
+        NSLog(@"验证码error = %@", error);
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"验证码错误！" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *sure = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];
         [alert addAction:sure];

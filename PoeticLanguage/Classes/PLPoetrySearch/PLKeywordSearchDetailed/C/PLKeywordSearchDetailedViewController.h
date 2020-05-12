@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, strong) NSString *content;
 
+- (void)setHand;//完成背诵手势
+
 @end
 
 NS_ASSUME_NONNULL_END

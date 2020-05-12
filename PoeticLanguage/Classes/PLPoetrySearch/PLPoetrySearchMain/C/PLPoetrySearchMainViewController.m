@@ -17,6 +17,8 @@
 #import "ImageModel.h"
 #import "AccessModel.h"
 #import "PLPSCellButton.h"
+#import "PLCollectManager.h"
+#import "PLCollectModel.h"
 
 @interface PLPoetrySearchMainViewController ()
 <PLPSCellDelegate>
@@ -275,6 +277,13 @@
 
 #pragma mark - 收藏
 - (void)passButton:(PLPSCellButton *)button {
+//    [PLCollectManager sharedManager] collectMessage:^(PLCollectModel * _Nullable collectModel) {
+//        if (collectModel.msg == @"ok") {
+//            <#statements#>
+//        }
+//    } error:^(NSError * _Nullable error) {
+//        NSLog(@"collect error == %@", error);
+//    } id:<#(nonnull NSString *)#>
     if(button.selected == NO) {
         button.selected = YES;
         [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

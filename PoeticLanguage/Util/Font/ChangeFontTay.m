@@ -50,7 +50,7 @@ static ChangeFontTay *manger = nil;
                 break;
             case kCTFontDescriptorMatchingDownloading:
                 
-                NSLog(@" 下载进度 %.0f",progressValue);
+//                NSLog(@" 下载进度 %.0f",progressValue);
                 
                 break;
             case kCTFontDescriptorMatchingDidFinishDownloading:
@@ -61,7 +61,7 @@ static ChangeFontTay *manger = nil;
             {
                 //字体已经下载完成
                 if (!errorDuringDownload) {
-                    NSLog(@"字体%@ 已经下载完成",fontName);
+//                    NSLog(@"字体%@ 已经下载完成",fontName);
                     dispatch_async( dispatch_get_main_queue(), ^ {
                         // 可以在这里修改 UI 控件的字体
                         label.font = [UIFont fontWithName:fontName size:size];

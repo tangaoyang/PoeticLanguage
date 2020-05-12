@@ -15,6 +15,10 @@
 #import "PLKeywordPoetView.h"
 #import "PLPSCellButton.h"
 #import "PLKeywordSearchDetailModel.h"
+#import "PLKeywordAuthorModel.h"
+#import "PLKeywordAuthorDetailViewController.h"
+#import "PLCollectManager.h"
+#import "PLCollectModel.h"
 
 @interface PLKeywordSearchViewController ()
 
@@ -49,6 +53,7 @@
     } key:_keyword];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpView:) name:@"poetry" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpViewAuthor:) name:@"author" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonClick:) name:@"buttonCollection" object:nil];
 }
 
@@ -59,6 +64,7 @@
 }
 
 - (void)jumpView:(NSNotification *)keyword {
+    
     NSDictionary *getDictionary = keyword.userInfo;
     [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
         if ([searchDetailModel.msg isEqualToString:@"ok"]) {
@@ -67,17 +73,48 @@
             detail.content = getDictionary[@"poemContent"];
             [self.navigationController pushViewController:detail animated:NO];
         } else {
-            NSLog(@"searchMainModel.msg == %@", searchDetailModel.msg);
+            NSLog(@"searchDetailModel.msg == %@", searchDetailModel.msg);
+            NSLog(@"getDictionary[@key] = %@", getDictionary[@"key"]);
         }
     } error:^(NSError * _Nullable error) {
         NSLog(@"detailError == %@", error);
-    } id:getDictionary[@"key"]];
+    } sid:getDictionary[@"key"]];
+    
+}
+
+- (void)jumpViewAuthor:(NSNotification *)keyword {
+    
+    NSDictionary *getDictionary = keyword.userInfo;
+    [[PLSearchManager sharedManager] getAuthor:^(PLKeywordAuthorModel * _Nullable authorModel) {
+        if ([authorModel.msg isEqualToString:@"ok"]) {
+            AuthorsModel *author = authorModel.author;
+            PLKeywordAuthorDetailViewController *detail = [[PLKeywordAuthorDetailViewController alloc] init];
+            detail.keyword = author;
+            [self.navigationController pushViewController:detail animated:NO];
+        } else {
+            NSLog(@"AuthorModel == %@", authorModel.msg);
+        }
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"AuthorModelError == %@", error);
+    } mid:getDictionary[@"key"]];
     
 }
 
 - (void)buttonClick:(NSNotification *)keyword {
     NSDictionary *getDictionary = keyword.userInfo;
     PLPSCellButton *button = getDictionary[@"button"];
+    [[PLCollectManager sharedManager] collectMessage:^(PLCollectModel * _Nullable collectModel) {
+        if ([collectModel.msg isEqualToString:@"ok"]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"操作成功！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:sure];
+            [self presentViewController:alert animated:NO completion:nil];
+        } else {
+            NSLog(@"collectModel.msg = %@", collectModel.msg);
+        }
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"collect error == %@", error);
+    } id:[NSString stringWithFormat: @"%ld", (long)button.tag]];
     if(button.selected == NO) {
         button.selected = YES;
         [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

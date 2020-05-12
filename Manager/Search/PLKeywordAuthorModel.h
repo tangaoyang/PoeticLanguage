@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AuthorModel : JSONModel
+@interface AuthorsModel : JSONModel
 
 @property (nonatomic, copy) NSString *mid;
 @property (nonatomic, copy) NSString *id;
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PLKeywordAuthorModel : JSONModel
 
 @property (nonatomic, copy) NSString *msg;
-@property (nonatomic, strong) AuthorModel *author;
+@property (nonatomic, strong) AuthorsModel *author;
 
 @end
 

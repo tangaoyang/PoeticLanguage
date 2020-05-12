@@ -62,6 +62,10 @@
 		860BBA45240827B800E52BE3 /* PLSettingPersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 860BBA44240827B800E52BE3 /* PLSettingPersonalTableViewCell.m */; };
 		860BBA47240829EE00E52BE3 /* pl_pset_ex_personal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 860BBA46240829EE00E52BE3 /* pl_pset_ex_personal.jpg */; };
 		86118BA4240C094F00CC13E2 /* PLPoetryChallengeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86118BA3240C094F00CC13E2 /* PLPoetryChallengeButtonView.m */; };
+		861203B4246AF4D8005906F2 /* PLKeywordAuthorDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 861203B3246AF4D8005906F2 /* PLKeywordAuthorDetailView.m */; };
+		861203B7246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861203B6246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.m */; };
+		861203BB246B0451005906F2 /* PLCollectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 861203BA246B0451005906F2 /* PLCollectManager.m */; };
+		861203C1246B09C1005906F2 /* PLCollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861203C0246B09C1005906F2 /* PLCollectModel.m */; };
 		861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */ = {isa = PBXBuildFile; fileRef = 861854AE23E06876004AFC85 /* ChangeFontTay.m */; };
 		86189269241937A700D154BE /* pl_ps_uncollect.png in Resources */ = {isa = PBXBuildFile; fileRef = 86189267241937A700D154BE /* pl_ps_uncollect.png */; };
 		8618926A241937A700D154BE /* pl_ps_collected.png in Resources */ = {isa = PBXBuildFile; fileRef = 86189268241937A700D154BE /* pl_ps_collected.png */; };
@@ -191,6 +195,14 @@
 		860BBA46240829EE00E52BE3 /* pl_pset_ex_personal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_pset_ex_personal.jpg; sourceTree = "<group>"; };
 		86118BA2240C094F00CC13E2 /* PLPoetryChallengeButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetryChallengeButtonView.h; sourceTree = "<group>"; };
 		86118BA3240C094F00CC13E2 /* PLPoetryChallengeButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetryChallengeButtonView.m; sourceTree = "<group>"; };
+		861203B2246AF4D8005906F2 /* PLKeywordAuthorDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordAuthorDetailView.h; sourceTree = "<group>"; };
+		861203B3246AF4D8005906F2 /* PLKeywordAuthorDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLKeywordAuthorDetailView.m; sourceTree = "<group>"; };
+		861203B5246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordAuthorDetailViewController.h; sourceTree = "<group>"; };
+		861203B6246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLKeywordAuthorDetailViewController.m; sourceTree = "<group>"; };
+		861203B9246B0451005906F2 /* PLCollectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PLCollectManager.h; path = Manager/Collect/PLCollectManager.h; sourceTree = SOURCE_ROOT; };
+		861203BA246B0451005906F2 /* PLCollectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLCollectManager.m; path = Manager/Collect/PLCollectManager.m; sourceTree = SOURCE_ROOT; };
+		861203BF246B09C1005906F2 /* PLCollectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCollectModel.h; sourceTree = "<group>"; };
+		861203C0246B09C1005906F2 /* PLCollectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCollectModel.m; sourceTree = "<group>"; };
 		861854AD23E06876004AFC85 /* ChangeFontTay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeFontTay.h; sourceTree = "<group>"; };
 		861854AE23E06876004AFC85 /* ChangeFontTay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeFontTay.m; sourceTree = "<group>"; };
 		86189267241937A700D154BE /* pl_ps_uncollect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_uncollect.png; sourceTree = "<group>"; };
@@ -484,6 +496,15 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		861203B8246B042B005906F2 /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				861203B9246B0451005906F2 /* PLCollectManager.h */,
+				861203BA246B0451005906F2 /* PLCollectManager.m */,
+			);
+			path = Collect;
+			sourceTree = "<group>";
+		};
 		861854AC23E06214004AFC85 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +729,8 @@
 			children = (
 				869D340523D2000C008D761B /* PLPoetrySearchMainModel.h */,
 				869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */,
+				861203BF246B09C1005906F2 /* PLCollectModel.h */,
+				861203C0246B09C1005906F2 /* PLCollectModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -827,6 +850,8 @@
 			children = (
 				86BE9E1923D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.h */,
 				86BE9E1A23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m */,
+				861203B5246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.h */,
+				861203B6246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -838,6 +863,8 @@
 				86BE9E1D23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m */,
 				684A4360240BA30E00685BA3 /* PLCharacterAnimationImageView.h */,
 				684A4361240BA30E00685BA3 /* PLCharacterAnimationImageView.m */,
+				861203B2246AF4D8005906F2 /* PLKeywordAuthorDetailView.h */,
+				861203B3246AF4D8005906F2 /* PLKeywordAuthorDetailView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1064,6 +1091,7 @@
 		86EB43B123CF64B400BADA71 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				861203B8246B042B005906F2 /* Collect */,
 				862510FF246078BE00EF6955 /* Search */,
 				86059B8A2457E99600A280A6 /* Login */,
 				86059B892457E97C00A280A6 /* Register */,
@@ -1201,10 +1229,7 @@
 				86011B8623F44CAA00C19F00 /* pl_pset_tabbar.png in Resources */,
 				68B02B7523EC288500437F45 /* look2.jpeg in Resources */,
 				68E1187323F2E369001755F8 /* skirt6.jpeg in Resources */,
-
-
 				86B99D75240EC0040013D89B /* pl_pc_fly.jpg in Resources */,
-
 				86011B6D23F4483600C19F00 /* pl_ds_tabbar.png in Resources */,
 				6811D56423EB1CA5002EC195 /* background2.jpeg in Resources */,
 				869D340F23D20A87008D761B /* pl_ps_camera.png in Resources */,
@@ -1212,13 +1237,10 @@
 				86011B7623F4489D00C19F00 /* pl_diy_tabbar.png in Resources */,
 				684A4364240BA43300685BA3 /* CharacterAnimation1.jpeg in Resources */,
 				68B02B7423EC288500437F45 /* look6.jpeg in Resources */,
-
 				682401C2240E7BDB00866107 /* CharacterAnimation3.jpeg in Resources */,
 				682401C1240E7BDB00866107 /* CharacterAnimation2.jpeg in Resources */,
-
 				86189269241937A700D154BE /* pl_ps_uncollect.png in Resources */,
 				8618926A241937A700D154BE /* pl_ps_collected.png in Resources */,
-
 				68E1187723F2E854001755F8 /* skirt8.jpeg in Resources */,
 				68B02B6523EC279900437F45 /* background1.jpeg in Resources */,
 				869D341323D21311008D761B /* pl_ps_tabbar_selected.png in Resources */,
@@ -1272,6 +1294,8 @@
 				861A661C23FD616D00515A0B /* PLLoginViewController.m in Sources */,
 				86059B8D2457E9AE00A280A6 /* PLLoginManager.m in Sources */,
 				861A660D23FD595B00515A0B /* PLRegisterViewController.m in Sources */,
+				861203C1246B09C1005906F2 /* PLCollectModel.m in Sources */,
+				861203B7246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.m in Sources */,
 				86059B852457DB8E00A280A6 /* PLRegisterManager.m in Sources */,
 				86B99D73240EB5590013D89B /* PLPoetryCompetitionViewController.m in Sources */,
 				862510FB2460276600EF6955 /* UpdateHeaderViewController.m in Sources */,
@@ -1279,6 +1303,7 @@
 				8604982923E88546007C91FB /* PLImageView.m in Sources */,
 				8622A4BD2469B49E00DC0A47 /* PLKeywordSearchDetailModel.m in Sources */,
 				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
+				861203BB246B0451005906F2 /* PLCollectManager.m in Sources */,
 				862D323E2457428300AD5E02 /* PLRegisterModel.m in Sources */,
 				8625D4C0240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m in Sources */,
 				8604982323E8848D007C91FB /* PLDIYBabyView.m in Sources */,
@@ -1296,6 +1321,7 @@
 				86BE9E1B23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m in Sources */,
 				8622A4C02469C7B500DC0A47 /* PLKeywordAuthorModel.m in Sources */,
 				861A661323FD59B000515A0B /* PLLoginView.m in Sources */,
+				861203B4246AF4D8005906F2 /* PLKeywordAuthorDetailView.m in Sources */,
 				684A4362240BA30E00685BA3 /* PLCharacterAnimationImageView.m in Sources */,
 				861A662323FD765500515A0B /* UnderlineTextField.m in Sources */,
 				86BE9E1423D6E7AC003F8DE6 /* PLKeywordSearchView.m in Sources */,

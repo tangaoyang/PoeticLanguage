@@ -44,7 +44,6 @@ static PLLoginManager *manager = nil;
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
     NSString *sureURLStr = [NSString stringWithFormat:@"%@user/login.do?accountNumber=%@&password=%@", HTTP, account, password];
     [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"succeed0");
         AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
         NSString *sureURLStr = [NSString stringWithFormat:@"%@/user/update.do?name=%@&signature=%@", HTTP, name, signature];
         [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -63,9 +62,7 @@ static PLLoginManager *manager = nil;
     
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
     NSString *sureURLStr = [NSString stringWithFormat:@"%@user/login.do?accountNumber=%@&password=%@", HTTP, account, password];
-    [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"succeed0");
-        httpManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"text/json", @"text/javascript,multipart/form-data",nil];
+    [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) { httpManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"text/json", @"text/javascript,multipart/form-data",nil];
         NSDictionary *paramDict = @{};
         NSString *url = [NSString stringWithFormat:@"%@/user/upload_header.do", HTTP];
         //[manage.requestSerializer setValue:@"" forHTTPHeaderField:@"If-None-Match"];

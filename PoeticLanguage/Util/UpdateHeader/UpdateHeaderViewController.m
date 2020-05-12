@@ -104,7 +104,7 @@ static UpdateHeaderViewController *manager = nil;
         creatCollectionID = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:title].placeholderForCreatedAssetCollection.localIdentifier;
     } error:&error];
     if (error) {
-        NSLog(@"error == %@", error);
+        NSLog(@"相册error == %@", error);
         NSLog(@"创建相册失败");
         return nil;
     } else {

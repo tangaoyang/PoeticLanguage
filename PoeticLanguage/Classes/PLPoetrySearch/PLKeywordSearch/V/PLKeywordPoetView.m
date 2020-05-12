@@ -39,6 +39,7 @@
     cell.poetLabel.text = poetry.author;
     cell.contectTextView.text = [poetry.paragraphs substringWithRange:NSMakeRange(0, poetry.paragraphs.length - 1)];
     cell.timeLabel.text = poetry.dynasty;
+    cell.collectionButton.tag = [poetry.sid integerValue];
     [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
@@ -50,10 +51,8 @@
     } else {
         PoetsModel *poetry = _poetryArray[indexPath.row];
         NSDictionary *attri = @{NSFontAttributeName:[UIFont systemFontOfSize:20]};
-        NSLog(@"poetry.paragraphs = %@", poetry.paragraphs);
         //自适应高度
         CGSize size = [poetry.paragraphs boundingRectWithSize:CGSizeMake(W * 0.5, H) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
-        NSLog(@"size.height == %f", size.height);
         return size.height + 120;
     }
 }

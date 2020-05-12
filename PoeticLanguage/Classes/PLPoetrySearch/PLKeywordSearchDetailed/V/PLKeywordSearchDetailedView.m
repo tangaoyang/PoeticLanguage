@@ -23,7 +23,6 @@
         
         _number = 0;
         self.mainScrollView = [[UIScrollView alloc] init];
-        _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 3);
         _mainScrollView.alwaysBounceVertical = YES;
         _mainScrollView.scrollEnabled = YES;
         [self addSubview:_mainScrollView];
@@ -39,6 +38,8 @@
 
     float hight = [UIScreen mainScreen].bounds.size.height;
   
+    _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + self -> _number * 25 + 150);
+    
     _content = [_content stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     self.mainFirstLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_mainFirstLabel];
@@ -90,34 +91,14 @@
     self.allLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_allLabel];
     _allLabel.text = _poem.paragraphs;
-    NSLog(@"_poem.paragraphs = %@", _poem.paragraphs);
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_allLabel withSize:20];
     _allLabel.numberOfLines = 0;
     [_allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.top.mas_equalTo(self -> _dynastyLabel.mas_bottom).offset(20);
         make.height.mas_equalTo(@(self -> _number * 25 + 25));
-//        make.height.mas_equalTo(@(400));
+        make.width.mas_equalTo(self).offset(-30);
     }];
-    
-    NSLog(@"_number = %d", _number);
-   /*
-    self.historyLabel = [[UILabel alloc] init];
-    [_mainScrollView addSubview:_historyLabel];
-    _historyLabel.text = _poem.poetHistory;
-    [[ChangeFontTay sharedManger] downloadWithFontName:@"HannotateSC-W5"withLabel:_historyLabel withSize:18];
-    _historyLabel.numberOfLines = 0;
-    NSDictionary *attri = @{NSFontAttributeName:[UIFont systemFontOfSize:20]};
-    CGSize cContentSize = [_poem.poetHistory boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, [UIScreen mainScreen].bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
-    [_historyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self -> _allLabel.mas_bottom).offset(50);
-        make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
-        make.width.equalTo(@(cContentSize.width));
-        make.height.equalTo(@(cContentSize.height + 30));
-    }];
-
-    
-    */
     
     /* 蒲悦蓉写的人物动画部分 */
     float width = [UIScreen mainScreen].bounds.size.width;
