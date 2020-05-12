@@ -11,6 +11,9 @@
 #import "ChangeFontTay.h"
 #import "PLKeywordSearchDetailModel.h"
 
+/* 整首诗的位置top改为离屏幕一个屏幕高度*/
+
+
 @implementation PLKeywordSearchDetailedView
 
 - (instancetype)init
@@ -25,13 +28,17 @@
         _mainScrollView.scrollEnabled = YES;
         [self addSubview:_mainScrollView];
         _mainScrollView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-       
+      
+        _characterImageView = [[UIImageView alloc] init];
+        [self.mainScrollView addSubview:_characterImageView];
     }
     return self;
 }
 
 - (void)labelInit {
-    
+
+    float hight = [UIScreen mainScreen].bounds.size.height;
+  
     _content = [_content stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     self.mainFirstLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_mainFirstLabel];
@@ -39,7 +46,7 @@
     [[ChangeFontTay sharedManger] downloadWithFontName:@"HannotateSC-W5" withLabel:_mainFirstLabel withSize:32];
     _mainFirstLabel.numberOfLines = 0;
     [_mainFirstLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self -> _mainScrollView.mas_top).offset(80);
+        make.top.mas_equalTo(self -> _mainScrollView.mas_top).offset(0);
         make.left.mas_equalTo(self -> _mainScrollView.mas_left).offset(80);
         make.width.equalTo(@(34));
         make.height.equalTo(@((int)self->_content.length / 2 * 50));
@@ -63,7 +70,7 @@
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_nameLabel withSize:32];
     _nameLabel.numberOfLines = 0;
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self -> _mainFirstLabel.mas_bottom).offset(300);
+        make.top.mas_equalTo(self.mainScrollView.mas_top).offset(hight);
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.height.mas_equalTo(@(35));
     }];
@@ -108,7 +115,41 @@
         make.width.equalTo(@(cContentSize.width));
         make.height.equalTo(@(cContentSize.height + 30));
     }];
+
+    
     */
+    
+    /* 蒲悦蓉写的人物动画部分 */
+    float width = [UIScreen mainScreen].bounds.size.width;
+    float width0;
+    float hight0;
+    float left;
+    float top;
+    float bottom;
+    bottom = 0.85 * hight;
+    width0 = 0.9 * width;
+    hight0 = 0.5614 * hight;
+    top = 0.55 * hight;
+    left = 0.5 * width;    //0.8
+    [_characterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+   //     make.width.equalTo(@(width0));
+        make.height.equalTo(@(hight0));
+        make.bottom.equalTo(self.mainScrollView.mas_top).offset(bottom);
+//        make.centerY.equalTo(self.mainScrollView.mas_top).offset(top);
+        make.centerX.equalTo(self.mainScrollView.mas_left).offset(left);
+ //       make.left.equalTo(self.mainScrollView.mas_left).offset(left);
+    }];
+    _characterImageView.image = [UIImage imageNamed:@"CharacterAnimation1.jpeg"];
+    _characterImageView.contentMode = UIViewContentModeScaleAspectFit;
+    CABasicAnimation* moveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    moveAnimation.duration = 1;
+    hight0 = bottom - 0.2807 * hight;
+ //   left = 0.5 * width + _characterImageView.image.size.width / 2;
+    moveAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(width,hight0)];
+    moveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(left,hight0)];
+    [_characterImageView.layer addAnimation:moveAnimation forKey:@"poistion"];
+
+
 }
 
 
@@ -121,3 +162,7 @@
 */
 
 @end
+
+
+
+

@@ -20,7 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *backImage = [[UIImage imageNamed:@"pl_pc_fly.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+    UIImage *backImage = [[UIImage imageNamed:@"animation1.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.3;
