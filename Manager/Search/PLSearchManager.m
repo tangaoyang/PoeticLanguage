@@ -42,7 +42,7 @@ static PLSearchManager *manager = nil;
 - (void)getPoet:(SearchDetailModelBlock)successBlock error:(ErrorBlock)errorBlock sid:(NSString *)sid {
     
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
-    NSString *sureURLStr = [NSString stringWithFormat:@"%@/poet/get_poet.do?id=%@", HTTP, sid];
+    NSString *sureURLStr = [NSString stringWithFormat:@"%@/poet/get_poet.do?poetId=%@", HTTP, sid];
     [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         PLKeywordSearchDetailModel *searchDetailModel = [[PLKeywordSearchDetailModel alloc] initWithDictionary:responseObject error:nil];
         successBlock(searchDetailModel);

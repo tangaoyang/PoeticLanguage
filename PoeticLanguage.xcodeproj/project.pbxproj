@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; };
+		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		6811D56423EB1CA5002EC195 /* background2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6811D56323EB1CA5002EC195 /* background2.jpeg */; };
 		681EFE3023F059C0007EAA72 /* skirt2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 681EFE2E23F059BF007EAA72 /* skirt2.jpeg */; };
 		682401C1240E7BDB00866107 /* CharacterAnimation2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 682401BE240E7BDB00866107 /* CharacterAnimation2.jpeg */; };
@@ -81,6 +81,8 @@
 		861C6D4E23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */; };
 		861C6D5223D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */; };
 		861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */; };
+		861E9B0D2474297900D79651 /* PLRecitePoemsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861E9B0C2474297800D79651 /* PLRecitePoemsModel.m */; };
+		861E9B1024742B6A00D79651 /* PLReciteGetCollectsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861E9B0F24742B6A00D79651 /* PLReciteGetCollectsModel.m */; };
 		8621DB7E23D8AA9B00404A63 /* pl_ps_back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8621DB7D23D8AA9B00404A63 /* pl_ps_back_button.png */; };
 		8622A4BD2469B49E00DC0A47 /* PLKeywordSearchDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8622A4BC2469B49E00DC0A47 /* PLKeywordSearchDetailModel.m */; };
 		8622A4C02469C7B500DC0A47 /* PLKeywordAuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8622A4BF2469C7B500DC0A47 /* PLKeywordAuthorModel.m */; };
@@ -193,6 +195,7 @@
 		860BBA43240827B800E52BE3 /* PLSettingPersonalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSettingPersonalTableViewCell.h; sourceTree = "<group>"; };
 		860BBA44240827B800E52BE3 /* PLSettingPersonalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSettingPersonalTableViewCell.m; sourceTree = "<group>"; };
 		860BBA46240829EE00E52BE3 /* pl_pset_ex_personal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_pset_ex_personal.jpg; sourceTree = "<group>"; };
+		860D60FD247450EE00BAF22F /* PoeticLanguage copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PoeticLanguage copy-Info.plist"; path = "/Users/cinderella/Documents/PoeticLanguage/PoeticLanguage copy-Info.plist"; sourceTree = "<absolute>"; };
 		86118BA2240C094F00CC13E2 /* PLPoetryChallengeButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLPoetryChallengeButtonView.h; sourceTree = "<group>"; };
 		86118BA3240C094F00CC13E2 /* PLPoetryChallengeButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetryChallengeButtonView.m; sourceTree = "<group>"; };
 		861203B2246AF4D8005906F2 /* PLKeywordAuthorDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLKeywordAuthorDetailView.h; sourceTree = "<group>"; };
@@ -229,6 +232,10 @@
 		861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLPoetrySearchTableViewCell.m; sourceTree = "<group>"; };
 		861C6D5123D346CE000C5FEA /* pl_ps_tableview_exphoto.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto.jpeg; sourceTree = "<group>"; };
 		861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_background_knot.jpeg; sourceTree = "<group>"; };
+		861E9B0B2474297800D79651 /* PLRecitePoemsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLRecitePoemsModel.h; sourceTree = "<group>"; };
+		861E9B0C2474297800D79651 /* PLRecitePoemsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLRecitePoemsModel.m; sourceTree = "<group>"; };
+		861E9B0E24742B6A00D79651 /* PLReciteGetCollectsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLReciteGetCollectsModel.h; sourceTree = "<group>"; };
+		861E9B0F24742B6A00D79651 /* PLReciteGetCollectsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLReciteGetCollectsModel.m; sourceTree = "<group>"; };
 		8621DB7D23D8AA9B00404A63 /* pl_ps_back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pl_ps_back_button.png; sourceTree = "<group>"; };
 		8622A4BB2469B49E00DC0A47 /* PLKeywordSearchDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PLKeywordSearchDetailModel.h; path = Manager/Search/PLKeywordSearchDetailModel.h; sourceTree = SOURCE_ROOT; };
 		8622A4BC2469B49E00DC0A47 /* PLKeywordSearchDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLKeywordSearchDetailModel.m; path = Manager/Search/PLKeywordSearchDetailModel.m; sourceTree = SOURCE_ROOT; };
@@ -777,6 +784,10 @@
 		86B99D64240EB4660013D89B /* M */ = {
 			isa = PBXGroup;
 			children = (
+				861E9B0B2474297800D79651 /* PLRecitePoemsModel.h */,
+				861E9B0C2474297800D79651 /* PLRecitePoemsModel.m */,
+				861E9B0E24742B6A00D79651 /* PLReciteGetCollectsModel.h */,
+				861E9B0F24742B6A00D79651 /* PLReciteGetCollectsModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -896,6 +907,7 @@
 				86EB438B23CF60A200BADA71 /* Products */,
 				660F117F505B7CC145C53F70 /* Pods */,
 				5905B6CDA0EE1CC5B51DDE5C /* Frameworks */,
+				860D60FD247450EE00BAF22F /* PoeticLanguage copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1319,6 +1331,7 @@
 				86B99D70240EB54B0013D89B /* PLPoetryCompetitionView.m in Sources */,
 				869D340D23D201F3008D761B /* PLPoetrySearchMainViewController.m in Sources */,
 				86BE9E1B23D6EB7B003F8DE6 /* PLKeywordSearchDetailedViewController.m in Sources */,
+				861E9B1024742B6A00D79651 /* PLReciteGetCollectsModel.m in Sources */,
 				8622A4C02469C7B500DC0A47 /* PLKeywordAuthorModel.m in Sources */,
 				861A661323FD59B000515A0B /* PLLoginView.m in Sources */,
 				861203B4246AF4D8005906F2 /* PLKeywordAuthorDetailView.m in Sources */,
@@ -1340,6 +1353,7 @@
 				861A661023FD597E00515A0B /* PLRegisterView.m in Sources */,
 				869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */,
 				86234B9D245F48D5006B16EA /* PLSettingUpdateModel.m in Sources */,
+				861E9B0D2474297900D79651 /* PLRecitePoemsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1483,6 +1497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PoeticLanguage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1500,6 +1515,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PoeticLanguage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

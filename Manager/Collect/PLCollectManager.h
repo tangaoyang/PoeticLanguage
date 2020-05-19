@@ -11,15 +11,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class PLCollectModel;
+@class PLRecitePoemsModel;
+@class PLReciteGetCollectsModel;
 
 typedef void (^ErrorBlock)(NSError * _Nullable error);
 
 typedef void (^PLCollectModelBlock)(PLCollectModel * _Nullable collectModel);
+typedef void (^PLRecitePoemsModelBlock)(PLRecitePoemsModel * _Nullable recitePoemsModel);
+typedef void (^PLReciteGetCollectsModelBlock)(PLReciteGetCollectsModel * _Nullable getCollectsModel);
 
 @interface PLCollectManager : NSObject
 
 + (instancetype)sharedManager;
 - (void)collectMessage:(PLCollectModelBlock)successBlock error:(ErrorBlock)errorBlock id:(NSString *)cid;
+- (void)rememberMessage:(PLRecitePoemsModelBlock)successBlock error:(ErrorBlock)errorBlock id:(NSString *)cid;
+- (void)cancelRememberMessage:(PLRecitePoemsModelBlock)successBlock error:(ErrorBlock)errorBlock id:(NSString *)cid;
+- (void)getCollects:(PLReciteGetCollectsModelBlock)successBlock error:(ErrorBlock)errorBlock;
 
 @end
 
