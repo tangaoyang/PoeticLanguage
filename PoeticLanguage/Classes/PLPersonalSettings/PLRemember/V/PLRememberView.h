@@ -1,8 +1,8 @@
 //
-//  PLRecitePoemsView.h
+//  PLRememberView.h
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/3/3.
+//  Created by cinderella on 2020/5/21.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
@@ -10,14 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PLRecitePoemsView : UIView
+@interface PLRememberView : UIView
 <
 UITableViewDelegate,
 UITableViewDataSource
 >
 
 @property (nonatomic, strong) NSArray *poetryArray;
-@property (nonatomic, strong) UITableView *reciteTableView;
+@property (nonatomic, strong) UITableView *rememberTableView;
 @property (nonatomic, strong) NSMutableArray *sizeHeightArray;
 
 - (instancetype)initWithArray:(NSArray *)array;

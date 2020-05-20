@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PLPoetryCompetitionView *competitionView;
 @property (nonatomic, strong) PLRecitePoemsView *reciteView;
 @property (nonatomic, strong) UIScrollView *challengeScrollView;
+@property (nonatomic, strong) NSArray *poemArray;
+
+- (void)viewInit;
 
 @end
 

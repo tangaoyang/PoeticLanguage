@@ -1,29 +1,24 @@
-
 //
-//  PLPoetryChallengeMainViewController.m
+//  PLRememberViewController.m
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/3/1.
+//  Created by cinderella on 2020/5/21.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
-#import "PLPoetryChallengeMainViewController.h"
-#import "PLPoetryChallengeMainView.h"
-#import "PLRecitePoemsView.h"
-#import "PLPSCellButton.h"
-#import "PLKeywordSearchDetailedViewController.h"
+#import "PLRememberViewController.h"
+#import "PLRememberView.h"
 #import "PLCollectManager.h"
-#import "PLCollectModel.h"
-#import "PLCollectManager.h"
+#import "PLRememberModel.h"
 #import "PLSearchManager.h"
-#import "PLReciteGetCollectsModel.h"
+#import "PLKeywordSearchDetailedViewController.h"
 #import "PLKeywordSearchDetailModel.h"
 
-@interface PLPoetryChallengeMainViewController ()
+@interface PLRememberViewController ()
 
 @end
 
-@implementation PLPoetryChallengeMainViewController
+@implementation PLRememberViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,26 +30,24 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.navigationController.navigationBar.topItem.title = @"";
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    self.navigationController.navigationBar.topItem.title = @"已背过的诗词";
     self.tabBarController.tabBar.hidden = NO;
     
-    [[PLCollectManager sharedManager] getCollects:^(PLReciteGetCollectsModel * _Nullable getCollectsModel) {
-        if ([getCollectsModel.msg isEqualToString:@"ok"]) {
-            self.myView = [[PLPoetryChallengeMainView alloc] init];
+    [[PLCollectManager sharedManager] getRemember:^(PLRememberModel * _Nullable rememberModel) {
+        if ([rememberModel.msg isEqualToString:@"ok"]) {
+            self -> _myView = [[PLRememberView alloc] initWithArray:rememberModel.poet];
             self -> _myView.frame = self.view.bounds;
-            self -> _myView.poemArray = getCollectsModel.poet;
-            [self -> _myView viewInit];
             [self.view addSubview:self -> _myView];
         } else {
-            NSLog(@"getCollectsModel.msg == %@", getCollectsModel.msg);
+            NSLog(@"rememberModel.msg == %@", rememberModel.msg);
         }
     } error:^(NSError * _Nullable error) {
-        NSLog(@"getCollectsModel error = %@", error);
+        NSLog(@"remember error == %@", error);
     }];
     
 }
-
+/*
 - (void)buttonClick:(NSNotification *)keyword {
     NSDictionary *getDictionary = keyword.userInfo;
     PLPSCellButton *button = getDictionary[@"button"];
@@ -79,13 +72,13 @@
         [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         button.buttonLabel.text = @"收藏";
     }
-}
+}*/
 
 - (void)goPoem:(NSNotification *)keyword {
-//    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
-//    NSDictionary *getDictionary = keyword.userInfo;
-//    detail.keyword = getDictionary[@"key"];
-//    [self.navigationController pushViewController:detail animated:NO];
+    //    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
+    //    NSDictionary *getDictionary = keyword.userInfo;
+    //    detail.keyword = getDictionary[@"key"];
+    //    [self.navigationController pushViewController:detail animated:NO];
     NSDictionary *getDictionary = keyword.userInfo;
     [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
         if ([searchDetailModel.msg isEqualToString:@"ok"]) {
@@ -93,7 +86,6 @@
             PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
             detail.keyword = searchDetailModel.poet;
             detail.content = getDictionary[@"poemContent"];
-            [detail setHand];
             [self.navigationController pushViewController:detail animated:NO];
         } else {
             NSLog(@"searchDetailModel.msg == %@", searchDetailModel.msg);

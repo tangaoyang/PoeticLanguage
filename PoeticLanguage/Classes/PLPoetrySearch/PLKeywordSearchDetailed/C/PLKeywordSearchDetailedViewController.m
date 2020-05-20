@@ -9,6 +9,8 @@
 #import "PLKeywordSearchDetailedViewController.h"
 #import "PLKeywordSearchDetailedView.h"
 #import "PLKeywordSearchDetailModel.h"
+#import "PLCollectManager.h"
+#import "PLRecitePoemsModel.h"
 #define W ([UIScreen mainScreen].bounds.size.width)
 #define H ([UIScreen mainScreen].bounds.size.height)
 
@@ -64,6 +66,8 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.topItem.title = _keyword.title;
+    [self.navigationItem.backBarButtonItem setImage:[UIImage imageNamed:@"pl_ps_back_button.png"]];
+    [self.navigationItem.backBarButtonItem setTitle:@""];
 }
 
 - (void)setHand {
@@ -72,15 +76,25 @@
     //设置手势
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(openMenuClick)];
     [self.view addGestureRecognizer:self.panGestureRecognizer];
+    
 }
 
 - (void)openMenuClick {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜，您已完成这篇诗词的背诵！" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController popViewControllerAnimated:NO];
-    }];
-    [alert addAction:sure];
-    [self presentViewController:alert animated:NO completion:nil];
+    [[PLCollectManager sharedManager] rememberMessage:^(PLRecitePoemsModel * _Nullable recitePoemsModel) {
+        if ([recitePoemsModel.msg isEqualToString:@"ok"]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜，您已完成这篇诗词的背诵！" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self.navigationController popViewControllerAnimated:NO];
+            }];
+            [alert addAction:sure];
+            [self presentViewController:alert animated:NO completion:nil];
+        } else {
+            NSLog(@"recitePoemsModel.msg == %@", recitePoemsModel.msg);
+        }
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"remember error == %@", error);
+    } id:_keyword.sid];
+    
 }
 
 /*

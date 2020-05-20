@@ -138,6 +138,11 @@
         NSNotification *collect = [NSNotification notificationWithName:@"collect" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:collect];
     }
+    //背过
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        NSNotification *remember = [NSNotification notificationWithName:@"remember" object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:remember];
+    }
     //退出
     if (indexPath.section == 2 && indexPath.row == 1) {
         NSNotification *exit = [NSNotification notificationWithName:@"exit" object:self];

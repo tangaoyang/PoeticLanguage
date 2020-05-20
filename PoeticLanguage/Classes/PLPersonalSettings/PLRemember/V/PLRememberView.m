@@ -1,13 +1,12 @@
-
 //
-//  PLRecitePoemsView.m
+//  PLRememberView.m
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/3/3.
+//  Created by cinderella on 2020/5/21.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
-#import "PLRecitePoemsView.h"
+#import "PLRememberView.h"
 #import <Masonry.h>
 #import "ChangeFontTay.h"
 #import "PLPoetrySearchTableViewCell.h"
@@ -16,8 +15,7 @@
 #define H [UIScreen mainScreen].bounds.size.height
 #define W [UIScreen mainScreen].bounds.size.width
 
-
-@implementation PLRecitePoemsView
+@implementation PLRememberView
 
 - (instancetype)initWithArray:(NSArray *)array {
     self = [super init];
@@ -28,17 +26,18 @@
         if (array.count == 0) {
             UILabel *emptyLabel = [[UILabel alloc] init];
             [self addSubview:emptyLabel];
-            emptyLabel.text = @"目前还没有收藏的诗词！";
+            emptyLabel.text = @"目前还没有背过的诗词！";
             emptyLabel.textAlignment = NSTextAlignmentCenter;
             [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaitiSC-Regular" withLabel:emptyLabel withSize:25];
             emptyLabel.frame = CGRectMake(0, ([UIScreen mainScreen].bounds.size.height - 95 - 50) / 2 - 30, [UIScreen mainScreen].bounds.size.width, 30);
         } else {
-            self.reciteTableView = [[UITableView alloc] init];
-            _reciteTableView.delegate = self;
-            _reciteTableView.dataSource = self;
-            _reciteTableView.backgroundColor = [UIColor clearColor];
-            [_reciteTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"reciteCell"];
-            _reciteTableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+            self.rememberTableView = [[UITableView alloc] init];
+            _rememberTableView.delegate = self;
+            _rememberTableView.dataSource = self;
+            _rememberTableView.backgroundColor = [UIColor clearColor];
+            [_rememberTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"rememberCell"];
+            _rememberTableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+            [self addSubview:_rememberTableView];
             
         }
         _poetryArray = array;
@@ -48,7 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"_poetryArray =  %@", _poetryArray);
-    PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reciteCell" forIndexPath:indexPath];
+    PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rememberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UIAccessibilityTraitNone;
     PoetsModel *poetry = _poetryArray[indexPath.row];

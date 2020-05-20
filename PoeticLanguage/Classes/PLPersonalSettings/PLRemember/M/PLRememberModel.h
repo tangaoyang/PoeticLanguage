@@ -1,8 +1,8 @@
 //
-//  PLReciteGetCollectsModel.h
+//  PLRememberModel.h
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/5/19.
+//  Created by cinderella on 2020/5/20.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GetPoetsModel <NSObject>
+@protocol RememberPoetsModel <NSObject>
 
 @end
 
-@interface GetPoetsModel : JSONModel
+@interface RememberPoetsModel : JSONModel
 
 @property (nonatomic, copy) NSString *sid;
 @property (nonatomic, copy) NSString *author;
@@ -24,10 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface PLReciteGetCollectsModel : JSONModel
+@interface PLRememberModel : JSONModel
 
 @property (nonatomic, copy) NSString *msg;
-@property (nonatomic, strong) NSArray<GetPoetsModel> *poet;
+@property (nonatomic, strong) NSArray<RememberPoetsModel> *poet;
 
 @end
 

@@ -37,25 +37,28 @@
         _challengeScrollView.pagingEnabled = YES;
         [self addSubview:_challengeScrollView];
         
-        self.reciteView = [[PLRecitePoemsView alloc] init];
-        [_challengeScrollView addSubview:_reciteView];
-        [_challengeScrollView addSubview:_reciteView.reciteTableView];
-        _reciteView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height);
-        
-        self.competitionView = [[PLPoetryCompetitionView alloc] init];
-        [_challengeScrollView addSubview:_competitionView];
-        [_challengeScrollView addSubview:_competitionView.beginButton];
-        [_competitionView.beginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self->_competitionView.introduceLabel.mas_bottom).offset(30);
-            make.right.mas_equalTo(self->_competitionView.introduceLabel).offset(-20);
-            make.height.equalTo(@60);
-            make.width.mas_equalTo(@150);
-        }];
-        [_competitionView.beginButton addTarget:self action:@selector(battle) forControlEvents:UIControlEventTouchUpInside];
-        _competitionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height);
-        
+        self.poemArray = [[NSArray alloc] init];
     }
     return self;
+}
+
+- (void)viewInit {
+    self.reciteView = [[PLRecitePoemsView alloc] initWithArray:_poemArray];
+    [_challengeScrollView addSubview:_reciteView];
+    [_challengeScrollView addSubview:_reciteView.reciteTableView];
+    _reciteView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height);
+    
+    self.competitionView = [[PLPoetryCompetitionView alloc] init];
+    [_challengeScrollView addSubview:_competitionView];
+    [_challengeScrollView addSubview:_competitionView.beginButton];
+    [_competitionView.beginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self->_competitionView.introduceLabel.mas_bottom).offset(30);
+        make.right.mas_equalTo(self->_competitionView.introduceLabel).offset(-20);
+        make.height.equalTo(@60);
+        make.width.mas_equalTo(@150);
+    }];
+    [_competitionView.beginButton addTarget:self action:@selector(battle) forControlEvents:UIControlEventTouchUpInside];
+    _competitionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height);
 }
 
 - (void)battle {

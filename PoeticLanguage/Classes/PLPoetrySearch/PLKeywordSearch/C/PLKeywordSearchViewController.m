@@ -64,7 +64,7 @@
 }
 
 - (void)jumpView:(NSNotification *)keyword {
-    
+     
     NSDictionary *getDictionary = keyword.userInfo;
     [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
         if ([searchDetailModel.msg isEqualToString:@"ok"]) {

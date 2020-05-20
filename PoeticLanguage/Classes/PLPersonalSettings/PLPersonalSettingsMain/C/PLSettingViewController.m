@@ -12,6 +12,7 @@
 #import "PLLoginManager.h"
 #import "PLSettingUpdateViewController.h"
 #import "PLSettingUpdateHeaderModel.h"
+#import "PLRememberViewController.h"
 #import <Photos/Photos.h>
 
 @interface PLSettingViewController ()
@@ -34,6 +35,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collect) name:@"collect" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exit) name:@"exit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImage) name:@"changeImage" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remember) name:@"remember" object:nil];
     
 }
 
@@ -66,6 +68,11 @@
 
 - (void)collect {
     
+}
+
+- (void)remember {
+    PLRememberViewController *rememberViewController = [[PLRememberViewController alloc] init];
+    [self.navigationController pushViewController:rememberViewController animated:NO];
 }
 
 - (void)changeImage {
