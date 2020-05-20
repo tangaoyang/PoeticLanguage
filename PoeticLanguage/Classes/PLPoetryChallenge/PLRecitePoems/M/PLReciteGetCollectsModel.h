@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PoetsModel : JSONModel
+@interface GetPoetsModel : JSONModel
 
 @property (nonatomic, copy) NSString *sid;
 @property (nonatomic, copy) NSString *author;
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PLReciteGetCollectsModel : JSONModel
 
 @property (nonatomic, copy) NSString *msg;
-@property (nonatomic, strong) PoetsModel *poet;
+@property (nonatomic, strong) GetPoetsModel *poet;
 
 @end
 

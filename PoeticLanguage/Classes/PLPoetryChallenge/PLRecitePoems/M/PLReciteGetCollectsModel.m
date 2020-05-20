@@ -14,7 +14,7 @@
 }
 @end
 
-@implementation PoetsModel
+@implementation GetPoetsModel
 +(BOOL)propertyIsOptional:(NSString *)propertyName{
     return  YES;
 }
