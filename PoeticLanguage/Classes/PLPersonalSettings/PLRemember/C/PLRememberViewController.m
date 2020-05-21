@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buttonClick:) name:@"buttonClick" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goPoem:) name:@"recitePoem" object:nil];
     
 }
@@ -47,38 +46,8 @@
     }];
     
 }
-/*
-- (void)buttonClick:(NSNotification *)keyword {
-    NSDictionary *getDictionary = keyword.userInfo;
-    PLPSCellButton *button = getDictionary[@"button"];
-    [[PLCollectManager sharedManager] collectMessage:^(PLCollectModel * _Nullable collectModel) {
-        if ([collectModel.msg isEqualToString:@"ok"]) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"操作成功！" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-            [alert addAction:sure];
-            [self presentViewController:alert animated:NO completion:nil];
-        } else {
-            NSLog(@"collectModel.msg = %@", collectModel.msg);
-        }
-    } error:^(NSError * _Nullable error) {
-        NSLog(@"collect error == %@", error);
-    } id:[NSString stringWithFormat: @"%ld", (long)button.tag]];
-    if(button.selected == NO) {
-        button.selected = YES;
-        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        button.buttonLabel.text = @"已收藏";
-    } else {
-        button.selected = NO;
-        [button.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-        button.buttonLabel.text = @"收藏";
-    }
-}*/
 
 - (void)goPoem:(NSNotification *)keyword {
-    //    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
-    //    NSDictionary *getDictionary = keyword.userInfo;
-    //    detail.keyword = getDictionary[@"key"];
-    //    [self.navigationController pushViewController:detail animated:NO];
     NSDictionary *getDictionary = keyword.userInfo;
     [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
         if ([searchDetailModel.msg isEqualToString:@"ok"]) {

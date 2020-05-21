@@ -12,6 +12,8 @@
 #import "PLPoetrySearchTableViewCell.h"
 #import "PLPSCellButton.h"
 #import "PLPoetrySearchMainModel.h"
+#import "PLCollectManager.h"
+#import "PLCancelRememberModel.h"
 #define H [UIScreen mainScreen].bounds.size.height
 #define W [UIScreen mainScreen].bounds.size.width
 
@@ -54,9 +56,7 @@
     cell.poetLabel.text = poetry.author;
     cell.contectTextView.text = [poetry.paragraphs substringWithRange:NSMakeRange(0, poetry.paragraphs.length - 1)];
     cell.timeLabel.text = poetry.dynasty;
-    cell.collectionButton.tag = [poetry.sid integerValue];
-    [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
-    
+    cell.collectionButton.hidden = YES;
     return cell;
 }
 
@@ -82,10 +82,41 @@
     [[NSNotificationCenter defaultCenter] postNotification:noti];
 }
 
+//tableView自带的左滑删除
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
-- (void)collect:(PLPSCellButton *) button {
-    NSNotification *buttonNsno = [NSNotification notificationWithName:@"buttonClick" object:self userInfo:@{@"button":button}];
-    [[NSNotificationCenter defaultCenter] postNotification:buttonNsno];
+// 定义编辑样式
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+   return UITableViewCellEditingStyleDelete;
+}
+
+// 进入编辑模式，按下出现的编辑按钮后,进行删除操作
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    //这里做删除操作
+    NSLog(@"delete");
+      PoetsModel *poetry = _poetryArray[indexPath.row];
+      [[PLCollectManager sharedManager] cancelRemember:^(PLCancelRememberModel * _Nullable cancelRememberModel) {
+          if ([cancelRememberModel.msg isEqualToString:@"ok"]) {
+              [tableView reloadData];
+          } else {
+              NSLog(@"cancelRememberModel.msg == %@", cancelRememberModel.msg);
+          }
+      } error:^(NSError * _Nullable error) {
+          NSLog(@"cancelRemember error == %@", error);
+      } id:poetry.sid];
+      
+  }
+    
+}
+
+// 修改编辑按钮文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+   return @"删除，加入收藏";
 }
 
 /*

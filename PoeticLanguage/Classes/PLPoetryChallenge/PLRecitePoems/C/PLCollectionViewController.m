@@ -1,14 +1,13 @@
 
 //
-//  PLPoetryChallengeMainViewController.m
+//  PLCollectionViewController.m
 //  PoeticLanguage
 //
-//  Created by cinderella on 2020/3/1.
+//  Created by cinderella on 2020/5/22.
 //  Copyright © 2020 cinderella. All rights reserved.
 //
 
-#import "PLPoetryChallengeMainViewController.h"
-#import "PLPoetryChallengeMainView.h"
+#import "PLCollectionViewController.h"
 #import "PLRecitePoemsView.h"
 #import "PLPSCellButton.h"
 #import "PLKeywordSearchDetailedViewController.h"
@@ -18,11 +17,11 @@
 #import "PLReciteGetCollectsModel.h"
 #import "PLKeywordSearchDetailModel.h"
 
-@interface PLPoetryChallengeMainViewController ()
+@interface PLCollectionViewController ()
 
 @end
 
-@implementation PLPoetryChallengeMainViewController
+@implementation PLCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,17 +36,17 @@
     while ([self.view.subviews lastObject] != nil) {
         [(UIView *)[self.view.subviews lastObject] removeFromSuperview];
     }
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.topItem.title = @"";
     self.tabBarController.tabBar.hidden = NO;
     
     [[PLCollectManager sharedManager] getCollects:^(PLReciteGetCollectsModel * _Nullable getCollectsModel) {
         if ([getCollectsModel.msg isEqualToString:@"ok"]) {
-            self.myView = [[PLPoetryChallengeMainView alloc] init];
+            self.myView = [[PLRecitePoemsView alloc] initWithArray:getCollectsModel.poet];
             self -> _myView.frame = self.view.bounds;
-            self -> _myView.poemArray = getCollectsModel.poet;
-            [self -> _myView viewInit];
             [self.view addSubview:self -> _myView];
+            [self.view addSubview:self -> _myView.reciteTableView];
+            self -> _myView.reciteTableView.frame = self.view.bounds;
         } else {
             NSLog(@"getCollectsModel.msg == %@", getCollectsModel.msg);
         }
@@ -84,10 +83,10 @@
 }
 
 - (void)goPoem:(NSNotification *)keyword {
-//    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
-//    NSDictionary *getDictionary = keyword.userInfo;
-//    detail.keyword = getDictionary[@"key"];
-//    [self.navigationController pushViewController:detail animated:NO];
+    //    PLKeywordSearchDetailedViewController *detail = [[PLKeywordSearchDetailedViewController alloc] init];
+    //    NSDictionary *getDictionary = keyword.userInfo;
+    //    detail.keyword = getDictionary[@"key"];
+    //    [self.navigationController pushViewController:detail animated:NO];
     NSDictionary *getDictionary = keyword.userInfo;
     [[PLSearchManager sharedManager] getPoet:^(PLKeywordSearchDetailModel * _Nullable searchDetailModel) {
         if ([searchDetailModel.msg isEqualToString:@"ok"]) {

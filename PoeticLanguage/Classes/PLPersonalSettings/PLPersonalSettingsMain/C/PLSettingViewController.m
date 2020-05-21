@@ -13,6 +13,8 @@
 #import "PLSettingUpdateViewController.h"
 #import "PLSettingUpdateHeaderModel.h"
 #import "PLRememberViewController.h"
+#import "PLPoetryChallengeMainViewController.h"
+#import "PLCollectionViewController.h"
 #import <Photos/Photos.h>
 
 @interface PLSettingViewController ()
@@ -67,7 +69,8 @@
 }
 
 - (void)collect {
-    
+    PLCollectionViewController *collectionViewController = [[PLCollectionViewController alloc] init];
+    [self.navigationController pushViewController:collectionViewController animated:NO];
 }
 
 - (void)remember {

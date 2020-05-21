@@ -52,6 +52,8 @@
 		8604982623E88502007C91FB /* PLDIYBabyOthersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604982523E88502007C91FB /* PLDIYBabyOthersView.m */; };
 		8604982923E88546007C91FB /* PLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604982823E88546007C91FB /* PLImageView.m */; };
 		8604983723E885C4007C91FB /* roy3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 8604983123E885C4007C91FB /* roy3.JPG */; };
+		8604F4052476E8750011399B /* PLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604F4042476E8750011399B /* PLCollectionViewController.m */; };
+		8604F4082476EF0D0011399B /* PLCancelRememberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8604F4072476EF0D0011399B /* PLCancelRememberModel.m */; };
 		86059B852457DB8E00A280A6 /* PLRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B842457DB8E00A280A6 /* PLRegisterManager.m */; };
 		86059B882457E94800A280A6 /* PLLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B872457E94800A280A6 /* PLLoginModel.m */; };
 		86059B8D2457E9AE00A280A6 /* PLLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86059B8C2457E9AE00A280A6 /* PLLoginManager.m */; };
@@ -180,6 +182,10 @@
 		8604982723E88546007C91FB /* PLImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLImageView.h; sourceTree = "<group>"; };
 		8604982823E88546007C91FB /* PLImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLImageView.m; sourceTree = "<group>"; };
 		8604983123E885C4007C91FB /* roy3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roy3.JPG; sourceTree = "<group>"; };
+		8604F4032476E8750011399B /* PLCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCollectionViewController.h; sourceTree = "<group>"; };
+		8604F4042476E8750011399B /* PLCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCollectionViewController.m; sourceTree = "<group>"; };
+		8604F4062476EF0D0011399B /* PLCancelRememberModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCancelRememberModel.h; sourceTree = "<group>"; };
+		8604F4072476EF0D0011399B /* PLCancelRememberModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCancelRememberModel.m; sourceTree = "<group>"; };
 		86059B832457DB8E00A280A6 /* PLRegisterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PLRegisterManager.h; path = Manager/Register/PLRegisterManager.h; sourceTree = SOURCE_ROOT; };
 		86059B842457DB8E00A280A6 /* PLRegisterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PLRegisterManager.m; path = Manager/Register/PLRegisterManager.m; sourceTree = SOURCE_ROOT; };
 		86059B862457E94800A280A6 /* PLLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLLoginModel.h; sourceTree = "<group>"; };
@@ -511,6 +517,8 @@
 			children = (
 				8606F2012475431000883E40 /* PLRememberModel.h */,
 				8606F2022475431000883E40 /* PLRememberModel.m */,
+				8604F4062476EF0D0011399B /* PLCancelRememberModel.h */,
+				8604F4072476EF0D0011399B /* PLCancelRememberModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -842,6 +850,8 @@
 		86B99D62240EB4540013D89B /* C */ = {
 			isa = PBXGroup;
 			children = (
+				8604F4032476E8750011399B /* PLCollectionViewController.h */,
+				8604F4042476E8750011399B /* PLCollectionViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1378,6 +1388,7 @@
 				86234B97245F1A09006B16EA /* PLSettingUpdateOtherTableViewCell.m in Sources */,
 				861A661C23FD616D00515A0B /* PLLoginViewController.m in Sources */,
 				86059B8D2457E9AE00A280A6 /* PLLoginManager.m in Sources */,
+				8604F4082476EF0D0011399B /* PLCancelRememberModel.m in Sources */,
 				861A660D23FD595B00515A0B /* PLRegisterViewController.m in Sources */,
 				861203C1246B09C1005906F2 /* PLCollectModel.m in Sources */,
 				861203B7246AF4E8005906F2 /* PLKeywordAuthorDetailViewController.m in Sources */,
@@ -1387,6 +1398,7 @@
 				86EB439223CF60A200BADA71 /* ViewController.m in Sources */,
 				8604982923E88546007C91FB /* PLImageView.m in Sources */,
 				8622A4BD2469B49E00DC0A47 /* PLKeywordSearchDetailModel.m in Sources */,
+				8604F4052476E8750011399B /* PLCollectionViewController.m in Sources */,
 				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
 				861203BB246B0451005906F2 /* PLCollectManager.m in Sources */,
 				862D323E2457428300AD5E02 /* PLRegisterModel.m in Sources */,

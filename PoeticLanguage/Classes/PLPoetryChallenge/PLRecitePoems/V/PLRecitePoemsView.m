@@ -38,7 +38,7 @@
             _reciteTableView.dataSource = self;
             _reciteTableView.backgroundColor = [UIColor clearColor];
             [_reciteTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"reciteCell"];
-            _reciteTableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+            _reciteTableView.frame = CGRectMake(0, 0, W, H - 165);
             
         }
         _poetryArray = array;
