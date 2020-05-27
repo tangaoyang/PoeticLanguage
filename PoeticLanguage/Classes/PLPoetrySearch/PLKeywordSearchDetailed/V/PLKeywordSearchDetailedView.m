@@ -93,6 +93,7 @@
     _allLabel.text = _poem.paragraphs;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_allLabel withSize:20];
     _allLabel.numberOfLines = 0;
+    NSLog(@"%@", _poem.paragraphs);
     [_allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.top.mas_equalTo(self -> _dynastyLabel.mas_bottom).offset(20);

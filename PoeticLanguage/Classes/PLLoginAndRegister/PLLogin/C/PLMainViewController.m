@@ -89,7 +89,7 @@
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = navArr;
-    tabBarController.view.tintColor = [UIColor colorWithRed:228/255.0 green:20/255.0 blue:20/255.0 alpha:1.0];
+    tabBarController.view.tintColor = [UIColor colorWithRed:0 green:111/255.0 blue:31/255.0 alpha:1];
     tabBarController.view.backgroundColor = [UIColor whiteColor];
     tabBarController.tabBar.translucent = NO;
     
