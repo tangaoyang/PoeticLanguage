@@ -13,6 +13,7 @@
 #import "PLSearchManager.h"
 #import "PLKeywordSearchDetailedViewController.h"
 #import "PLKeywordSearchDetailModel.h"
+#import "PLCancelRememberModel.h"
 
 @interface PLRememberViewController ()
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goPoem:) name:@"recitePoem" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteRemember:) name:@"delete" object:nil];
     
 }
 
@@ -63,6 +65,19 @@
     } error:^(NSError * _Nullable error) {
         NSLog(@"detailError == %@", error);
     } sid:getDictionary[@"key"]];
+}
+
+- (void)deleteRemember:(NSNotification *)keyword {
+    NSDictionary *getDictionary = keyword.userInfo;
+    [[PLCollectManager sharedManager] cancelRemember:^(PLCancelRememberModel * _Nullable cancelRememberModel) {
+        if ([cancelRememberModel.msg isEqualToString:@"ok"]) {
+            [self viewWillAppear:NO];
+        } else {
+            NSLog(@"cancelRememberModel.msg == %@", cancelRememberModel.msg);
+        }
+    } error:^(NSError * _Nullable error) {
+        NSLog(@"cancelRemember error == %@", error);
+    } id:getDictionary[@"poemId"]];
 }
 
 /*

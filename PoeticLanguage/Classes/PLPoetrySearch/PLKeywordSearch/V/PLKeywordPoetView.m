@@ -25,6 +25,10 @@
         _searchTableView.backgroundColor = [UIColor clearColor];
         [_searchTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"searchCell"];
         _searchTableView.frame = CGRectMake(0, 0, W, H - 142);
+        
+        UIView *whiteView = [[UIView alloc] init];
+        _searchTableView.tableFooterView = whiteView;
+
         _poetryArray = array;
     }
     return self;

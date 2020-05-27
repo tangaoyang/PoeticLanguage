@@ -39,6 +39,7 @@
             _reciteTableView.backgroundColor = [UIColor clearColor];
             [_reciteTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"reciteCell"];
             _reciteTableView.frame = CGRectMake(0, 0, W, H - 165);
+            _reciteTableView.tableFooterView = [[UIView alloc] init];
             
         }
         _poetryArray = array;
@@ -47,7 +48,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"_poetryArray =  %@", _poetryArray);
+    
     PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reciteCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UIAccessibilityTraitNone;

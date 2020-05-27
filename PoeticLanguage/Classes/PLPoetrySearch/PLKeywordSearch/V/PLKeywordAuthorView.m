@@ -25,6 +25,9 @@
         [_searchTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"searchCell"];
         _searchTableView.frame = CGRectMake(W, 0,  W, H);
         
+        UIView *whiteView = [[UIView alloc] init];
+        _searchTableView.tableFooterView = whiteView;
+        
         _authorArray = array;
         NSLog(@"array == %@", array);
     }
