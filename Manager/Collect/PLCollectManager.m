@@ -68,6 +68,7 @@ static NSString *password;
         [httpManager GET:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"%@", responseObject);
             PLRecitePoemsModel *reciteModel = [[PLRecitePoemsModel alloc] initWithDictionary:responseObject error:nil];
+            NSLog(@"%@", reciteModel);
             successBlock(reciteModel);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             errorBlock(error);
