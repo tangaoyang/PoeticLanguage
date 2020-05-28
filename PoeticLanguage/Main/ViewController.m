@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PLDailySharingViewController.h"
 #import "PLPoetrySearchMainViewController.h"
 #import "PLDIYBabyController.h"
 #import "PLSettingViewController.h"
@@ -23,7 +24,7 @@
 //    [self performSelector:@selector(go) withObject:self afterDelay:0];
 }
 - (void)go {
-    PLPoetrySearchMainViewController *search = [[PLPoetrySearchMainViewController alloc] init];
+    PLDailySharingViewController *search = [[PLDailySharingViewController alloc] init];
     UINavigationController *searchNav = [[UINavigationController alloc] initWithRootViewController:search];
     searchNav.title = @"每日分享";
     [searchNav.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15], NSFontAttributeName, nil] forState:UIControlStateNormal];

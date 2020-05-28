@@ -7,7 +7,6 @@
 //
 
 #import "PLDIYBabyController.h"
-#import "Masonry.h"
 
 @interface PLDIYBabyController ()
 
@@ -20,7 +19,10 @@
 @property NSInteger tagForChange;
 @property UIButton *nowClickedBtn;
 @property PLDIYBabyM *model;
-
+@property PLSaveModel *saveModel;
+@property NSInteger lookAdded;     //这三个从1开始存
+@property NSInteger dressAdded;
+@property NSInteger hairAdded;
 @end
 
 @implementation PLDIYBabyController
@@ -28,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _saveModel = [[PLSaveModel alloc] init];
     
     _width = [UIScreen mainScreen].bounds.size.width;
     _hight = [UIScreen mainScreen].bounds.size.height;
@@ -44,10 +48,6 @@
     [_diyView.lookButton setTitle:@"妆容" forState:UIControlStateNormal];
     [_diyView.hairButton setTitle:@"发型" forState:UIControlStateNormal];
     [_diyView.skirtButton setTitle:@"连衣裙" forState:UIControlStateNormal];
-    [_diyView.upButton setTitle:@"上衣" forState:UIControlStateNormal];
-    [_diyView.downButton setTitle:@"下衣" forState:UIControlStateNormal];
-    [_diyView.shoesButton setTitle:@"鞋子" forState:UIControlStateNormal];
-    [_diyView.decorationButton setTitle:@"装饰" forState:UIControlStateNormal];
     [_diyView.backgroundButton setTitle:@"背景" forState:UIControlStateNormal];
     [self.view addSubview:_diyView];
     
@@ -59,25 +59,28 @@
     _detailScrollView.scrollEnabled = YES;
     _detailScrollView.bounces = NO;
     
-# pragma mark
+
     _diyView.babyView.lookImageView.image = [UIImage imageNamed:@"look2.jpeg"];
-    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt8.jpeg"];
-    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair1.jpeg"];
+    _diyView.babyView.clothesImageView.image = [UIImage imageNamed:@"skirt2.jpeg"];
+    _diyView.babyView.hairImageView.image = [UIImage imageNamed:@"hair2.jpeg"];
+    _hairAdded = 2;
+    _dressAdded = 2;
+    _lookAdded = 2;
     // 340*250  0.888 0.557 0.015 0.03 --
-    float width0 = 0.8 * _width;
-    float hight0 = 1.517 * width0;
-    float top = -0.048 * _hight;
-    float left = 0.215 * _width;
+    float width0 = 0.95 * _width;
+    float hight0 = 1.691 * _width;
+    float left = -0.06 * _width;
+    float top = -0.095 * _hight;
     [_diyView.babyView.clothesImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
         make.left.equalTo(self.diyView.babyView).offset(left);
         make.top.equalTo(self.diyView.babyView.lookImageView.mas_bottom).offset(top);
     }];
-    width0 = 0.4 * _width;
-    hight0 = 0.4 * _width + 20;
-    top = 0.218  * _hight;
-    left = 0.19 * _width;
+    width0 = 0.8 * _width;
+    hight0 = 0.928 * _width;
+    top = 0.19  * _hight;
+    left = -0.05 * _width;
     [_diyView.babyView.hairImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
@@ -85,8 +88,7 @@
         make.top.equalTo(self.diyView.babyView).offset(top);
     }];
     
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    NSMutableArray *array = [NSMutableArray arrayWithObjects:[NSNumber numberWithFloat:1], [NSNumber numberWithFloat:2], [NSNumber numberWithFloat:3], [NSNumber numberWithFloat:4], [NSNumber numberWithFloat:5], nil];
+    
  //   dictionary
 }
 
@@ -96,6 +98,12 @@
 - (void)PressShowDetailClick:(UIButton *)btn {
     _tagForChange = 0;
     _nowClickedBtn = btn;
+    if (_nowClickedBtn.tag == 5) {
+        [[PLSaveManger sharedManger]getAddSuitMessage:^(PLSaveModel * _Nonnull model) {
+            self.saveModel = model;
+        } lookID:_lookAdded hairID:_hairAdded dressID:_dressAdded];
+        return;
+    }
     if ([_diyView.clickTime isEqualToString:@"FirstClick"]){
         [_detailScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         _firstClickBtnTag = btn.tag;
@@ -231,10 +239,13 @@
 - (void)PressChange:(UIButton*)btn {
     if ((_nowClickedBtn.tag == 1)) {
         _diyView.babyView.lookImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+        _lookAdded = btn.tag;
         return;
+        
     }
     if (_nowClickedBtn.tag == 2) {
         _diyView.babyView.hairImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+        _hairAdded = btn.tag;
         [_diyView.babyView.hairImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@([self.model.masonryDictionary[@"hair"][@"width"][btn.tag - 1] floatValue]));
             make.height.equalTo(@([self.model.masonryDictionary[@"hair"][@"hight"][btn.tag - 1] floatValue]));
@@ -243,7 +254,18 @@
         }];
     }
     if (_nowClickedBtn.tag == 3) {
+        
         _diyView.babyView.clothesImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
+        _dressAdded = btn.tag;
+        _chromoplast = [[SOZOChromoplast alloc] initWithImage:_diyView.babyView.clothesImageView.image];
+        _diyView.saveButton.backgroundColor = _chromoplast.firstHighlight;
+        if (btn.tag == 3) {
+            _diyView.saveButton.backgroundColor = [UIColor colorWithRed:0.67f green:0.24f blue:0.35f alpha:1.00f];
+        }
+        if (btn.tag == 5) {
+            _diyView.saveButton.backgroundColor = [UIColor colorWithRed:0.38f green:0.32f blue:0.33f alpha:1.00f];
+        }
+        
         [_diyView.babyView.clothesImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@([self.model.masonryDictionary[@"clothes"][@"width"][btn.tag - 1] floatValue]));
             make.height.equalTo(@([self.model.masonryDictionary[@"clothes"][@"hight"][btn.tag - 1] floatValue]));

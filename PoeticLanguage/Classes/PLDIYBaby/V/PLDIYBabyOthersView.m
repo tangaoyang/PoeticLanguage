@@ -19,11 +19,8 @@
     _lookButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _hairButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _skirtButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _upButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _downButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _shoesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _decorationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _backgroundButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    _saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _babyView = [[PLDIYBabyView alloc] init];
     
     [self addSubview:_backgroundImageView];
@@ -31,11 +28,8 @@
     [self addSubview:_lookButton];
     [self addSubview:_hairButton];
     [self addSubview:_skirtButton];
-    [self addSubview:_upButton];
-    [self addSubview:_downButton];
-    [self addSubview:_shoesButton];
-    [self addSubview:_decorationButton];
     [self addSubview:_backgroundButton];
+    [self addSubview:_saveButton];
     
     return self;
 }
@@ -84,6 +78,8 @@
     [_hairButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
     _hairButton.tag = 2;
     
+    
+    
     [_skirtButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
@@ -97,58 +93,6 @@
     [_skirtButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
     _skirtButton.tag = 3;
     
-/*    [_upButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(width0));
-        make.height.equalTo(@(hight0));
-        make.right.equalTo(self).offset(-30);
-        make.top.equalTo(self.skirtButton.mas_bottom).offset(20);
-    }];
-    _upButton.clipsToBounds = YES;
-    _upButton.layer.cornerRadius = hight0 / 2;
-    _upButton.backgroundColor = [UIColor colorWithRed:0.19f green:0.26f blue:0.33f alpha:1.00f];
-    [_upButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
-    [_upButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
-    _upButton.tag = 4;
-    
-    [_downButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(width0));
-        make.height.equalTo(@(hight0));
-        make.right.equalTo(self).offset(-30);
-        make.top.equalTo(self.upButton.mas_bottom).offset(20);
-    }];
-    _downButton.clipsToBounds = YES;
-    _downButton.layer.cornerRadius = hight0 / 2;
-    _downButton.backgroundColor = [UIColor colorWithRed:0.19f green:0.26f blue:0.33f alpha:1.00f];
-    [_downButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
-    [_downButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
-    _downButton.tag = 5;
-    
-    [_shoesButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(width0));
-        make.height.equalTo(@(hight0));
-        make.right.equalTo(self).offset(-30);
-        make.top.equalTo(self.downButton.mas_bottom).offset(20);
-    }];
-    _shoesButton.clipsToBounds = YES;
-    _shoesButton.layer.cornerRadius = hight0 / 2;
-    _shoesButton.backgroundColor = [UIColor colorWithRed:0.19f green:0.26f blue:0.33f alpha:1.00f];
-    [_shoesButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
-    [_shoesButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
-    _shoesButton.tag = 6;
-    
-    [_decorationButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(width0));
-        make.height.equalTo(@(hight0));
-        make.right.equalTo(self).offset(-30);
-        make.top.equalTo(self.shoesButton.mas_bottom).offset(20);
-    }];
-    _decorationButton.clipsToBounds = YES;
-    _decorationButton.layer.cornerRadius = hight0 / 2;
-    _decorationButton.backgroundColor = [UIColor colorWithRed:0.19f green:0.26f blue:0.33f alpha:1.00f];
-    [_decorationButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
-    [_decorationButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
-    _decorationButton.tag = 7;
-*/
     [_backgroundButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
@@ -166,6 +110,22 @@
         make.width.equalTo(self);
         make.height.equalTo(self);
     }];
+    
+    [_saveButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.backgroundButton.mas_bottom).offset(20);
+        make.width.height.equalTo(self.hairButton.mas_width);
+        make.right.equalTo(self.mas_right).offset(-30);
+    }];
+    _saveButton.layer.cornerRadius = width0 / 2;
+    [_saveButton setTitle:@"保存\n套装" forState:UIControlStateNormal];
+    _saveButton.titleLabel.numberOfLines = 0;
+ //   _saveButton.backgroundColor = [UIColor colorWithRed:0.19f green:0.26f blue:0.33f alpha:1.00f];
+    [_saveButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
+    _image = _babyView.clothesImageView.image;
+    _chromoplast = [[SOZOChromoplast alloc] initWithImage:_image];
+    _saveButton.backgroundColor = _chromoplast.firstHighlight;
+    _saveButton.tag = 5;
+    [_saveButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)PressShowDetail:(UIButton*)btn {

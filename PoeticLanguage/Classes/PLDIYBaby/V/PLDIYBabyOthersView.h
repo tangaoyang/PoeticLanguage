@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PLDIYBabyView.h"
+#import "SOZOChromoplast.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,16 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property UIImageView *backgroundImageView;
 @property UIButton *hairButton;
 @property UIButton *skirtButton;
-@property UIButton *upButton;
-@property UIButton *downButton;
 @property UIButton *shoesButton;
 @property UIButton *lookButton;
-@property UIButton *decorationButton;
 @property UIButton *backgroundButton;
+@property UIButton *saveButton;
 @property NSString *clickTime;
 @property NSInteger needRemake;
 @property PLDIYBabyView *babyView;
 @property id<DIYBabyViewDelegate>delegate;
+@property SOZOChromoplast *chromoplast;
+@property UIImage *image;
 @end
 
 NS_ASSUME_NONNULL_END
