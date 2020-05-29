@@ -12,12 +12,16 @@
 #import <UIKit/UIKit.h>
 #import "PLDIYBabyOthersView.h"
 #import "PLDIYBabyM.h"
+#import "SOZOChromoplast.h"
+#import "Masonry.h"
+#import "PLSaveModel.h"
+#import "PLSaveManger.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PLDIYBabyController : UIViewController
 <DIYBabyViewDelegate>
-
+@property SOZOChromoplast *chromoplast;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PLDailySharingViewController.h"
 #import "PLPoetrySearchMainViewController.h"
 #import "PLDIYBabyController.h"
 #import "PLSettingViewController.h"
