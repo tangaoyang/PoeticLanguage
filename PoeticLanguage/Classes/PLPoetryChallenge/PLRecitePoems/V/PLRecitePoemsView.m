@@ -57,6 +57,9 @@
     cell.contectTextView.text = [poetry.paragraphs substringWithRange:NSMakeRange(0, poetry.paragraphs.length - 1)];
     cell.timeLabel.text = poetry.dynasty;
     cell.collectionButton.tag = [poetry.sid integerValue];
+//    NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", poetry.header]];
+//    NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+//    cell.photoImageView.image = [UIImage imageWithData:imageData];
     
     if (poetry.collected == 0) {
         cell.collectionButton.selected = NO;

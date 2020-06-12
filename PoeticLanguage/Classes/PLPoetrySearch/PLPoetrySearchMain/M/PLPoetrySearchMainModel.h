@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *paragraphs;
 @property (nonatomic, copy) NSString *dynasty;
+@property (nonatomic, copy) NSString *header;
 @property int collected;
 
 @end

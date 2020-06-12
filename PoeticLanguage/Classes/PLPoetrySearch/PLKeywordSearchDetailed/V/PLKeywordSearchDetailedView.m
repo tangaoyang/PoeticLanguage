@@ -91,6 +91,7 @@
     self.allLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_allLabel];
     _allLabel.text = _poem.paragraphs;
+    _allLabel.textAlignment = NSTextAlignmentCenter;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_allLabel withSize:20];
     _allLabel.numberOfLines = 0;
     NSLog(@"%@", _poem.paragraphs);

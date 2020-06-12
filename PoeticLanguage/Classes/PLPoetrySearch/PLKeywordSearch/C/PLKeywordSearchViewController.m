@@ -61,6 +61,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.topItem.title = _keyword;
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)jumpView:(NSNotification *)keyword {
