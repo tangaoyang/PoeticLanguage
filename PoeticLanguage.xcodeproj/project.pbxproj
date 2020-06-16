@@ -1425,11 +1425,8 @@
 				86011B7223F4486E00C19F00 /* pl_pc_tabbar.png in Resources */,
 				869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */,
 				86011B8623F44CAA00C19F00 /* pl_pset_tabbar.png in Resources */,
-
 				8613D905247EC5F5002481FB /* Searched.png in Resources */,
-
 				681B3D08247E563500079172 /* 康熙字典篦.otf in Resources */,
-
 				68B02B7523EC288500437F45 /* look2.jpeg in Resources */,
 				68E1187323F2E369001755F8 /* skirt6.jpeg in Resources */,
 				8613D8FF247EC5F5002481FB /* Search.png in Resources */,
