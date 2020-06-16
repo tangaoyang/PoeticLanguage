@@ -9,7 +9,7 @@
 #import "PLRememberView.h"
 #import <Masonry.h>
 #import "ChangeFontTay.h"
-#import "PLPoetrySearchTableViewCell.h"
+#import "PLCollectionTableViewCell.h"
 #import "PLPoetrySearchMainModel.h"
 #import "PLPSCellButton.h"
 #define H [UIScreen mainScreen].bounds.size.height
@@ -35,7 +35,7 @@
             _rememberTableView.delegate = self;
             _rememberTableView.dataSource = self;
             _rememberTableView.backgroundColor = [UIColor clearColor];
-            [_rememberTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"rememberCell"];
+            [_rememberTableView registerClass:[PLCollectionTableViewCell class] forCellReuseIdentifier:@"rememberCell"];
             _rememberTableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
             [self addSubview:_rememberTableView];
             
@@ -50,7 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rememberCell" forIndexPath:indexPath];
+    PLCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rememberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UIAccessibilityTraitNone;
     PoetsModel *poetry = _poetryArray[indexPath.row];

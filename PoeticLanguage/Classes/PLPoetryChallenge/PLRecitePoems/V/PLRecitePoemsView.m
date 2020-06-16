@@ -10,9 +10,9 @@
 #import "PLRecitePoemsView.h"
 #import <Masonry.h>
 #import "ChangeFontTay.h"
-#import "PLPoetrySearchTableViewCell.h"
 #import "PLPSCellButton.h"
 #import "PLPoetrySearchMainModel.h"
+#import "PLCollectionTableViewCell.h"
 #define H [UIScreen mainScreen].bounds.size.height
 #define W [UIScreen mainScreen].bounds.size.width
 
@@ -37,7 +37,7 @@
             _reciteTableView.delegate = self;
             _reciteTableView.dataSource = self;
             _reciteTableView.backgroundColor = [UIColor clearColor];
-            [_reciteTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"reciteCell"];
+            [_reciteTableView registerClass:[PLCollectionTableViewCell class] forCellReuseIdentifier:@"reciteCell"];
             _reciteTableView.frame = CGRectMake(0, 0, W, H - 165);
             _reciteTableView.tableFooterView = [[UIView alloc] init];
             
@@ -49,7 +49,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reciteCell" forIndexPath:indexPath];
+    PLCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reciteCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UIAccessibilityTraitNone;
     PoetsModel *poetry = _poetryArray[indexPath.row];
