@@ -14,6 +14,10 @@
 @property PLDailySharingView *dailySharingView;
 @property PLContentModel *contentModel;
 @property PLGetDateModel *getdateModel;
+@property PLSavedSuitView *savedSuitView;
+@property UILabel *messageLabel;
+@property float width;
+@property float height;
 @end
 
 @implementation PLDailySharingViewController
@@ -22,6 +26,52 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    _width = [UIScreen mainScreen].bounds.size.width;
+    _height = [UIScreen mainScreen].bounds.size.height;
+    
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _width, _height)];
+//    imageView.image = [UIImage imageNamed:@"background1.jpeg"];
+//    [self.view addSubview:imageView];
+#pragma mark 娃娃
+    _savedSuitView = [[PLSavedSuitView alloc] init];;
+    [self.view addSubview:_savedSuitView];
+    _savedSuitView.backgroundColor = [UIColor clearColor];
+    _savedSuitView.hairId = 2;
+    _savedSuitView.dressId = 2;
+    _savedSuitView.lookId = 2;
+    _savedSuitView.scalingMultiple = 0.8;
+    
+    float width0 = _savedSuitView.scalingMultiple * _width;
+    float hight0 = _savedSuitView.scalingMultiple * _height;
+    [_savedSuitView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(width0));
+        make.height.equalTo(@(hight0));
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.top.equalTo(self.view.mas_top).offset(250);
+    }];
+    
+    _messageLabel = [[UILabel alloc] init];
+    [self.view addSubview:_messageLabel];
+    [_messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(200));
+        make.height.equalTo(@(30));
+        make.left.equalTo(self.savedSuitView.lookImageView.mas_right).offset(50);
+        make.top.equalTo(self.savedSuitView.hairImageView.mas_top);
+    }];
+    _messageLabel.font = [UIFont fontWithName:@"TpldKhangXiDict" size:15];
+    _messageLabel.backgroundColor = [UIColor whiteColor];
+    NSDate *dated = [NSDate date];
+    NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH-mm-ss"];
+    NSString *strDate = [formatter stringFromDate:dated];
+    NSString *yTimeStr = [strDate substringWithRange:NSMakeRange(0, 9)];
+    _messageLabel.text = [NSString stringWithFormat: @"%@ 为你推荐", yTimeStr];
+                            
+                            
+  //  [self performSelector:@selector(deleyMethod) withObject:nil afterDelay:1.0];
+    
+#pragma mark 诗词分享
     _getdateModel = [[PLGetDateModel alloc] init];
     
     
@@ -46,6 +96,21 @@
 }
 
 - (void)LoadData {
+    _savedSuitView.scalingMultiple = 0.15;
+    float width0 = _savedSuitView.scalingMultiple * _width;
+    float hight0 = _savedSuitView.scalingMultiple * _height;
+    [_savedSuitView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(width0));
+        make.height.equalTo(@(hight0));
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.top.equalTo(self.view.mas_top).offset(120);
+    }];
+    [_savedSuitView layoutSubviews];
+    [_messageLabel removeFromSuperview];
+    
+    sleep(20);
+    
+    
     _dailySharingView.titleLabel.text = _contentModel.title;
     if ([_dailySharingView.titleLabel.text length] >= 10) {
         _dailySharingView.titleLabel.numberOfLines = 0;

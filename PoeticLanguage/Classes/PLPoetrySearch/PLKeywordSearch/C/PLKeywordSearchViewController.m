@@ -106,7 +106,9 @@
     [[PLCollectManager sharedManager] collectMessage:^(PLCollectModel * _Nullable collectModel) {
         if ([collectModel.msg isEqualToString:@"ok"]) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"操作成功！" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self viewWillAppear:NO];
+            }];
             [alert addAction:sure];
             [self presentViewController:alert animated:NO completion:nil];
         } else {

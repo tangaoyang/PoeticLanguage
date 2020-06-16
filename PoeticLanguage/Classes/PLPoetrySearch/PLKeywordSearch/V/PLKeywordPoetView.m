@@ -25,6 +25,10 @@
         _searchTableView.backgroundColor = [UIColor clearColor];
         [_searchTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"searchCell"];
         _searchTableView.frame = CGRectMake(0, 0, W, H - 142);
+        
+        UIView *whiteView = [[UIView alloc] init];
+        _searchTableView.tableFooterView = whiteView;
+
         _poetryArray = array;
     }
     return self;
@@ -40,6 +44,18 @@
     cell.contectTextView.text = [poetry.paragraphs substringWithRange:NSMakeRange(0, poetry.paragraphs.length - 1)];
     cell.timeLabel.text = poetry.dynasty;
     cell.collectionButton.tag = [poetry.sid integerValue];
+    if (poetry.collected == 0) {
+        cell.collectionButton.selected = NO;
+    } else {
+        cell.collectionButton.selected = YES;
+    }
+    if(cell.collectionButton.selected == YES) {
+        [cell.collectionButton.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        cell.collectionButton.buttonLabel.text = @"已收藏";
+    } else {
+        [cell.collectionButton.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        cell.collectionButton.buttonLabel.text = @"收藏";
+    }
     [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;

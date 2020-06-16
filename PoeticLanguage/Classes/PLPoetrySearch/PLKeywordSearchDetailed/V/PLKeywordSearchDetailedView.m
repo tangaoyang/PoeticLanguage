@@ -93,6 +93,7 @@
     _allLabel.text = _poem.paragraphs;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_allLabel withSize:20];
     _allLabel.numberOfLines = 0;
+    NSLog(@"%@", _poem.paragraphs);
     [_allLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.top.mas_equalTo(self -> _dynastyLabel.mas_bottom).offset(20);
@@ -111,7 +112,7 @@
     width0 = 0.9 * width;
     hight0 = 0.5614 * hight;
     top = 0.55 * hight;
-    left = 0.5 * width;    //0.8
+    left = 0.8 * width;    //0.8
     [_characterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
    //     make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));

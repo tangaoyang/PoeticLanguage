@@ -39,6 +39,7 @@
             _reciteTableView.backgroundColor = [UIColor clearColor];
             [_reciteTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"reciteCell"];
             _reciteTableView.frame = CGRectMake(0, 0, W, H - 165);
+            _reciteTableView.tableFooterView = [[UIView alloc] init];
             
         }
         _poetryArray = array;
@@ -47,7 +48,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"_poetryArray =  %@", _poetryArray);
+    
     PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reciteCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UIAccessibilityTraitNone;
@@ -56,6 +57,19 @@
     cell.contectTextView.text = [poetry.paragraphs substringWithRange:NSMakeRange(0, poetry.paragraphs.length - 1)];
     cell.timeLabel.text = poetry.dynasty;
     cell.collectionButton.tag = [poetry.sid integerValue];
+    
+    if (poetry.collected == 0) {
+        cell.collectionButton.selected = NO;
+    } else {
+        cell.collectionButton.selected = YES;
+    }
+    if(cell.collectionButton.selected == YES) {
+        [cell.collectionButton.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_collected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        cell.collectionButton.buttonLabel.text = @"已收藏";
+    } else {
+        [cell.collectionButton.buttonImageView setImage:[[UIImage imageNamed:@"pl_ps_uncollect.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        cell.collectionButton.buttonLabel.text = @"收藏";
+    }
     [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;

@@ -10,10 +10,8 @@
 #import <Masonry.h>
 #import "ChangeFontTay.h"
 #import "PLPoetrySearchTableViewCell.h"
-#import "PLPSCellButton.h"
 #import "PLPoetrySearchMainModel.h"
-#import "PLCollectManager.h"
-#import "PLCancelRememberModel.h"
+#import "PLPSCellButton.h"
 #define H [UIScreen mainScreen].bounds.size.height
 #define W [UIScreen mainScreen].bounds.size.width
 
@@ -41,6 +39,9 @@
             _rememberTableView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
             [self addSubview:_rememberTableView];
             
+            UIView *whiteView = [[UIView alloc] init];
+            _rememberTableView.tableFooterView = whiteView;
+            
         }
         _poetryArray = array;
     }
@@ -48,7 +49,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"_poetryArray =  %@", _poetryArray);
+    
     PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rememberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UIAccessibilityTraitNone;
@@ -98,20 +99,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     //这里做删除操作
-    NSLog(@"delete");
       PoetsModel *poetry = _poetryArray[indexPath.row];
-      [[PLCollectManager sharedManager] cancelRemember:^(PLCancelRememberModel * _Nullable cancelRememberModel) {
-          if ([cancelRememberModel.msg isEqualToString:@"ok"]) {
-              [tableView reloadData];
-          } else {
-              NSLog(@"cancelRememberModel.msg == %@", cancelRememberModel.msg);
-          }
-      } error:^(NSError * _Nullable error) {
-          NSLog(@"cancelRemember error == %@", error);
-      } id:poetry.sid];
-      
+      NSNotification *deleteNsno = [NSNotification notificationWithName:@"delete" object:self userInfo:@{@"poemId": poetry.sid}];
+      [[NSNotificationCenter defaultCenter] postNotification:deleteNsno];
   }
-    
 }
 
 // 修改编辑按钮文字
