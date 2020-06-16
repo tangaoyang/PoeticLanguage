@@ -58,7 +58,7 @@
     }];
     
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self -> _poetLabel.mas_left);
+        make.left.mas_equalTo(self -> _poetLabel.mas_left).offset(30);
         make.bottom.mas_equalTo(self.mas_bottom).offset(-20);
         make.width.equalTo(@(200));
         make.height.equalTo(@(15));
@@ -66,7 +66,7 @@
     
     [_contectTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self -> _poetLabel.mas_bottom).offset(10);
-        make.left.mas_equalTo(self -> _poetLabel.mas_left);
+        make.left.mas_equalTo(self -> _timeLabel.mas_left);
         make.bottom.mas_equalTo(self -> _timeLabel.mas_top).offset(-10);
         make.right.mas_equalTo(self.mas_right).offset(-30);
     }];
