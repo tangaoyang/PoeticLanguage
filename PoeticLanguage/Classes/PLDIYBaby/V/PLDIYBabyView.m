@@ -37,7 +37,7 @@
     [super layoutSubviews];
     int width = [UIScreen mainScreen].bounds.size.width;
     int hight = [UIScreen mainScreen].bounds.size.height;
-    float width0 = 0.06 * hight;
+    float width0 = 0.12985 * width;    //0.06 * hight;
     float hight0;
     float top = 0.25 * hight;
     float left = 0.35 * width;
@@ -51,13 +51,13 @@
     //70 * 335 left:80 top:170
     width0 = 0.46 * width;
     hight0 = 0.5496 * hight;
-    left = 0.18 * width;
+    left = -0.17 * width;
     top = 0.295 * hight;
     [_bodyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
         make.top.equalTo(self).offset(top);
-        make.left.equalTo(self).offset(left);
+        make.left.equalTo(self.lookImageView.mas_left).offset(left);
     }];
     _bodyImageView.image = [UIImage imageNamed:@"body.jpeg"];
     

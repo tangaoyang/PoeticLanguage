@@ -113,7 +113,7 @@
     width0 = 0.9 * width;
     hight0 = 0.5614 * hight;
     top = 0.55 * hight;
-    left = 0.5 * width;    //0.8
+    left = 0.8 * width;    //0.8
     [_characterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
    //     make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
