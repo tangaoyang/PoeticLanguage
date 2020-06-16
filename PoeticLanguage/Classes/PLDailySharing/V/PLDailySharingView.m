@@ -14,6 +14,7 @@
     
     self = [super initWithFrame:frame];
     
+    
     _titleLabel = [[UILabel alloc] init];
     _dynastyLabel = [[UILabel alloc] init];
     _authorLabel = [[UILabel alloc] init];
