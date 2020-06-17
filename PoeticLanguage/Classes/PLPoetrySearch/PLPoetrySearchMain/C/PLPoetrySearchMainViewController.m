@@ -29,11 +29,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *backImage = [[UIImage imageNamed:@"pl_pc_fly.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *backImage = [[UIImage imageNamed:@"allBackgroundImage.jpg"]   imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];  //pl_pc_fly.jpg
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
-    backImageView.frame = self.view.bounds;
-    backImageView.alpha = 0.5;
     [self.view insertSubview:backImageView atIndex:0];
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
+//    backImageView.alpha = 0.5;
+    
     
     _myView = [[PLPoetrySearchMainView alloc] init];
     [self.view addSubview:_myView];

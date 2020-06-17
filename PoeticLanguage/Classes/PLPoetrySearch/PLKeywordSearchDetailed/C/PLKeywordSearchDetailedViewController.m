@@ -94,7 +94,7 @@
     } error:^(NSError * _Nullable error) {
         NSLog(@"remember error == %@", error);
     } id:_keyword.sid];
-    
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 /*

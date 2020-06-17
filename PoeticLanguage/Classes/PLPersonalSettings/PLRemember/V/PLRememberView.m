@@ -20,8 +20,13 @@
 - (instancetype)initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
-        UIImageView *backImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pl_pc_fly.jpg"]];
+        UIImageView *backImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"allBackGroundImage.jpg"]];   //pl_pc_fly.jpg
         [self insertSubview:backImageView atIndex:0];
+        [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(self.mas_width);
+            make.left.equalTo(self.mas_left).offset(0);
+            make.bottom.equalTo(self.mas_bottom).offset(-90);
+        }];
         NSLog(@"array = %@", array);
         if (array.count == 0) {
             UILabel *emptyLabel = [[UILabel alloc] init];

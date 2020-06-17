@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property PLDIYBabyView *babyView;
 @property id<DIYBabyViewDelegate>delegate;
 @property SOZOChromoplast *chromoplast;
+@property BOOL saveButtonColorChange;
 @property UIImage *image;
 @end
 
