@@ -12,9 +12,11 @@
 #import "PLSettingViewController.h"
 #import "PLPoetryChallengeMainViewController.h"
 #import "PLDailySharingViewController.h"
+#import "PLSavedSuitModel.h"
+#import "PLSavedSuitManger.h"
 
 @interface PLMainViewController ()
-
+@property PLDailySharingViewController *search;
 @end
 
 @implementation PLMainViewController
@@ -23,11 +25,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self performSelector:@selector(go) withObject:self afterDelay:0];
+    
+    _tempSavedSuitModel = [[PLSavedSuitModel alloc] init];
+    
+    [[PLSavedSuitManger sharedManger] postData:^(PLSavedSuitModel * _Nonnull model) {
+        //      self.dataModel = model;
+        self.tempSavedSuitModel = model;
+        self.search.savedModel = model;
+    }] ;
+    
+    
 }
 
 - (void)go {
-    PLDailySharingViewController *search = [[PLDailySharingViewController alloc] init];
-    UINavigationController *searchNav = [[UINavigationController alloc] initWithRootViewController:search];
+    _search = [[PLDailySharingViewController alloc] init];
+    UINavigationController *searchNav = [[UINavigationController alloc] initWithRootViewController:_search];
     searchNav.title = @"每日分享";
     [searchNav.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:10], NSFontAttributeName, nil] forState:UIControlStateNormal];
     //设置title位置偏移
@@ -91,12 +103,24 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     tabBarController.viewControllers = navArr;
     tabBarController.view.tintColor = [UIColor colorWithRed:111/255.0 green:111/255.0 blue:111/255.0 alpha:1];
-    tabBarController.view.backgroundColor = [UIColor whiteColor];
+//    tabBarController.view.backgroundColor = [UIColor whiteColor];
     tabBarController.tabBar.translucent = NO;
+    
+    // 设置一个自定义 View,大小等于 tabBar 的大小
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, tabBarController.tabBar.bounds.origin.y, tabBarController.tabBar.bounds.size.width, tabBarController.tabBar.bounds.size.height * 2)];
+    // 给自定义 View 设置颜色
+    bgView.backgroundColor = [UIColor colorWithRed:0.89f green:0.88f blue:0.88f alpha:1.00f];
+    // 将自定义 View 添加到 tabBar 上
+    tabBarController.tabBar.backgroundColor = [UIColor colorWithRed:0.89f green:0.88f blue:0.88f alpha:1.00f];
+    [tabBarController.tabBar insertSubview:bgView atIndex:0];
     
     self.view.window.rootViewController = tabBarController;
     self.view.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    
 }
+
 
 /*
 #pragma mark - Navigation

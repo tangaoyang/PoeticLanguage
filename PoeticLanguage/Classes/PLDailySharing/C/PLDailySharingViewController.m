@@ -16,6 +16,7 @@
 @property PLGetDateModel *getdateModel;
 @property PLSavedSuitView *savedSuitView;
 @property UILabel *messageLabel;
+@property UIImageView *backImageView;
 @property float width;
 @property float height;
 @end
@@ -30,16 +31,21 @@
     _width = [UIScreen mainScreen].bounds.size.width;
     _height = [UIScreen mainScreen].bounds.size.height;
     
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _width, _height)];
-//    imageView.image = [UIImage imageNamed:@"background1.jpeg"];
-//    [self.view addSubview:imageView];
+    _backImageView = [[UIImageView alloc] init];
+    [self.view addSubview:_backImageView];
+    [_backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(self.width));
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
 #pragma mark 娃娃
+    
     _savedSuitView = [[PLSavedSuitView alloc] init];;
     [self.view addSubview:_savedSuitView];
     _savedSuitView.backgroundColor = [UIColor clearColor];
-    _savedSuitView.hairId = 2;
-    _savedSuitView.dressId = 2;
-    _savedSuitView.lookId = 2;
+    
+    _clothId = [[PLSavedSuitDetailModel alloc] init];
+    _clothId = _savedModel.cloth;
     _savedSuitView.scalingMultiple = 0.8;
     
     float width0 = _savedSuitView.scalingMultiple * _width;
@@ -68,7 +74,6 @@
     NSString *yTimeStr = [strDate substringWithRange:NSMakeRange(0, 9)];
     _messageLabel.text = [NSString stringWithFormat: @"%@ 为你推荐", yTimeStr];
                             
-                            
   //  [self performSelector:@selector(deleyMethod) withObject:nil afterDelay:1.0];
     
 #pragma mark 诗词分享
@@ -96,20 +101,30 @@
 }
 
 - (void)LoadData {
+    
+    
+    sleep(5);
+    
     _savedSuitView.scalingMultiple = 0.15;
     float width0 = _savedSuitView.scalingMultiple * _width;
     float hight0 = _savedSuitView.scalingMultiple * _height;
+    width0 = _savedSuitView.scalingMultiple * _width;
+    hight0 = _savedSuitView.scalingMultiple * _height;
     [_savedSuitView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(width0));
         make.height.equalTo(@(hight0));
         make.left.equalTo(self.view.mas_left).offset(20);
         make.top.equalTo(self.view.mas_top).offset(120);
     }];
+    _clothId = _savedModel.cloth;
+    _savedSuitView.hairId = _clothId.hair;
+    _savedSuitView.dressId = _clothId.dress;
+    _savedSuitView.lookId = _clothId.face;
     [_savedSuitView layoutSubviews];
     [_messageLabel removeFromSuperview];
     
-    sleep(20);
     
+    _backImageView.image = [UIImage imageNamed:@"allBackgroundImage.jpg"];
     
     _dailySharingView.titleLabel.text = _contentModel.title;
     if ([_dailySharingView.titleLabel.text length] >= 10) {
@@ -140,8 +155,6 @@
     all1 = [all1 stringByReplacingOccurrencesOfString:@"。\n\"" withString:@""];
     _dailySharingView.paragraphLabel.text = [all1 stringByAppendingString:@"。"];
     
-    NSString *str4 = @"丹山西去水东流，亭在山南隔蓼洲。";
-    NSLog(@"text = %@ length = %ld 句号 = %ld", _dailySharingView.paragraphLabel.text, [str4 length], _dailySharingView.juhao);
     
 #pragma mark 计算view的位置
     UIWindow * window=[[[UIApplication sharedApplication] delegate] window];
@@ -170,6 +183,7 @@
     
     self.navigationItem.title = [NSString stringWithFormat:@"%@", nTimeStr];
 }
+
 /*
 #pragma mark - Navigation
 

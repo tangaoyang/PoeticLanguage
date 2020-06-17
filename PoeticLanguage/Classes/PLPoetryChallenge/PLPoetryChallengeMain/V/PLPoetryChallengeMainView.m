@@ -48,6 +48,7 @@
     [_challengeScrollView addSubview:_reciteView.reciteTableView];
     _reciteView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, self.bounds.size.height);
     
+    
     self.competitionView = [[PLPoetryCompetitionView alloc] init];
     [_challengeScrollView addSubview:_competitionView];
     [_challengeScrollView addSubview:_competitionView.beginButton];

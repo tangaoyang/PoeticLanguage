@@ -16,6 +16,7 @@
 #import "PLPoetryChallengeMainViewController.h"
 #import "PLCollectionViewController.h"
 #import <Photos/Photos.h>
+#import "Masonry.h"
 
 @interface PLSettingViewController ()
 
@@ -29,9 +30,19 @@
     
     self.navigationItem.title = @"个人设置";
     
+    UIImage *backImage = [[UIImage imageNamed:@"allBackgroundImage.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];  //pl_pc_fly.jpg
+    UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
+    [self.view addSubview:backImageView];
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
+
     self.myView = [[PLSettingView alloc] init];
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:@"update" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collect) name:@"collect" object:nil];
@@ -41,11 +52,6 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.myView = [[PLSettingView alloc] init];
-    _myView.frame = self.view.bounds;
-    [self.view addSubview:_myView];
-}
 
 - (void)update {
     PLSettingUpdateViewController *updateViewController = [[PLSettingUpdateViewController alloc] init];

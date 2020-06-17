@@ -28,12 +28,17 @@
         }];
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
+        _mainTableView.backgroundColor = [UIColor clearColor];
         [_mainTableView registerClass:[PLSettingPersonalTableViewCell class] forCellReuseIdentifier:@"personal"];
         [_mainTableView registerClass:[PLSettingTableViewCell class] forCellReuseIdentifier:@"cell"];
         [_mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"exit"];
         
         UIView *view = [[UIView alloc] init];
         _mainTableView.tableFooterView = view;
+        view.backgroundColor = [UIColor clearColor];
+        _mainTableView.backgroundColor = [UIColor clearColor];
+        _mainTableView.tableHeaderView.backgroundColor = [UIColor clearColor];
+        _mainTableView.tableFooterView.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -43,6 +48,7 @@
         
         PLSettingPersonalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"personal" forIndexPath:indexPath];
         cell.selectionStyle = UIAccessibilityTraitNone;
+        cell.backgroundColor = [UIColor clearColor];
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
@@ -63,7 +69,7 @@
     } else if (indexPath.section == 1){
         PLSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         cell.selectionStyle = UIAccessibilityTraitNone;
-        
+        cell.backgroundColor = [UIColor clearColor];
         NSArray *nameArr = @[@"我收藏的", @"我背过的",  @"我的等级", @"修改资料", @"关于诗语"];
         cell.nameLabel.text = nameArr[indexPath.row] ;
         cell.nameLabel.font = [UIFont systemFontOfSize:15] ;
@@ -75,6 +81,7 @@
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"exit" forIndexPath:indexPath];
         cell.selectionStyle = UIAccessibilityTraitNone;
+        cell.backgroundColor = [UIColor clearColor];
         
         NSArray *nameArr = @[@"切换账号", @"退出登陆"];
         cell.textLabel.text = nameArr[indexPath.row];

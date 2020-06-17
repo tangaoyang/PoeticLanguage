@@ -10,6 +10,7 @@
 #import "PLSettingUpdateView.h"
 #import "PLLoginManager.h"
 #import "PLSettingUpdateModel.h"
+#import "Masonry.h"
 
 @interface PLSettingUpdateViewController ()
 
@@ -26,6 +27,15 @@
     self.myView = [[PLSettingUpdateView alloc] init];
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];
+    
+    UIImage *backImage = [[UIImage imageNamed:@"allBackgroundImage.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];  //pl_pc_fly.jpg
+    UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
+    [self.view addSubview:backImageView];
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
     
 }
 

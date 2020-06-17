@@ -14,6 +14,7 @@
 #import "PLKeywordSearchDetailedViewController.h"
 #import "PLKeywordSearchDetailModel.h"
 #import "PLCancelRememberModel.h"
+#import "Masonry.h"
 
 @interface PLRememberViewController ()
 
@@ -23,6 +24,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImage *backImage = [[UIImage imageNamed:@"allBackgroundImage.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];  //pl_pc_fly.jpg
+    UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
+    [self.view addSubview:backImageView];
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.view.mas_width);
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goPoem:) name:@"recitePoem" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteRemember:) name:@"delete" object:nil];

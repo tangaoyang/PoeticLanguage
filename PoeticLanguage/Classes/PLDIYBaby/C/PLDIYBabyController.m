@@ -254,15 +254,17 @@
         }];
     }
     if (_nowClickedBtn.tag == 3) {
-        
+        _diyView.saveButtonColorChange = YES;
         _diyView.babyView.clothesImageView.image = [UIImage imageNamed:_model.allTypeArray[_nowClickedBtn.tag - 1][btn.tag - 1]];
         _dressAdded = btn.tag;
         _chromoplast = [[SOZOChromoplast alloc] initWithImage:_diyView.babyView.clothesImageView.image];
         _diyView.saveButton.backgroundColor = _chromoplast.firstHighlight;
         if (btn.tag == 3) {
+            _diyView.saveButtonColorChange = NO;
             _diyView.saveButton.backgroundColor = [UIColor colorWithRed:0.67f green:0.24f blue:0.35f alpha:1.00f];
         }
         if (btn.tag == 5) {
+            _diyView.saveButtonColorChange = NO;
             _diyView.saveButton.backgroundColor = [UIColor colorWithRed:0.38f green:0.32f blue:0.33f alpha:1.00f];
         }
         

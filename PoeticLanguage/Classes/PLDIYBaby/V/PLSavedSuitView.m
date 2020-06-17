@@ -31,6 +31,13 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    if (_hairId == 0) {
+        _hairId = 2;
+        _dressId = 5;
+        _lookId = 1;
+    }
+    
     int width = [UIScreen mainScreen].bounds.size.width;
     int hight = [UIScreen mainScreen].bounds.size.height;
     float width0 = 0.12985 * width * _scalingMultiple;
@@ -56,6 +63,9 @@
         make.left.equalTo(self.lookImageView.mas_left).offset(left);
     }];
     _bodyImageView.image = [UIImage imageNamed:@"body.jpeg"];
+    
+    
+        
     
     left = ([self.model.masonryDictionary[@"hair"][@"left"][self.hairId - 1] floatValue] - 0.35 * width) * _scalingMultiple;
     top = ([self.model.masonryDictionary[@"hair"][@"top"][self.hairId - 1] floatValue] - 0.25 * hight) * _scalingMultiple;

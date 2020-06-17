@@ -33,6 +33,9 @@
         self.window.rootViewController = login;
     }
     
+    // 设置一个自定义 View,大小等于 tabBar 的大小
+    
+    
     return YES;
 }
 
