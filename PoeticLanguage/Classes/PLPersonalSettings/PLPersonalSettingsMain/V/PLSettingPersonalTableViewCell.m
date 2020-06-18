@@ -5,7 +5,7 @@
 //
 //  Created by cinderella on 2020/2/28.
 //  Copyright © 2020 cinderella. All rights reserved.
-//
+// 
 
 #import "PLSettingPersonalTableViewCell.h"
 #import "ChangeFontTay.h"
@@ -39,7 +39,7 @@
     self.personalImageButton = [[UIButton alloc] init];
     [self.contentView addSubview:_personalImageButton];
     [_personalImageButton addTarget:self action:@selector(changeImage) forControlEvents:UIControlEventTouchUpInside];
-    
+//    [self.personalImageButton setImage:[UIImage imageNamed:@"headImage.jpg"] forState:UIControlStateNormal];
     return self;
     
 }

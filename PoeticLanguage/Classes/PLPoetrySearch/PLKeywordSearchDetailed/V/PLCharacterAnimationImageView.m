@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     
     
-    self.image = [UIImage imageNamed:@"CharacterAnimation1"];
+//    self.image = [UIImage imageNamed:@"CharacterAnimation1"];
     [self setMoveAnimation:_moveAnimation];
     
     return self;

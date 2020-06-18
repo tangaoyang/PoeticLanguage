@@ -20,11 +20,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *backImage = [[UIImage imageNamed:@"animation1.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    int x =( arc4random() % 100) ;
+    x = x / 10 + 1;
+    x = 2;
+    
+    UIImage *backImage = [[UIImage imageNamed:[NSString stringWithFormat:@"animation%d.jpg", x]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.3;
     [self.view insertSubview:backImageView atIndex:0];
+    
     
     self.tabBarController.tabBar.hidden = YES;
     

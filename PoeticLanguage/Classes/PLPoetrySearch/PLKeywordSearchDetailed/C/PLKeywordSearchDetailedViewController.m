@@ -25,11 +25,22 @@
     // Do any additional setup after loading the view.
     
 
-    UIImage *backImage = [[UIImage imageNamed:@"animation1.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    int x =( arc4random() % 100) ;
+    x = (x / 10 + 1) / 2;
+    if (x == 0) {
+        x = 1;
+    }
+    
+    UIImage *backImage = [[UIImage imageNamed:[NSString stringWithFormat:@"animation%d.jpeg", x]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
     backImageView.frame = self.view.bounds;
     backImageView.alpha = 0.3;
     [self.view insertSubview:backImageView atIndex:0];
+    
+//    x = 6;
+    
+    _myView = [[PLKeywordSearchDetailedView alloc] init];
+    
     
     self.tabBarController.tabBar.hidden = YES;
     
@@ -56,6 +67,8 @@
     _myView.poem.paragraphs = [_myView.poem.paragraphs stringByReplacingOccurrencesOfString:@"]" withString:@""];
     self.title = _keyword.title;
     _myView.content = _content;
+    _myView.characterNumber = x;
+//    _myView.characterImageView.image = [[UIImage imageNamed:[NSString stringWithFormat:@"CharacterAnimation%d.jpeg", x]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [_myView labelInit];
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];
