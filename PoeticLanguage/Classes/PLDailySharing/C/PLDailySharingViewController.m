@@ -103,7 +103,7 @@
 - (void)LoadData {
     
     
-    sleep(5);
+    sleep(2);
     
     _savedSuitView.scalingMultiple = 0.15;
     float width0 = _savedSuitView.scalingMultiple * _width;
