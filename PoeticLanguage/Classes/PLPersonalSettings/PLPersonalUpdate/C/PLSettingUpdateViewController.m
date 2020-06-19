@@ -21,6 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImage *backImage = [[UIImage imageNamed:@"allBackgroundImage.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];  //pl_pc_fly.jpg
+    UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
+    [self.view addSubview:backImageView];
+    
     self.navigationItem.title = @"修改资料";
     UIBarButtonItem *sure = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(updateSure)];
     self.navigationItem.rightBarButtonItem = sure;
@@ -28,9 +32,6 @@
     _myView.frame = self.view.bounds;
     [self.view addSubview:_myView];
     
-    UIImage *backImage = [[UIImage imageNamed:@"allBackgroundImage.jpg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];  //pl_pc_fly.jpg
-    UIImageView *backImageView = [[UIImageView alloc] initWithImage:backImage];
-    [self.view addSubview:backImageView];
     [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.view.mas_width);
         make.left.equalTo(self.view.mas_left).offset(0);

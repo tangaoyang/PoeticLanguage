@@ -46,6 +46,7 @@ static PLLoginManager *manager = nil;
     [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
         NSString *sureURLStr = [NSString stringWithFormat:@"%@/user/update.do?name=%@&signature=%@", HTTP, name, signature];
+        sureURLStr = [sureURLStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             PLSettingUpdateModel *updateModel = [[PLSettingUpdateModel alloc] initWithDictionary:responseObject error:nil];
             successBlock(updateModel);
