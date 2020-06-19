@@ -38,7 +38,8 @@
 
     float hight = [UIScreen mainScreen].bounds.size.height;
   
-    _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height + self -> _number * 25 + 150);
+    _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 2);  //self -> _number * 25 + 150
+    _mainScrollView.pagingEnabled = YES;
     
     _content = [_content stringByReplacingOccurrencesOfString:@"\"" withString:@""];
     self.mainFirstLabel = [[UILabel alloc] init];
@@ -71,7 +72,7 @@
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_nameLabel withSize:32];
     _nameLabel.numberOfLines = 0;
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mainScrollView.mas_top).offset(hight);
+        make.top.mas_equalTo(self.mainScrollView.mas_top).offset(hight + (hight - (self -> _number * 25)) / 2 - 70);
         make.centerX.mas_equalTo(self -> _mainScrollView.mas_centerX);
         make.height.mas_equalTo(@(35));
     }];

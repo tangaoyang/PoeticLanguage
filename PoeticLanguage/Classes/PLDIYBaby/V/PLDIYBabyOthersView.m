@@ -31,6 +31,9 @@
     [self addSubview:_backgroundButton];
     [self addSubview:_saveButton];
     
+    _backgroundImageView.image = [[UIImage imageNamed:@"background2.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _saveButtonColorChange = YES;
+    
     return self;
 }
 - (void)layoutSubviews {
@@ -41,7 +44,7 @@
     int width0;
     int hight0;
     _backgroundImageView.frame = [UIScreen mainScreen].bounds;
-    _backgroundImageView.image = [[UIImage imageNamed:@"background2.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     _backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     // 超出边框的内容都剪掉
     _backgroundImageView.clipsToBounds = YES;
@@ -123,7 +126,9 @@
     [_saveButton setTitleColor:[UIColor colorWithRed:0.98f green:0.90f blue:0.69f alpha:1.00f] forState:UIControlStateNormal];
     _image = _babyView.clothesImageView.image;
     _chromoplast = [[SOZOChromoplast alloc] initWithImage:_image];
-    _saveButton.backgroundColor = _chromoplast.firstHighlight;
+    if (_saveButtonColorChange == YES) {
+        _saveButton.backgroundColor = _chromoplast.firstHighlight;
+    }
     _saveButton.tag = 5;
     [_saveButton addTarget:self action:@selector(PressShowDetail:) forControlEvents:UIControlEventTouchUpInside];
 }

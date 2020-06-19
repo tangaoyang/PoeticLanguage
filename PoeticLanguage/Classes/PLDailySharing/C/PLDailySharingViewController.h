@@ -12,11 +12,16 @@
 #import "PLDailySharingModel.h"
 #import "PLDailySharingManger.h"
 #import "PLSavedSuitView.h"
+#import "PLSavedSuitModel.h"
+#import "PLSavedSuitManger.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PLDailySharingViewController : UIViewController
 
+@property NSInteger hairId;
+@property PLSavedSuitModel *savedModel;
+@property PLSavedSuitDetailModel *clothId;
 @end
 
 NS_ASSUME_NONNULL_END
