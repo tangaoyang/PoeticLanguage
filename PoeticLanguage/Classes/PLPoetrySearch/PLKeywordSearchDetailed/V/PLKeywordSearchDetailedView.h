@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIImageView *characterImageView;
 @property (nonatomic, strong) NSString *content;
 @property int number;
+@property int characterNumber;
 
 - (void)labelInit;
 

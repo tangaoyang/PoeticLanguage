@@ -115,22 +115,36 @@
     hight0 = 0.5614 * hight;
     top = 0.55 * hight;
     left = 0.8 * width;    //0.8
-    [_characterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-   //     make.width.equalTo(@(width0));
-        make.height.equalTo(@(hight0));
-        make.bottom.equalTo(self.mainScrollView.mas_top).offset(bottom);
-//        make.centerY.equalTo(self.mainScrollView.mas_top).offset(top);
-        make.centerX.equalTo(self.mainScrollView.mas_left).offset(left);
- //       make.left.equalTo(self.mainScrollView.mas_left).offset(left);
-    }];
-    _characterImageView.image = [UIImage imageNamed:@"CharacterAnimation1.jpeg"];
+    
+//    _characterNumber = 6;
+    _characterImageView.image = [[UIImage imageNamed:[NSString stringWithFormat:@"CharacterAnimation%d.jpeg", _characterNumber]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    float suoxiaoBeishu = _characterImageView.image.size.height / hight0;
+    left = width / 2 - width / suoxiaoBeishu / 2;
+
+    if (_characterNumber == 1) {
+        left = left + 200;
+    }
+    if ((_characterNumber == 3) || (_characterNumber == 4)) {
+        left = left + 100;
+    }
+    if (_characterNumber == 2) {
+        left = left + 450;
+    }
+    
     _characterImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_characterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(hight0));
+//        make.width.equalTo(@(width / suoxiaoBeishu));
+        make.bottom.equalTo(self.mainScrollView.mas_top).offset(bottom);
+        make.centerX.equalTo(self.mainScrollView.mas_centerX).offset(left -200);
+    }];
+    
     CABasicAnimation* moveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
     moveAnimation.duration = 1;
     hight0 = bottom - 0.2807 * hight;
- //   left = 0.5 * width + _characterImageView.image.size.width / 2;
     moveAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(width,hight0)];
-    moveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(left,hight0)];
+    moveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(left + width / 2 - 200,hight0)];
     [_characterImageView.layer addAnimation:moveAnimation forKey:@"poistion"];
 
 

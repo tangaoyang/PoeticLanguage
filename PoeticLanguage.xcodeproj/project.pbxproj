@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2960872E69F9F83CEC0EF04C /* libPods-PoeticLanguage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		68070A16249B3C58003C0BC2 /* animation5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68070A15249B3C57003C0BC2 /* animation5.jpeg */; };
+		68070A1A249B40BB003C0BC2 /* animation1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68070A19249B40BB003C0BC2 /* animation1.jpeg */; };
+		68070A1E249B666E003C0BC2 /* animation3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68070A1D249B666D003C0BC2 /* animation3.jpeg */; };
+		68070A22249B75AE003C0BC2 /* animation4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68070A21249B75AE003C0BC2 /* animation4.jpeg */; };
+		68070A27249B7D55003C0BC2 /* animation2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 68070A26249B7D54003C0BC2 /* animation2.jpeg */; };
+		68070A2B249B94DA003C0BC2 /* headImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68070A2A249B94D9003C0BC2 /* headImage.jpg */; };
 		6811D56423EB1CA5002EC195 /* background2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6811D56323EB1CA5002EC195 /* background2.jpeg */; };
 		681B3D06247E54A900079172 /* 中山行书百年纪念版.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B3D05247E54A900079172 /* 中山行书百年纪念版.ttf */; };
 		681B3D08247E563500079172 /* 康熙字典篦.otf in Resources */ = {isa = PBXBuildFile; fileRef = 681B3D07247E563400079172 /* 康熙字典篦.otf */; };
@@ -15,14 +21,12 @@
 		682401C1240E7BDB00866107 /* CharacterAnimation2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 682401BE240E7BDB00866107 /* CharacterAnimation2.jpeg */; };
 		682401C2240E7BDB00866107 /* CharacterAnimation3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 682401BF240E7BDB00866107 /* CharacterAnimation3.jpeg */; };
 		682401C3240E7BDB00866107 /* CharacterAnimation4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 682401C0240E7BDB00866107 /* CharacterAnimation4.jpeg */; };
-		682401C6240E7BE400866107 /* CharacterAnimation6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 682401C4240E7BE400866107 /* CharacterAnimation6.jpeg */; };
 		682401C7240E7BE400866107 /* CharacterAnimation5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 682401C5240E7BE400866107 /* CharacterAnimation5.jpeg */; };
 		683DA099249A0FA900038FA8 /* PLSavedSuitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DA098249A0FA900038FA8 /* PLSavedSuitModel.m */; };
 		683DA09C249A109600038FA8 /* PLSavedSuitManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 683DA09B249A109600038FA8 /* PLSavedSuitManger.m */; };
 		6840A484248129FB00EF14E5 /* PLSavedSuitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6840A483248129FB00EF14E5 /* PLSavedSuitView.m */; };
 		684A4362240BA30E00685BA3 /* PLCharacterAnimationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A4361240BA30E00685BA3 /* PLCharacterAnimationImageView.m */; };
 		684A4364240BA43300685BA3 /* CharacterAnimation1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 684A4363240BA43300685BA3 /* CharacterAnimation1.jpeg */; };
-		684A4366240BBC4E00685BA3 /* animation1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 684A4365240BBC4E00685BA3 /* animation1.jpg */; };
 		6875998D247BCBFF001EF56A /* PLDailySharingManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875998C247BCBFE001EF56A /* PLDailySharingManger.m */; };
 		68759990247BCD93001EF56A /* PLDailySharingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875998F247BCD93001EF56A /* PLDailySharingModel.m */; };
 		6890D10E247A80450040B9D7 /* PLDailySharingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890D10D247A80450040B9D7 /* PLDailySharingViewController.m */; };
@@ -156,6 +160,12 @@
 		20FA6AFBCB1EDD94E9614039 /* Pods-PoeticLanguage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.debug.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.debug.xcconfig"; sourceTree = "<group>"; };
 		464577FB75E073AD2ED5EE9F /* Pods-PoeticLanguage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoeticLanguage.release.xcconfig"; path = "Target Support Files/Pods-PoeticLanguage/Pods-PoeticLanguage.release.xcconfig"; sourceTree = "<group>"; };
 		57D4EA37AE731494E1A567F5 /* libPods-PoeticLanguage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoeticLanguage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68070A15249B3C57003C0BC2 /* animation5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation5.jpeg; sourceTree = "<group>"; };
+		68070A19249B40BB003C0BC2 /* animation1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation1.jpeg; sourceTree = "<group>"; };
+		68070A1D249B666D003C0BC2 /* animation3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation3.jpeg; sourceTree = "<group>"; };
+		68070A21249B75AE003C0BC2 /* animation4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation4.jpeg; sourceTree = "<group>"; };
+		68070A26249B7D54003C0BC2 /* animation2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation2.jpeg; sourceTree = "<group>"; };
+		68070A2A249B94D9003C0BC2 /* headImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headImage.jpg; sourceTree = "<group>"; };
 		6811D56323EB1CA5002EC195 /* background2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background2.jpeg; sourceTree = "<group>"; };
 		681B3D05247E54A900079172 /* 中山行书百年纪念版.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "中山行书百年纪念版.ttf"; sourceTree = "<group>"; };
 		681B3D07247E563400079172 /* 康熙字典篦.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "康熙字典篦.otf"; sourceTree = "<group>"; };
@@ -163,7 +173,6 @@
 		682401BE240E7BDB00866107 /* CharacterAnimation2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CharacterAnimation2.jpeg; sourceTree = "<group>"; };
 		682401BF240E7BDB00866107 /* CharacterAnimation3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CharacterAnimation3.jpeg; sourceTree = "<group>"; };
 		682401C0240E7BDB00866107 /* CharacterAnimation4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CharacterAnimation4.jpeg; sourceTree = "<group>"; };
-		682401C4240E7BE400866107 /* CharacterAnimation6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CharacterAnimation6.jpeg; sourceTree = "<group>"; };
 		682401C5240E7BE400866107 /* CharacterAnimation5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CharacterAnimation5.jpeg; sourceTree = "<group>"; };
 		683DA097249A0FA900038FA8 /* PLSavedSuitModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLSavedSuitModel.h; sourceTree = "<group>"; };
 		683DA098249A0FA900038FA8 /* PLSavedSuitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLSavedSuitModel.m; sourceTree = "<group>"; };
@@ -174,7 +183,6 @@
 		684A4360240BA30E00685BA3 /* PLCharacterAnimationImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCharacterAnimationImageView.h; sourceTree = "<group>"; };
 		684A4361240BA30E00685BA3 /* PLCharacterAnimationImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCharacterAnimationImageView.m; sourceTree = "<group>"; };
 		684A4363240BA43300685BA3 /* CharacterAnimation1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CharacterAnimation1.jpeg; sourceTree = "<group>"; };
-		684A4365240BBC4E00685BA3 /* animation1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animation1.jpg; sourceTree = "<group>"; };
 		6875998B247BCBFD001EF56A /* PLDailySharingManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDailySharingManger.h; sourceTree = "<group>"; };
 		6875998C247BCBFE001EF56A /* PLDailySharingManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLDailySharingManger.m; sourceTree = "<group>"; };
 		6875998E247BCD93001EF56A /* PLDailySharingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDailySharingModel.h; sourceTree = "<group>"; };
@@ -411,13 +419,16 @@
 		682401BD240E7AE200866107 /* PLSearchMeteria */ = {
 			isa = PBXGroup;
 			children = (
-				684A4365240BBC4E00685BA3 /* animation1.jpg */,
+				68070A26249B7D54003C0BC2 /* animation2.jpeg */,
+				68070A19249B40BB003C0BC2 /* animation1.jpeg */,
+				68070A21249B75AE003C0BC2 /* animation4.jpeg */,
+				68070A15249B3C57003C0BC2 /* animation5.jpeg */,
+				68070A1D249B666D003C0BC2 /* animation3.jpeg */,
 				684A4363240BA43300685BA3 /* CharacterAnimation1.jpeg */,
 				682401BE240E7BDB00866107 /* CharacterAnimation2.jpeg */,
 				682401BF240E7BDB00866107 /* CharacterAnimation3.jpeg */,
 				682401C0240E7BDB00866107 /* CharacterAnimation4.jpeg */,
 				682401C5240E7BE400866107 /* CharacterAnimation5.jpeg */,
-				682401C4240E7BE400866107 /* CharacterAnimation6.jpeg */,
 			);
 			path = PLSearchMeteria;
 			sourceTree = "<group>";
@@ -507,6 +518,7 @@
 		8604981923E8834F007C91FB /* PLDIYBabyMaterial */ = {
 			isa = PBXGroup;
 			children = (
+				68070A2A249B94D9003C0BC2 /* headImage.jpg */,
 				68B02B6C23EC281700437F45 /* body.jpeg */,
 				8604982A23E88579007C91FB /* background */,
 				8604982B23E88589007C91FB /* hair */,
@@ -1428,25 +1440,27 @@
 				68B02B7923EC288500437F45 /* look3.jpeg in Resources */,
 				68B02B7823EC288500437F45 /* look4.jpeg in Resources */,
 				861C6D5923D34F07000C5FEA /* pl_ps_background_knot.jpeg in Resources */,
+				68070A16249B3C58003C0BC2 /* animation5.jpeg in Resources */,
 				8613D902247EC5F5002481FB /* 人ed.png in Resources */,
 				8604983723E885C4007C91FB /* roy3.JPG in Resources */,
 				8613D904247EC5F5002481FB /* 人员 (1).png in Resources */,
-				684A4366240BBC4E00685BA3 /* animation1.jpg in Resources */,
 				68B02B6D23EC281700437F45 /* body.jpeg in Resources */,
 				68B02B6B23EC27AF00437F45 /* background3.jpeg in Resources */,
 				8613D901247EC5F5002481FB /* booked.png in Resources */,
+				68070A1E249B666E003C0BC2 /* animation3.jpeg in Resources */,
 				8613D906247EC5F5002481FB /* book.png in Resources */,
 				86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */,
 				68B02B7F23EC308900437F45 /* hair2.jpeg in Resources */,
 				68E1186F23F2D6F7001755F8 /* skirt4.jpeg in Resources */,
-				682401C6240E7BE400866107 /* CharacterAnimation6.jpeg in Resources */,
 				8613D903247EC5F5002481FB /* Baby-07ed.png in Resources */,
 				8621DB7E23D8AA9B00404A63 /* pl_ps_back_button.png in Resources */,
+				68070A22249B75AE003C0BC2 /* animation4.jpeg in Resources */,
 				86011B8523F44CAA00C19F00 /* pl_pset_tabbar_selected.png in Resources */,
 				86EB439523CF60A200BADA71 /* Main.storyboard in Resources */,
 				682401C7240E7BE400866107 /* CharacterAnimation5.jpeg in Resources */,
 				86011B7223F4486E00C19F00 /* pl_pc_tabbar.png in Resources */,
 				869D341223D21311008D761B /* pl_ps_tabbar.png in Resources */,
+				68070A27249B7D55003C0BC2 /* animation2.jpeg in Resources */,
 				86011B8623F44CAA00C19F00 /* pl_pset_tabbar.png in Resources */,
 				8613D905247EC5F5002481FB /* Searched.png in Resources */,
 				681B3D08247E563500079172 /* 康熙字典篦.otf in Resources */,
@@ -1459,6 +1473,8 @@
 				6811D56423EB1CA5002EC195 /* background2.jpeg in Resources */,
 				860BBA47240829EE00E52BE3 /* pl_pset_ex_personal.jpg in Resources */,
 				86011B7623F4489D00C19F00 /* pl_diy_tabbar.png in Resources */,
+				68070A2B249B94DA003C0BC2 /* headImage.jpg in Resources */,
+				68070A1A249B40BB003C0BC2 /* animation1.jpeg in Resources */,
 				684A4364240BA43300685BA3 /* CharacterAnimation1.jpeg in Resources */,
 				68B02B7423EC288500437F45 /* look6.jpeg in Resources */,
 				682401C2240E7BDB00866107 /* CharacterAnimation3.jpeg in Resources */,
