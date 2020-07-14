@@ -15,6 +15,7 @@
 #import "PLRememberViewController.h"
 #import "PLPoetryChallengeMainViewController.h"
 #import "PLCollectionViewController.h"
+#import "PLAboutViewController.h"
 #import <Photos/Photos.h>
 #import "Masonry.h"
 
@@ -48,7 +49,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collect) name:@"collect" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exit) name:@"exit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImage) name:@"changeImage" object:nil];
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remember) name:@"remember" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remember) name:@"remember" object:nil];
     
 }
 
@@ -82,6 +83,11 @@
 - (void)remember {
     PLRememberViewController *rememberViewController = [[PLRememberViewController alloc] init];
     [self.navigationController pushViewController:rememberViewController animated:NO];
+}
+
+- (void)about {
+    PLAboutViewController *aboutViewController = [[PLAboutViewController alloc] init];
+    [self.navigationController pushViewController:aboutViewController animated:NO];
 }
 
 - (void)changeImage {
