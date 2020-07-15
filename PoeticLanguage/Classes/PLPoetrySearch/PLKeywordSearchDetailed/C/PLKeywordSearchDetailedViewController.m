@@ -97,7 +97,8 @@
         if ([recitePoemsModel.msg isEqualToString:@"ok"]) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜，您已完成这篇诗词的背诵！" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                [self.navigationController popViewControllerAnimated:NO];
+//                [PLCollectManager shareManager] getGroup:<#^(PLGetGroupModel * _Nullable getGroupModel)successBlock#> error:<#^(NSError * _Nullable error)errorBlock#> id:<#(nonnull NSString *)#>
+//                [self.navigationController popViewControllerAnimated:NO];
             }];
             [alert addAction:sure];
             [self presentViewController:alert animated:NO completion:nil];

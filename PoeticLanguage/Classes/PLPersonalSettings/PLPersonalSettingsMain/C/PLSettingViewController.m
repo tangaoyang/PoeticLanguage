@@ -16,6 +16,7 @@
 #import "PLPoetryChallengeMainViewController.h"
 #import "PLCollectionViewController.h"
 #import "PLAboutViewController.h"
+#import "PLGroupViewController.h"
 #import <Photos/Photos.h>
 #import "Masonry.h"
 
@@ -50,6 +51,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exit) name:@"exit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeImage) name:@"changeImage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(remember) name:@"remember" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(about) name:@"about" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(group) name:@"group" object:nil];
     
 }
 
@@ -88,6 +91,11 @@
 - (void)about {
     PLAboutViewController *aboutViewController = [[PLAboutViewController alloc] init];
     [self.navigationController pushViewController:aboutViewController animated:NO];
+}
+
+- (void)group {
+    PLGroupViewController *groupViewController = [[PLGroupViewController alloc] init];
+    [self.navigationController pushViewController:groupViewController animated:NO];
 }
 
 - (void)changeImage {
