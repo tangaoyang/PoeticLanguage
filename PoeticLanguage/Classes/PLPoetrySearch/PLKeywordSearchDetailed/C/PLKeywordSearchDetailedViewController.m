@@ -11,6 +11,7 @@
 #import "PLKeywordSearchDetailModel.h"
 #import "PLCollectManager.h"
 #import "PLRecitePoemsModel.h"
+#import "PLGetGroupModel.h"
 #define W ([UIScreen mainScreen].bounds.size.width)
 #define H ([UIScreen mainScreen].bounds.size.height)
 
@@ -93,12 +94,20 @@
 }
 
 - (void)openMenuClick {
+    [[PLCollectManager sharedManager] getGroup:^(PLGetGroupModel * _Nullable getGroupModel) {
+        if ([getGroupModel.msg isEqualToString:@"ok"]) {
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setObject:getGroupModel.升级 forKey:@"grades"];
+        } else {
+            NSLog(@"PLGetGroupModel.msg == %@", getGroupModel.msg);
+        }    } error:^(NSError * _Nullable error) {
+        NSLog(@"getGroupModel error == %@", error);
+    } id:_keyword.sid];
     [[PLCollectManager sharedManager] rememberMessage:^(PLRecitePoemsModel * _Nullable recitePoemsModel) {
         if ([recitePoemsModel.msg isEqualToString:@"ok"]) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"恭喜，您已完成这篇诗词的背诵！" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//                [PLCollectManager shareManager] getGroup:<#^(PLGetGroupModel * _Nullable getGroupModel)successBlock#> error:<#^(NSError * _Nullable error)errorBlock#> id:<#(nonnull NSString *)#>
-//                [self.navigationController popViewControllerAnimated:NO];
+                [self.navigationController popViewControllerAnimated:NO];
             }];
             [alert addAction:sure];
             [self presentViewController:alert animated:NO completion:nil];

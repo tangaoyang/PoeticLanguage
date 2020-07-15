@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PLGetGroupModel : JSONModel
 
-@property (nonatomic, strong) NSString *msg;
-@property (nonatomic, strong) NSString *升级;
+@property (nonatomic, copy) NSString *msg;
+@property (nonatomic, copy) NSString *升级;
 
 @end
 
