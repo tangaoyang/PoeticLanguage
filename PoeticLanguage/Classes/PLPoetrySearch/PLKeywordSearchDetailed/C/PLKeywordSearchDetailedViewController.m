@@ -40,9 +40,6 @@
     
 //    x = 6;
     
-    _myView = [[PLKeywordSearchDetailedView alloc] init];
-    
-    
     self.tabBarController.tabBar.hidden = YES;
     
     self.myView = [[PLKeywordSearchDetailedView alloc] init];

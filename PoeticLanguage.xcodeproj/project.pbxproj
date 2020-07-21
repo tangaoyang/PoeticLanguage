@@ -153,6 +153,9 @@
 		86BE9E1E23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E1D23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m */; };
 		86BE9E2123D6F04F003F8DE6 /* PoetryContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */; };
 		86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */; };
+		86C059A024C70D4500865D82 /* PLFaceRecognitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C0599F24C70D4500865D82 /* PLFaceRecognitionModel.m */; };
+		86C059A624C7354800865D82 /* PLFaceRecognitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C059A524C7354800865D82 /* PLFaceRecognitionView.m */; };
+		86C059A924C73AC800865D82 /* PLFaceRecogitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C059A824C73AC800865D82 /* PLFaceRecogitionViewController.m */; };
 		86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB438E23CF60A200BADA71 /* AppDelegate.m */; };
 		86EB439223CF60A200BADA71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB439123CF60A200BADA71 /* ViewController.m */; };
 		86EB439523CF60A200BADA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439323CF60A200BADA71 /* Main.storyboard */; };
@@ -390,6 +393,12 @@
 		86BE9E1F23D6F04F003F8DE6 /* PoetryContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PoetryContent.h; sourceTree = "<group>"; };
 		86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoetryContent.m; sourceTree = "<group>"; };
 		86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto2.jpeg; sourceTree = "<group>"; };
+		86C0599E24C70D4500865D82 /* PLFaceRecognitionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFaceRecognitionModel.h; sourceTree = "<group>"; };
+		86C0599F24C70D4500865D82 /* PLFaceRecognitionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFaceRecognitionModel.m; sourceTree = "<group>"; };
+		86C059A424C7354800865D82 /* PLFaceRecognitionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFaceRecognitionView.h; sourceTree = "<group>"; };
+		86C059A524C7354800865D82 /* PLFaceRecognitionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFaceRecognitionView.m; sourceTree = "<group>"; };
+		86C059A724C73AC800865D82 /* PLFaceRecogitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFaceRecogitionViewController.h; sourceTree = "<group>"; };
+		86C059A824C73AC800865D82 /* PLFaceRecogitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFaceRecogitionViewController.m; sourceTree = "<group>"; };
 		86EB438A23CF60A200BADA71 /* PoeticLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoeticLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB438D23CF60A200BADA71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86EB438E23CF60A200BADA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -991,6 +1000,8 @@
 			children = (
 				869D340B23D201F3008D761B /* PLPoetrySearchMainViewController.h */,
 				869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */,
+				86C059A724C73AC800865D82 /* PLFaceRecogitionViewController.h */,
+				86C059A824C73AC800865D82 /* PLFaceRecogitionViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1004,6 +1015,8 @@
 				861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */,
 				8618926B241944B200D154BE /* PLPSCellButton.h */,
 				8618926C241944B200D154BE /* PLPSCellButton.m */,
+				86C059A424C7354800865D82 /* PLFaceRecognitionView.h */,
+				86C059A524C7354800865D82 /* PLFaceRecognitionView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1015,27 +1028,8 @@
 				869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */,
 				861203BF246B09C1005906F2 /* PLCollectModel.h */,
 				861203C0246B09C1005906F2 /* PLCollectModel.m */,
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
-		869FE0B823EB13CA0038BF72 /* C */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = C;
-			sourceTree = "<group>";
-		};
-		869FE0B923EB13D90038BF72 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		869FE0BA23EB13DE0038BF72 /* M */ = {
-			isa = PBXGroup;
-			children = (
+				86C0599E24C70D4500865D82 /* PLFaceRecognitionModel.h */,
+				86C0599F24C70D4500865D82 /* PLFaceRecognitionModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1253,7 +1247,6 @@
 				869D340123D1FDDD008D761B /* PLPoetrySearchMain */,
 				86EB43A823CF61CC00BADA71 /* PLKeywordSearch */,
 				86BE9E1523D6EA62003F8DE6 /* PLKeywordSearchDetailed */,
-				86EB43A923CF61E700BADA71 /* PLPhotoRecognition */,
 			);
 			path = PLPoetrySearch;
 			sourceTree = "<group>";
@@ -1266,16 +1259,6 @@
 				86BE9E0E23D6E740003F8DE6 /* C */,
 			);
 			path = PLKeywordSearch;
-			sourceTree = "<group>";
-		};
-		86EB43A923CF61E700BADA71 /* PLPhotoRecognition */ = {
-			isa = PBXGroup;
-			children = (
-				869FE0BA23EB13DE0038BF72 /* M */,
-				869FE0B923EB13D90038BF72 /* V */,
-				869FE0B823EB13CA0038BF72 /* C */,
-			);
-			path = PLPhotoRecognition;
 			sourceTree = "<group>";
 		};
 		86EB43AA23CF620900BADA71 /* PLDIYBaby */ = {
@@ -1625,6 +1608,7 @@
 				8669AFE324BDF468009DA4AA /* PLAboutView.m in Sources */,
 				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
 				861203BB246B0451005906F2 /* PLCollectManager.m in Sources */,
+				86C059A024C70D4500865D82 /* PLFaceRecognitionModel.m in Sources */,
 				862D323E2457428300AD5E02 /* PLRegisterModel.m in Sources */,
 				8625D4C0240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m in Sources */,
 				8604982323E8848D007C91FB /* PLDIYBabyView.m in Sources */,
@@ -1632,6 +1616,7 @@
 				860BBA45240827B800E52BE3 /* PLSettingPersonalTableViewCell.m in Sources */,
 				86118BA4240C094F00CC13E2 /* PLPoetryChallengeButtonView.m in Sources */,
 				861AFC3E23EC53F500355738 /* ImageModel.m in Sources */,
+				86C059A624C7354800865D82 /* PLFaceRecognitionView.m in Sources */,
 				86234B94245F19F9006B16EA /* PLSettingUpdateHeaderTableViewCell.m in Sources */,
 				861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */,
 				861AFC4123EC54C200355738 /* AccessModel.m in Sources */,
@@ -1673,6 +1658,7 @@
 				861A661023FD597E00515A0B /* PLRegisterView.m in Sources */,
 				869D340A23D201D2008D761B /* PLPoetrySearchMainView.m in Sources */,
 				86234B9D245F48D5006B16EA /* PLSettingUpdateModel.m in Sources */,
+				86C059A924C73AC800865D82 /* PLFaceRecogitionViewController.m in Sources */,
 				8606F20924759AB500883E40 /* PLRememberView.m in Sources */,
 				861E9B0D2474297900D79651 /* PLRecitePoemsModel.m in Sources */,
 				68EC0B84247FB27000F0210E /* PLSaveManger.m in Sources */,

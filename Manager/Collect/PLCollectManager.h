@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class PLRememberModel;
 @class PLCancelRememberModel;
 @class PLGetGroupModel;
+@class PLFaceRecognitionModel;
 
 typedef void (^ErrorBlock)(NSError * _Nullable error);
 
@@ -25,6 +26,7 @@ typedef void (^PLReciteGetCollectsModelBlock)(PLReciteGetCollectsModel * _Nullab
 typedef void (^PLRememberModelBlock)(PLRememberModel * _Nullable rememberModel);
 typedef void (^PLCancelRememberModelBlock)(PLCancelRememberModel * _Nullable cancelRememberModel);
 typedef void (^PLGetGroupModelBlock)(PLGetGroupModel * _Nullable getGroupModel);
+typedef void (^PLFaceRecognitionModelBlock)(PLFaceRecognitionModel * _Nullable faceRecognitionModel);
 
 @interface PLCollectManager : NSObject
 
@@ -36,7 +38,7 @@ typedef void (^PLGetGroupModelBlock)(PLGetGroupModel * _Nullable getGroupModel);
 - (void)getRemember:(PLRememberModelBlock)successBlock error:(ErrorBlock)errorBlock;
 - (void)cancelRemember:(PLCancelRememberModelBlock)successBlock error:(ErrorBlock)errorBlock id:(NSString *)sid;
 - (void)getGroup:(PLGetGroupModelBlock)successBlock error:(ErrorBlock)errorBlock id:(NSString *)pid;
-
+- (void)asPoet:(PLFaceRecognitionModelBlock)successBlock error:(ErrorBlock)errorBlock age:(NSString *)age sex:(NSString *)sex;
 
 @end
 
