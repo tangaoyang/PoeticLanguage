@@ -40,7 +40,19 @@
             _myView.number++;
         }
     }
+    _myModel.poet.content = all;
+    
     [_myView labelInit];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    self.navigationController.navigationBar.topItem.title = _myModel.poet.title;
+    [self.navigationItem.backBarButtonItem setImage:[UIImage imageNamed:@"pl_ps_back_button.png"]];
+    [self.navigationItem.backBarButtonItem setTitle:@""];
+    
 }
 
 /*

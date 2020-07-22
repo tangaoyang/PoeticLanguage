@@ -33,7 +33,7 @@
     float hight = [UIScreen mainScreen].bounds.size.height;
     
     _mainScrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 3);  //self -> _number * 25 + 150
-    _mainScrollView.pagingEnabled = YES;
+    _mainScrollView.pagingEnabled = NO;
     
     self.titleLabel = [[UILabel alloc] init];
     [_mainScrollView addSubview:_titleLabel];
@@ -52,7 +52,6 @@
     [_mainScrollView addSubview:_authorLabel];
     _authorLabel.text = _poem.poet.author;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_authorLabel withSize:18];
-    _authorLabel.numberOfLines = 0;
     [_authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self -> _titleLabel.mas_right).offset(-20);
         make.top.mas_equalTo(self -> _titleLabel.mas_bottom).offset(20);
@@ -64,11 +63,11 @@
     [_mainScrollView addSubview:_dynastyLabel];
     _dynastyLabel.text = _poem.poet.dynasty;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_dynastyLabel withSize:18];
-    _dynastyLabel.numberOfLines = 0;
+    _dynastyLabel.textAlignment = NSTextAlignmentRight;
     [_dynastyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self -> _authorLabel.mas_left).offset(-13);
         make.top.mas_equalTo(self -> _authorLabel);
-        make.width.equalTo(@(25));
+        make.width.equalTo(@(55));
         make.height.mas_equalTo(@(20));
     }];
     
@@ -93,7 +92,6 @@
     _translationLabel.text = _poem.poet.translation;
     _translationLabel.numberOfLines = 0;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_translationLabel withSize:18];
-    _translationLabel.textAlignment = NSTextAlignmentCenter;
     [_translationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self -> _contentLabel.mas_bottom).offset(40);
         make.width.mas_equalTo(self).offset(-40);
@@ -108,7 +106,6 @@
     NSLog(@"%@", _poem.poet.annotation);
     _annotationLabel.numberOfLines = 0;
     [[ChangeFontTay sharedManger] downloadWithFontName:@"STKaiti" withLabel:_annotationLabel withSize:18];
-    _annotationLabel.textAlignment = NSTextAlignmentCenter;
     [_annotationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self -> _translationLabel.mas_bottom).offset(40);
         make.width.mas_equalTo(self).offset(-40);

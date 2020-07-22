@@ -48,7 +48,6 @@ static NSString *password;
         NSString *sureURLStr = [NSString stringWithFormat:@"%@/collect/collect.do?id=%@", HTTP, cid];
         
         [httpManager GET:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"responseObject == %@", responseObject);
             PLCollectModel *collectModel = [[PLCollectModel alloc] initWithDictionary:responseObject error:nil];
             successBlock(collectModel);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -68,9 +67,7 @@ static NSString *password;
         NSString *sureURLStr = [NSString stringWithFormat:@"%@/collect/remember.do?poetId=%@", HTTP, cid];
         
         [httpManager GET:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"%@", responseObject);
             PLRecitePoemsModel *reciteModel = [[PLRecitePoemsModel alloc] initWithDictionary:responseObject error:nil];
-            NSLog(@"%@", reciteModel);
             successBlock(reciteModel);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             errorBlock(error);
@@ -105,7 +102,6 @@ static NSString *password;
         AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
         NSString *sureURLStr = [NSString stringWithFormat:@"%@/collect/getCollects.do", HTTP];
         [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"res == %@", responseObject);
             PLReciteGetCollectsModel *getCollectsModel = [[PLReciteGetCollectsModel alloc] initWithDictionary:responseObject error:nil];
             successBlock(getCollectsModel);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -171,11 +167,17 @@ static NSString *password;
 }
 
 - (void)asPoet:(PLFaceRecognitionModelBlock)successBlock error:(ErrorBlock)errorBlock age:(NSString *)age sex:(NSString *)sex {
+    if ([sex isEqualToString:@"female"]) {
+        sex = @"女";
+    } else {
+        sex = @"男";
+    }
     AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
     NSString *sureURLStr = [NSString stringWithFormat:@"%@user/login.do?accountNumber=%@&password=%@", HTTP, account, password];
     [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         AFHTTPSessionManager *httpManager = [AFHTTPSessionManager manager];
         NSString *sureURLStr = [NSString stringWithFormat:@"%@/poet/get_as_poet.do?age=%@&sex=%@", HTTP, age, sex];
+        sureURLStr = [sureURLStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [httpManager POST:sureURLStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             PLFaceRecognitionModel *faceRecognitionModel = [[PLFaceRecognitionModel alloc] initWithDictionary:responseObject error:nil];
             successBlock(faceRecognitionModel);
