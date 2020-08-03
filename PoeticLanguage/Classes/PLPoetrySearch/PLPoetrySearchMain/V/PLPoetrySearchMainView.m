@@ -22,36 +22,45 @@
     self = [super init];
     if (self) {
         
-        self.poetryArray = [[NSMutableArray alloc] init];
-        self.sizeHeightArray = [[NSMutableArray alloc] init];
+        self.backgroundColor = [UIColor colorWithRed:0.94f green:0.92f blue:0.91f alpha:1.00f];
+//
+        NSNumber *widthNumber = [NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width - 10];
+        NSNumber *centerY = [NSNumber numberWithInt:([UIScreen mainScreen].bounds.size.height) * 0.05];
+
+        UIButton * button =[UIButton buttonWithType:UIButtonTypeSystem];
+        [self addSubview:button];//一定要先添加到视图上
+        button.frame = CGRectMake(5, ([UIScreen mainScreen].bounds.size.height / 2 - [widthNumber floatValue] / 2), [widthNumber floatValue], [widthNumber floatValue] * 1.3);
+        button.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [button setBackgroundImage:[UIImage imageNamed:@"recommandBackGround6.JPG"] forState:UIControlStateNormal];
+        UIBezierPath *maskPath=[UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake([widthNumber floatValue] / 2, [widthNumber floatValue] / 2)];
+        CAShapeLayer *maskLayer=[[CAShapeLayer alloc]init];
+        maskLayer.frame=button.bounds;
+        maskLayer.path=maskPath.CGPath;
+        button.layer.mask=maskLayer;
         
-        PoetryContent *poetry1 = [[PoetryContent alloc] init];
-        poetry1.name = @"题龙阳县青草湖";
-        poetry1.content = @"醉后不知天在水，满船清梦压星河。";
-        poetry1.dynasty = @"晚唐人";
-        poetry1.poet = @"唐温如";
-        poetry1.imageName = @"pl_ps_tableview_exphoto.jpeg";
-        poetry1.all = @"西风吹老洞庭波，一夜湘君白发多。醉后不知天在水，满船清梦压星河。";
-        poetry1.poetHistory = @"唐珙，字温如，会稽山阴（今浙江绍兴）人。其父南宋义士、词人唐珏在至元中与林景熙等收拾宋陵遗骨，重新安葬，并在上面移植南宋故宫冬青树为标志。珙豪于诗。 生平仅略见于《御选元诗》卷首《姓名爵里》、《元诗选补遗》小传。";
-        NSDictionary *attri = @{NSFontAttributeName:[UIFont systemFontOfSize:19]};
-        //自适应高度
-        CGSize size = [poetry1.content boundingRectWithSize:CGSizeMake(W * 0.5, H) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
-        [_sizeHeightArray addObject:[NSNumber numberWithFloat:size.width]];
-        [_poetryArray addObject:poetry1];
+        UILabel *poemLabel = [[UILabel alloc] init];
+        poemLabel.text = @"苏慕遮\n李清照\n燎沉香，消溽暑。\n鸟雀呼晴，侵晓窥檐语。\n叶上初阳干宿雨、水面清圆，一一风荷举。\n故乡遥，何日去。\n家住吴门，久作长安旅。\n五月渔郎相忆否。\n小楫轻舟，梦入芙蓉浦。";
+//        poemLabel.numberOfLines = 0;
+        [self addSubview:poemLabel];
+        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+        paraStyle.lineSpacing = 20.0f;
+        NSDictionary *dic;
+        NSAttributedString *attributeStr;
+        dic = @{NSFontAttributeName:[UIFont fontWithName:@"TpldKhangXiDict" size:18], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@5.0f};
+        attributeStr = [[NSAttributedString alloc] initWithString:poemLabel.text attributes:dic];
+        poemLabel.attributedText = attributeStr;
         
-        PoetryContent *poetry2 = [[PoetryContent alloc] init];
-        poetry2.name = @"蝶恋花·阅尽天涯离别苦";
-        poetry2.content = @"最是人间留不住，朱颜辞镜花辞树。";
-        poetry2.dynasty = @"清代";
-        poetry2.poet = @"王国维";
-        poetry2.imageName = @"pl_ps_tableview_exphoto2.jpeg";
-        poetry2.all = @"阅尽天涯离别苦，不道归来，零落花如许。花底相看无一语，绿窗春与天俱莫。待把相思灯下诉，一缕新欢，旧恨千千缕。最是人间留不住，朱颜辞镜花辞树。";
-        poetry2.poetHistory = @"王国维（1877年12月3日－1927年6月2日），初名国桢，字静安，亦字伯隅，初号礼堂，晚号观堂，又号永观，谥忠悫。汉族，浙江省海宁州（今浙江省嘉兴市海宁）人。王国维是中国近、现代相交时期一位享有国际声誉的著名学者。王国维早年追求新学，接受资产阶级改良主义思想的影响，把西方哲学、美学思想与中国古典哲学、美学相融合，研究哲学与美学，形成了独特的美学思想体系，继而攻词曲戏剧，后又治史学、古文字学、考古学。郭沫若称他为新史学的开山，不止如此，他平生学无专师，自辟户牖，成就卓越，贡献突出，在教育、哲学、文学、戏曲、美学、史学、古文学等方面均有深诣和创新，为中华民族文化宝库留下了广博精深的学术遗产。";
-        NSDictionary *attri2 = @{NSFontAttributeName:[UIFont systemFontOfSize:19]};
-        //自适应高度
-        CGSize size2 = [poetry1.content boundingRectWithSize:CGSizeMake(W * 0.5, H) options:NSStringDrawingUsesLineFragmentOrigin attributes:attri context:nil].size;
-        [_sizeHeightArray addObject:[NSNumber numberWithFloat:size2.width]];
-        [_poetryArray addObject:poetry2];
+        [poemLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.equalTo(@(200));
+            make.top.equalTo(button.mas_top).offset(-100);
+            make.left.equalTo(self.mas_left).offset(20);
+            make.right.equalTo(self.mas_right).offset(-20);
+        }];
+        poemLabel.numberOfLines = 0;
+        poemLabel.adjustsFontSizeToFitWidth = YES;
+        poemLabel.minimumScaleFactor = 18;
+        [poemLabel sizeToFit];
+        
         
         _photoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self addSubview:_photoButton];
@@ -82,18 +91,6 @@
             make.height.mas_equalTo(@(40));
             make.left.mas_equalTo(self -> _photoButton.mas_right).offset(5);
             make.top.mas_equalTo(self.mas_top).offset(40);
-        }];
-        
-        _searchTableView = [[UITableView alloc] init];
-        [self addSubview:_searchTableView];
-        _searchTableView.delegate = self;
-        _searchTableView.dataSource = self;
-        _searchTableView.backgroundColor = [UIColor clearColor];
-        [_searchTableView registerClass:[PLPoetrySearchTableViewCell class] forCellReuseIdentifier:@"searchCell"];
-        [_searchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self -> _searchTextField.mas_bottom).offset(10);
-            make.bottom.mas_equalTo(self.mas_bottom).offset(-90);
-            make.left.and.right.mas_equalTo(self);
         }];
         
         _cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
