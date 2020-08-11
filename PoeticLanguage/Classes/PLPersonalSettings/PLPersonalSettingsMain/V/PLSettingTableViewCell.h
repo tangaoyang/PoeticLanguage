@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PLSettingTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UIImageView *iimageView;
 
 @end
 

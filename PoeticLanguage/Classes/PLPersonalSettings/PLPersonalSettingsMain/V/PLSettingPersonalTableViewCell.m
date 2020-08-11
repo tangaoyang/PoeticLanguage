@@ -47,13 +47,13 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    _nameLabel.frame = CGRectMake(150, 0, 180, 60);
+    _nameLabel.frame = CGRectMake(150, 5, 180, 60);
     
-    _gradeLabel.frame = CGRectMake(150, 43, 100, 20);
+    _gradeLabel.frame = CGRectMake(151, 49, 100, 20);
     
-    _contentLabel.frame = CGRectMake(150, 63, 300, 15);
+    _contentLabel.frame = CGRectMake(150, 77, 300, 20);
     
-    _personalImageButton.frame = CGRectMake(30, 15, 100, 100);
+    _personalImageButton.frame = CGRectMake(30, 20, 90, 90);
     
 }
 

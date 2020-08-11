@@ -51,18 +51,20 @@
         cell.backgroundColor = [UIColor clearColor];
         
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
-        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-        [cell.personalImageButton setImage:[[UIImage imageWithData:imageData] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+//        NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
+//        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        [cell.personalImageButton setImage:[[UIImage imageNamed:[NSString stringWithFormat:@"header.jpg"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         
         cell.nameLabel.text = [userDefaults objectForKey:@"name"];
-        cell.nameLabel.font = [UIFont systemFontOfSize:20];
+        cell.nameLabel.font = [UIFont systemFontOfSize:21];
         
-        cell.gradeLabel.text = [NSString stringWithFormat:@"LV.%@", [userDefaults objectForKey:@"grades"]];
-        cell.gradeLabel.font = [UIFont systemFontOfSize:13];
+        cell.gradeLabel.text = [NSString stringWithFormat:@"LV.3"];
+//        cell.gradeLabel.text = [NSString stringWithFormat:@"LV.%@", [userDefaults objectForKey:@"grades"]];
+        cell.gradeLabel.font = [UIFont systemFontOfSize:12];
         
-        cell.contentLabel.text = [userDefaults objectForKey:@"signature"];
-        cell.contentLabel.font = [UIFont systemFontOfSize:15];
+//        cell.contentLabel.text = [userDefaults objectForKey:@"signature"];
+        cell.contentLabel.text = @"以诗为语 —— 语出心中的诗词世界";
+        cell.contentLabel.font = [UIFont systemFontOfSize:13];
         
         return cell;
         
@@ -71,10 +73,8 @@
         cell.selectionStyle = UIAccessibilityTraitNone;
         cell.backgroundColor = [UIColor clearColor];
         NSArray *nameArr = @[@"我收藏的", @"我背过的",  @"我的等级", @"修改资料", @"关于诗语"];
-        cell.nameLabel.text = nameArr[indexPath.row] ;
-        cell.nameLabel.font = [UIFont systemFontOfSize:15] ;
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"img%ld.png", indexPath.row + 2]] ;
-        cell.iimageView.image = image ;
+        cell.nameLabel.text = nameArr[indexPath.row];
+        cell.nameLabel.font = [UIFont systemFontOfSize:15];
         
         return cell;
         
@@ -135,34 +135,40 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //修改资料
+    // 修改资料
     if (indexPath.section == 1 && indexPath.row == 3) {
         NSNotification *update = [NSNotification notificationWithName:@"update" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:update];
     }
-    //收藏
+    // 收藏
     if (indexPath.section == 1 && indexPath.row == 0) {
         NSNotification *collect = [NSNotification notificationWithName:@"collect" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:collect];
     }
-    //背过
+    // 背过
     if (indexPath.section == 1 && indexPath.row == 1) {
         NSNotification *remember = [NSNotification notificationWithName:@"remember" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:remember];
     }
-    //退出
+    // 退出
     if (indexPath.section == 2 && indexPath.row == 1) {
         NSNotification *exit = [NSNotification notificationWithName:@"exit" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:exit];
     }
+    // 关于诗语
     if (indexPath.section == 1 && indexPath.row == 4) {
         NSNotification *about = [NSNotification notificationWithName:@"about" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:about];
     }
+    // 我的等级
     if (indexPath.section == 1 && indexPath.row == 2) {
         NSNotification *group = [NSNotification notificationWithName:@"group" object:self];
         [[NSNotificationCenter defaultCenter] postNotification:group];
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = [UIColor clearColor];
 }
 
 /*

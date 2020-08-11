@@ -28,9 +28,6 @@
     self.nameLabel = [[UILabel alloc] init];
     [self.contentView addSubview:_nameLabel];
     
-    self.iimageView = [[UIImageView alloc] init];
-    [self.contentView addSubview:_iimageView];
-    
     return self;
     
     
@@ -42,8 +39,6 @@
     
     _nameLabel.frame = CGRectMake(42, 17, 300, 20);
     _nameLabel.font = [UIFont systemFontOfSize:17];
-    
-    _iimageView.frame = CGRectMake(10, 15, 20, 20);
     
 }
 

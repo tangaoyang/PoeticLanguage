@@ -162,6 +162,10 @@
 		86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439623CF60A200BADA71 /* Assets.xcassets */; };
 		86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439823CF60A200BADA71 /* LaunchScreen.storyboard */; };
 		86EB439D23CF60A200BADA71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB439C23CF60A200BADA71 /* main.m */; };
+		86F6900024E2748C00013EF1 /* header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86F68FFF24E2748B00013EF1 /* header.jpg */; };
+		86F6900424E27EC000013EF1 /* BeanFlapStarUnlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F6900124E27EBF00013EF1 /* BeanFlapStarUnlight.png */; };
+		86F6900524E27EC000013EF1 /* BeanFlapStarPart.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F6900224E27EBF00013EF1 /* BeanFlapStarPart.png */; };
+		86F6900624E27EC000013EF1 /* BeanFlapStarLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F6900324E27EBF00013EF1 /* BeanFlapStarLight.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -409,6 +413,10 @@
 		86EB439923CF60A200BADA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86EB439B23CF60A200BADA71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86EB439C23CF60A200BADA71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86F68FFF24E2748B00013EF1 /* header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.jpg; sourceTree = "<group>"; };
+		86F6900124E27EBF00013EF1 /* BeanFlapStarUnlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanFlapStarUnlight.png; sourceTree = "<group>"; };
+		86F6900224E27EBF00013EF1 /* BeanFlapStarPart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanFlapStarPart.png; sourceTree = "<group>"; };
+		86F6900324E27EBF00013EF1 /* BeanFlapStarLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanFlapStarLight.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1326,6 +1334,10 @@
 		86EB43AF23CF648B00BADA71 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				86F6900324E27EBF00013EF1 /* BeanFlapStarLight.png */,
+				86F6900224E27EBF00013EF1 /* BeanFlapStarPart.png */,
+				86F6900124E27EBF00013EF1 /* BeanFlapStarUnlight.png */,
+				86F68FFF24E2748B00013EF1 /* header.jpg */,
 				68F1EC092498A76100FC1A26 /* allBackgroundImage.jpg */,
 				8613D909247EC97C002481FB /* pl_ps_camera.png */,
 				861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */,
@@ -1480,6 +1492,7 @@
 				86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */,
 				86011B7523F4489D00C19F00 /* pl_diy_tabbar_selected.png in Resources */,
 				86011B7123F4486E00C19F00 /* pl_pc_tabbar_selected.png in Resources */,
+				86F6900424E27EC000013EF1 /* BeanFlapStarUnlight.png in Resources */,
 				8613D907247EC5F5002481FB /* Baby-07.png in Resources */,
 				68B02B7D23EC28C900437F45 /* skirt1.jpeg in Resources */,
 				68E1187623F2E854001755F8 /* skirt7.jpeg in Resources */,
@@ -1499,6 +1512,7 @@
 				68070A16249B3C58003C0BC2 /* animation5.jpeg in Resources */,
 				8613D902247EC5F5002481FB /* 人ed.png in Resources */,
 				8604983723E885C4007C91FB /* roy3.JPG in Resources */,
+				86F6900024E2748C00013EF1 /* header.jpg in Resources */,
 				8613D904247EC5F5002481FB /* 人员 (1).png in Resources */,
 				68B02B6D23EC281700437F45 /* body.jpeg in Resources */,
 				68B02B6B23EC27AF00437F45 /* background3.jpeg in Resources */,
@@ -1506,6 +1520,7 @@
 				68070A1E249B666E003C0BC2 /* animation3.jpeg in Resources */,
 				8613D906247EC5F5002481FB /* book.png in Resources */,
 				86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */,
+				86F6900524E27EC000013EF1 /* BeanFlapStarPart.png in Resources */,
 				68B02B7F23EC308900437F45 /* hair2.jpeg in Resources */,
 				68E1186F23F2D6F7001755F8 /* skirt4.jpeg in Resources */,
 				8613D903247EC5F5002481FB /* Baby-07ed.png in Resources */,
@@ -1537,6 +1552,7 @@
 				682401C1240E7BDB00866107 /* CharacterAnimation2.jpeg in Resources */,
 				86189269241937A700D154BE /* pl_ps_uncollect.png in Resources */,
 				8618926A241937A700D154BE /* pl_ps_collected.png in Resources */,
+				86F6900624E27EC000013EF1 /* BeanFlapStarLight.png in Resources */,
 				68E1187723F2E854001755F8 /* skirt8.jpeg in Resources */,
 				8613D908247EC5F5002481FB /* share (2).png in Resources */,
 				68B02B6523EC279900437F45 /* background1.jpeg in Resources */,
