@@ -36,14 +36,9 @@
 		684B402C24C12CB400FFAAF9 /* recommandBackGround5.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402124C12CB300FFAAF9 /* recommandBackGround5.JPG */; };
 		684B402D24C12CB400FFAAF9 /* recommandBackGround4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402224C12CB300FFAAF9 /* recommandBackGround4.JPG */; };
 		684B402E24C12CB400FFAAF9 /* recommandBackGround1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402324C12CB400FFAAF9 /* recommandBackGround1.JPG */; };
-		684B402F24C12CB500FFAAF9 /* recommandBackGround7.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402424C12CB400FFAAF9 /* recommandBackGround7.JPG */; };
 		684B403024C12CB500FFAAF9 /* recommandBackGround2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402524C12CB400FFAAF9 /* recommandBackGround2.JPG */; };
 		684B403124C12CB500FFAAF9 /* recommandBackGround3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402624C12CB400FFAAF9 /* recommandBackGround3.JPG */; };
-		684B403224C12CB500FFAAF9 /* recommandBackGround8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402724C12CB400FFAAF9 /* recommandBackGround8.JPG */; };
 		684B403324C12CB500FFAAF9 /* recommandBackGround6.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402824C12CB400FFAAF9 /* recommandBackGround6.JPG */; };
-		684B403424C12CB500FFAAF9 /* recommandBackGround11.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402924C12CB400FFAAF9 /* recommandBackGround11.JPG */; };
-		684B403524C12CB500FFAAF9 /* recommandBackGround9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402A24C12CB400FFAAF9 /* recommandBackGround9.JPG */; };
-		684B403624C12CB500FFAAF9 /* recommandBackGround10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 684B402B24C12CB400FFAAF9 /* recommandBackGround10.JPG */; };
 		6875998D247BCBFF001EF56A /* PLDailySharingManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875998C247BCBFE001EF56A /* PLDailySharingManger.m */; };
 		68759990247BCD93001EF56A /* PLDailySharingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6875998F247BCD93001EF56A /* PLDailySharingModel.m */; };
 		6890D10E247A80450040B9D7 /* PLDailySharingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6890D10D247A80450040B9D7 /* PLDailySharingViewController.m */; };
@@ -216,14 +211,9 @@
 		684B402124C12CB300FFAAF9 /* recommandBackGround5.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround5.JPG; sourceTree = "<group>"; };
 		684B402224C12CB300FFAAF9 /* recommandBackGround4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround4.JPG; sourceTree = "<group>"; };
 		684B402324C12CB400FFAAF9 /* recommandBackGround1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround1.JPG; sourceTree = "<group>"; };
-		684B402424C12CB400FFAAF9 /* recommandBackGround7.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround7.JPG; sourceTree = "<group>"; };
 		684B402524C12CB400FFAAF9 /* recommandBackGround2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround2.JPG; sourceTree = "<group>"; };
 		684B402624C12CB400FFAAF9 /* recommandBackGround3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround3.JPG; sourceTree = "<group>"; };
-		684B402724C12CB400FFAAF9 /* recommandBackGround8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround8.JPG; sourceTree = "<group>"; };
 		684B402824C12CB400FFAAF9 /* recommandBackGround6.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround6.JPG; sourceTree = "<group>"; };
-		684B402924C12CB400FFAAF9 /* recommandBackGround11.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround11.JPG; sourceTree = "<group>"; };
-		684B402A24C12CB400FFAAF9 /* recommandBackGround9.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround9.JPG; sourceTree = "<group>"; };
-		684B402B24C12CB400FFAAF9 /* recommandBackGround10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = recommandBackGround10.JPG; sourceTree = "<group>"; };
 		6875998B247BCBFD001EF56A /* PLDailySharingManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDailySharingManger.h; sourceTree = "<group>"; };
 		6875998C247BCBFE001EF56A /* PLDailySharingManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLDailySharingManger.m; sourceTree = "<group>"; };
 		6875998E247BCD93001EF56A /* PLDailySharingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLDailySharingModel.h; sourceTree = "<group>"; };
@@ -520,11 +510,6 @@
 				684B402224C12CB300FFAAF9 /* recommandBackGround4.JPG */,
 				684B402124C12CB300FFAAF9 /* recommandBackGround5.JPG */,
 				684B402824C12CB400FFAAF9 /* recommandBackGround6.JPG */,
-				684B402424C12CB400FFAAF9 /* recommandBackGround7.JPG */,
-				684B402724C12CB400FFAAF9 /* recommandBackGround8.JPG */,
-				684B402A24C12CB400FFAAF9 /* recommandBackGround9.JPG */,
-				684B402B24C12CB400FFAAF9 /* recommandBackGround10.JPG */,
-				684B402924C12CB400FFAAF9 /* recommandBackGround11.JPG */,
 			);
 			path = recommandBackGround;
 			sourceTree = "<group>";
@@ -1604,7 +1589,6 @@
 				8621DB7E23D8AA9B00404A63 /* pl_ps_back_button.png in Resources */,
 				68070A22249B75AE003C0BC2 /* animation4.jpeg in Resources */,
 				86011B8523F44CAA00C19F00 /* pl_pset_tabbar_selected.png in Resources */,
-				684B402F24C12CB500FFAAF9 /* recommandBackGround7.JPG in Resources */,
 				86EB439523CF60A200BADA71 /* Main.storyboard in Resources */,
 				682401C7240E7BE400866107 /* CharacterAnimation5.jpeg in Resources */,
 				86011B7223F4486E00C19F00 /* pl_pc_tabbar.png in Resources */,
@@ -1625,17 +1609,14 @@
 				860BBA47240829EE00E52BE3 /* pl_pset_ex_personal.jpg in Resources */,
 				86011B7623F4489D00C19F00 /* pl_diy_tabbar.png in Resources */,
 				68070A2B249B94DA003C0BC2 /* headImage.jpg in Resources */,
-				684B403524C12CB500FFAAF9 /* recommandBackGround9.JPG in Resources */,
 				68070A1A249B40BB003C0BC2 /* animation1.jpeg in Resources */,
 				684A4364240BA43300685BA3 /* CharacterAnimation1.jpeg in Resources */,
-				684B403424C12CB500FFAAF9 /* recommandBackGround11.JPG in Resources */,
 				68B02B7423EC288500437F45 /* look6.jpeg in Resources */,
 				682401C2240E7BDB00866107 /* CharacterAnimation3.jpeg in Resources */,
 				682401C1240E7BDB00866107 /* CharacterAnimation2.jpeg in Resources */,
 				86189269241937A700D154BE /* pl_ps_uncollect.png in Resources */,
 				8618926A241937A700D154BE /* pl_ps_collected.png in Resources */,
 				68E1187723F2E854001755F8 /* skirt8.jpeg in Resources */,
-				684B403224C12CB500FFAAF9 /* recommandBackGround8.JPG in Resources */,
 				8613D908247EC5F5002481FB /* share (2).png in Resources */,
 				68B02B6523EC279900437F45 /* background1.jpeg in Resources */,
 				8613D90A247EC97C002481FB /* pl_ps_camera.png in Resources */,
@@ -1643,7 +1624,6 @@
 				869D341323D21311008D761B /* pl_ps_tabbar_selected.png in Resources */,
 				68E1187123F2DFE8001755F8 /* skirt5.jpeg in Resources */,
 				684436DC24E15E4600766B9E /* B2804388-30EA-4F2F-BA24-B005FB3B295E的副本.jpeg in Resources */,
-				684B403624C12CB500FFAAF9 /* recommandBackGround10.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

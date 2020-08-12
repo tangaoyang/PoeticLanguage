@@ -32,8 +32,13 @@ static int choiceForBackImage;
 //
         
         
-        
-
+        _poemMutableArray = [NSMutableArray array];
+        [_poemMutableArray addObject:@"清平调·其一\n\n李白\n\n云想衣裳花想容，春风拂槛露华浓。\n\n若非群玉山头见，会向瑶台月下逢。"];
+        [_poemMutableArray addObject:@"春夜喜雨\n杜甫\n好雨知时节，当春乃发生。\n随风潜入夜，润物细无声。\n野径云俱黑，江船火独明。\n晓看红湿处，花重锦官城。"];
+        [_poemMutableArray addObject:@"雨霖铃\n刘永\n寒蝉凄切，对长亭晚，骤雨初歇。\n都门帐饮无绪，留恋处，兰舟催发。\n执手相看泪眼，竟无语凝噎。\n念去去，千里烟波，暮霭沉沉楚天阔。\n多情自古伤离别，更那堪，冷落清秋节！\n今宵酒醒何处？\n杨柳岸，晓风残月。\n此去经年，应是良辰好景虚设。\n便纵有千种风情，更与何人说？\n"];
+        [_poemMutableArray addObject:@"一剪梅·红藕香残玉簟秋\n李清照\n红藕香残玉簟秋，轻解罗裳，独上兰舟。\n云中谁寄锦书来？\n雁字回时，月满西楼。\n花自飘零水自流，一种相思，两处闲愁。\n此情无计可消除，才下眉头，却上心头。"];
+        [_poemMutableArray addObject:@"池鹤二首\n白居易\n高竹笼前无伴侣，乱鸡群里有风标。\n低头乍恐丹砂落，晒翅常疑白雪消。\n转觉鸬鹚毛色下，苦嫌鹦鹉语声娇。\n临风一唳思何事，怅望青田云水遥。\n池中此鹤鹤中稀，恐是辽东老令威。\n带雪松枝翘膝胫，放花菱片缀毛衣。\n低回且向林间宿，奋迅终须天外飞。\n若问故巢知处在，主人相恋未能归。"];
+        [_poemMutableArray addObject:@"天净沙·秋思\n马致远\n枯藤老树昏鸦，小桥流水人家，古道西风瘦马。\n夕阳西下，断肠人在天涯。"];
         
         
         _photoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -125,8 +130,17 @@ static int choiceForBackImage;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SearchRecommandTableViewCell *searchRecommandCell = [_searchRecommandTableView dequeueReusableCellWithIdentifier:@"SearchRecommandCell" forIndexPath:indexPath];
-    choiceForBackImage = choiceForBackImage + 3;
-    searchRecommandCell.backImageView.image = [UIImage imageNamed: [NSString stringWithFormat: @"recommandBackGround%d.JPG", choiceForBackImage % 10]];
+    
+    searchRecommandCell.poemLabel.text = _poemMutableArray[indexPath.row];
+    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+    paraStyle.lineSpacing = 20.0f;
+    NSDictionary *dic;
+    NSAttributedString *attributeStr;
+    dic = @{NSFontAttributeName:[UIFont fontWithName:@"TpldKhangXiDict" size:18], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@5.0f};
+    attributeStr = [[NSAttributedString alloc] initWithString:searchRecommandCell.poemLabel.text attributes:dic];
+    searchRecommandCell.poemLabel.attributedText = attributeStr;
+    
+    searchRecommandCell.backImageView.image = [UIImage imageNamed: [NSString stringWithFormat: @"recommandBackGround%ld.JPG", (long)indexPath.row + 1]];
 //    [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
     
     return searchRecommandCell;
@@ -134,11 +148,10 @@ static int choiceForBackImage;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return self.searchRecommandTableView.bounds.size.height;
-//    [UIScreen mainScreen].bounds.size.height - self.searchTextField.bounds.size.height - [_getHeightDict[@"tabbarHeight"] intValue];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -163,6 +176,7 @@ static int choiceForBackImage;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 //    NSNotification *poem = [NSNotification notificationWithName:@"poem" object:self userInfo:@{@"poem":_poetryArray[indexPath.row]}];
 //    [[NSNotificationCenter defaultCenter] postNotification:poem];
 }

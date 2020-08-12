@@ -31,7 +31,7 @@
     [self addSubview:_backgroundButton];
     [self addSubview:_saveButton];
     
-    _backgroundImageView.image = [[UIImage imageNamed:@"B2804388-30EA-4F2F-BA24-B005FB3B295E的副本.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _backgroundImageView.image = [[UIImage imageNamed:@"background2.jpeg"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     _saveButtonColorChange = YES;
     
     return self;

@@ -34,6 +34,7 @@ UITableViewDataSource>
 @property (nonatomic, strong) NSMutableArray *sizeHeightArray;
 @property (nonatomic, strong) UITableView *searchRecommandTableView;
 @property (nonatomic, strong) NSMutableDictionary *getHeightDict;
+@property (nonatomic, strong) NSMutableArray *poemMutableArray;
 @property id <PLPSCellDelegate> plpsCellDelegate;
 
 @end
