@@ -12,8 +12,14 @@
 #import "PLKeywordSearchViewController.h"
 #import "PoetryContent.h"
 #import "PLPSCellButton.h"
+#import "SearchRecommandTableViewCell.h"
+#import "GetTheHeightOfNavigationBar.h"
+#import "SearchRecommandTableViewCell.h"
+
 #define H [UIScreen mainScreen].bounds.size.height
 #define W [UIScreen mainScreen].bounds.size.width
+
+static int choiceForBackImage;
 
 @implementation PLPoetrySearchMainView
 
@@ -24,42 +30,15 @@
         
         self.backgroundColor = [UIColor colorWithRed:0.94f green:0.92f blue:0.91f alpha:1.00f];
 //
-        NSNumber *widthNumber = [NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width - 10];
-        NSNumber *centerY = [NSNumber numberWithInt:([UIScreen mainScreen].bounds.size.height) * 0.05];
-
-        UIButton * button =[UIButton buttonWithType:UIButtonTypeSystem];
-        [self addSubview:button];//一定要先添加到视图上
-        button.frame = CGRectMake(5, ([UIScreen mainScreen].bounds.size.height / 2 - [widthNumber floatValue] / 2), [widthNumber floatValue], [widthNumber floatValue] * 1.3);
-        button.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        [button setBackgroundImage:[UIImage imageNamed:@"recommandBackGround6.JPG"] forState:UIControlStateNormal];
-        UIBezierPath *maskPath=[UIBezierPath bezierPathWithRoundedRect:button.bounds byRoundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake([widthNumber floatValue] / 2, [widthNumber floatValue] / 2)];
-        CAShapeLayer *maskLayer=[[CAShapeLayer alloc]init];
-        maskLayer.frame=button.bounds;
-        maskLayer.path=maskPath.CGPath;
-        button.layer.mask=maskLayer;
         
-        UILabel *poemLabel = [[UILabel alloc] init];
-        poemLabel.text = @"苏慕遮\n李清照\n燎沉香，消溽暑。\n鸟雀呼晴，侵晓窥檐语。\n叶上初阳干宿雨、水面清圆，一一风荷举。\n故乡遥，何日去。\n家住吴门，久作长安旅。\n五月渔郎相忆否。\n小楫轻舟，梦入芙蓉浦。";
-//        poemLabel.numberOfLines = 0;
-        [self addSubview:poemLabel];
-        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-        paraStyle.lineSpacing = 20.0f;
-        NSDictionary *dic;
-        NSAttributedString *attributeStr;
-        dic = @{NSFontAttributeName:[UIFont fontWithName:@"TpldKhangXiDict" size:18], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@5.0f};
-        attributeStr = [[NSAttributedString alloc] initWithString:poemLabel.text attributes:dic];
-        poemLabel.attributedText = attributeStr;
         
-        [poemLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.height.equalTo(@(200));
-            make.top.equalTo(button.mas_top).offset(-100);
-            make.left.equalTo(self.mas_left).offset(20);
-            make.right.equalTo(self.mas_right).offset(-20);
-        }];
-        poemLabel.numberOfLines = 0;
-        poemLabel.adjustsFontSizeToFitWidth = YES;
-        poemLabel.minimumScaleFactor = 18;
-        [poemLabel sizeToFit];
+        _poemMutableArray = [NSMutableArray array];
+        [_poemMutableArray addObject:@"清平调·其一\n\n李白\n\n云想衣裳花想容，春风拂槛露华浓。\n\n若非群玉山头见，会向瑶台月下逢。"];
+        [_poemMutableArray addObject:@"春夜喜雨\n杜甫\n好雨知时节，当春乃发生。\n随风潜入夜，润物细无声。\n野径云俱黑，江船火独明。\n晓看红湿处，花重锦官城。"];
+        [_poemMutableArray addObject:@"雨霖铃\n刘永\n寒蝉凄切，对长亭晚，骤雨初歇。\n都门帐饮无绪，留恋处，兰舟催发。\n执手相看泪眼，竟无语凝噎。\n念去去，千里烟波，暮霭沉沉楚天阔。\n多情自古伤离别，更那堪，冷落清秋节！\n今宵酒醒何处？\n杨柳岸，晓风残月。\n此去经年，应是良辰好景虚设。\n便纵有千种风情，更与何人说？\n"];
+        [_poemMutableArray addObject:@"一剪梅·红藕香残玉簟秋\n李清照\n红藕香残玉簟秋，轻解罗裳，独上兰舟。\n云中谁寄锦书来？\n雁字回时，月满西楼。\n花自飘零水自流，一种相思，两处闲愁。\n此情无计可消除，才下眉头，却上心头。"];
+        [_poemMutableArray addObject:@"池鹤二首\n白居易\n高竹笼前无伴侣，乱鸡群里有风标。\n低头乍恐丹砂落，晒翅常疑白雪消。\n转觉鸬鹚毛色下，苦嫌鹦鹉语声娇。\n临风一唳思何事，怅望青田云水遥。\n池中此鹤鹤中稀，恐是辽东老令威。\n带雪松枝翘膝胫，放花菱片缀毛衣。\n低回且向林间宿，奋迅终须天外飞。\n若问故巢知处在，主人相恋未能归。"];
+        [_poemMutableArray addObject:@"天净沙·秋思\n马致远\n枯藤老树昏鸦，小桥流水人家，古道西风瘦马。\n夕阳西下，断肠人在天涯。"];
         
         
         _photoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -103,6 +82,31 @@
         _cancelButton.layer.cornerRadius = 15;
         _cancelButton.layer.borderColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1].CGColor;
         
+        _searchRecommandTableView = [[UITableView alloc] init];
+        [self addSubview:_searchRecommandTableView];
+        GetTheHeightOfNavigationBar *getHeightModel = [[GetTheHeightOfNavigationBar alloc] init];
+        _getHeightDict = [NSMutableDictionary dictionaryWithCapacity:2];
+        _getHeightDict = [getHeightModel getTheHeightOfNavigationBar];
+        if (!_getHeightDict) {
+            if ([UIScreen mainScreen].bounds.size.width > 390) {
+                NSMutableDictionary *dict1 = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:88], [NSNumber numberWithInt:82], nil] forKeys:[NSArray arrayWithObjects:@"navigationHeight", @"tabbarHeight" , nil]];
+                _getHeightDict = dict1;
+            } else {
+                NSMutableDictionary *dict1 = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInt:64], [NSNumber numberWithInt:49], nil] forKeys:[NSArray arrayWithObjects:@"navigationHeight", @"tabbarHeight" , nil]];
+                _getHeightDict = dict1;
+            }
+        }
+        _searchRecommandTableView.backgroundColor = [UIColor clearColor];
+        [_searchRecommandTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.searchTextField.mas_bottom);
+            make.bottom.equalTo(self.mas_bottom).offset(-[self.getHeightDict[@"navigationHeight"] intValue]);
+            make.width.equalTo(self.mas_width);
+        }];
+        [_searchRecommandTableView registerClass:[SearchRecommandTableViewCell class] forCellReuseIdentifier:@"SearchRecommandCell"];
+        _searchRecommandTableView.delegate = self;
+        _searchRecommandTableView.dataSource = self;
+        _searchRecommandTableView.pagingEnabled = YES;
+        
     }
     return self;
 }
@@ -125,27 +129,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PLPoetrySearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
+    SearchRecommandTableViewCell *searchRecommandCell = [_searchRecommandTableView dequeueReusableCellWithIdentifier:@"SearchRecommandCell" forIndexPath:indexPath];
     
-    PoetryContent *poetry = _poetryArray[indexPath.row];
-    cell.poetLabel.text = poetry.poet;
-    cell.contectTextView.text = poetry.content;
-    cell.timeLabel.text = poetry.dynasty;
-    [cell.photoImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@", poetry.imageName]]];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.selectionStyle = UIAccessibilityTraitNone;
-    [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
+    searchRecommandCell.poemLabel.text = _poemMutableArray[indexPath.row];
+    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+    paraStyle.lineSpacing = 20.0f;
+    NSDictionary *dic;
+    NSAttributedString *attributeStr;
+    dic = @{NSFontAttributeName:[UIFont fontWithName:@"TpldKhangXiDict" size:18], NSParagraphStyleAttributeName:paraStyle, NSKernAttributeName:@5.0f};
+    attributeStr = [[NSAttributedString alloc] initWithString:searchRecommandCell.poemLabel.text attributes:dic];
+    searchRecommandCell.poemLabel.attributedText = attributeStr;
     
-    return cell;
+    searchRecommandCell.backImageView.image = [UIImage imageNamed: [NSString stringWithFormat: @"recommandBackGround%ld.JPG", (long)indexPath.row + 1]];
+//    [cell.collectionButton addTarget:self action:@selector(collect:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return searchRecommandCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat height = [_sizeHeightArray[indexPath.row] floatValue];
-    return height;
+    return self.searchRecommandTableView.bounds.size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _poetryArray.count;
+    return 6;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -170,8 +176,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNotification *poem = [NSNotification notificationWithName:@"poem" object:self userInfo:@{@"poem":_poetryArray[indexPath.row]}];
-    [[NSNotificationCenter defaultCenter] postNotification:poem];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    NSNotification *poem = [NSNotification notificationWithName:@"poem" object:self userInfo:@{@"poem":_poetryArray[indexPath.row]}];
+//    [[NSNotificationCenter defaultCenter] postNotification:poem];
 }
 
 - (void)collect:(PLPSCellButton *) button {
