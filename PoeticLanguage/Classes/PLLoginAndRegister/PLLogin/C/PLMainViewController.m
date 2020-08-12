@@ -113,6 +113,7 @@
     // 将自定义 View 添加到 tabBar 上
     tabBarController.tabBar.backgroundColor = [UIColor colorWithRed:0.89f green:0.88f blue:0.88f alpha:1.00f];
     [tabBarController.tabBar insertSubview:bgView atIndex:0];
+    tabBarController.selectedIndex = 0;
     
     self.view.window.rootViewController = tabBarController;
     self.view.window.backgroundColor = [UIColor whiteColor];
