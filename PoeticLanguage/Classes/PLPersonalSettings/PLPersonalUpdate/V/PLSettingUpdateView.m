@@ -22,9 +22,10 @@
         _headerImageView.layer.masksToBounds = YES;
         _headerImageView.layer.cornerRadius = 40;
         
-        NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
-        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-        _headerImageView.image = [UIImage imageWithData:imageData];
+//        NSURL *imageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [userDefaults objectForKey:@"header"]]];
+//        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+//        _headerImageView.image = [UIImage imageWithData:imageData];
+        _headerImageView.image = [[UIImage imageNamed:[NSString stringWithFormat:@"header.jpg"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [_headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.and.height.equalTo(@80);
             make.left.equalTo(@20);

@@ -95,6 +95,7 @@
     [[PLSearchManager sharedManager] getAuthor:^(PLKeywordAuthorModel * _Nullable authorModel) {
         if ([authorModel.msg isEqualToString:@"ok"]) {
             AuthorsModel *author = authorModel.author;
+            NSLog(@"%@", authorModel.author);
             PLKeywordAuthorDetailViewController *detail = [[PLKeywordAuthorDetailViewController alloc] init];
             detail.keyword = author;
             [self.navigationController pushViewController:detail animated:NO];

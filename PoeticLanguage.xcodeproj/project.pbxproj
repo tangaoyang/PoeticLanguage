@@ -162,12 +162,19 @@
 		86BE9E1E23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E1D23D6EB95003F8DE6 /* PLKeywordSearchDetailedView.m */; };
 		86BE9E2123D6F04F003F8DE6 /* PoetryContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */; };
 		86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */; };
+		86C059A024C70D4500865D82 /* PLFaceRecognitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C0599F24C70D4500865D82 /* PLFaceRecognitionModel.m */; };
+		86C059A624C7354800865D82 /* PLFaceRecognitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C059A524C7354800865D82 /* PLFaceRecognitionView.m */; };
+		86C059A924C73AC800865D82 /* PLFaceRecogitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C059A824C73AC800865D82 /* PLFaceRecogitionViewController.m */; };
 		86EB438F23CF60A200BADA71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB438E23CF60A200BADA71 /* AppDelegate.m */; };
 		86EB439223CF60A200BADA71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB439123CF60A200BADA71 /* ViewController.m */; };
 		86EB439523CF60A200BADA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439323CF60A200BADA71 /* Main.storyboard */; };
 		86EB439723CF60A200BADA71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439623CF60A200BADA71 /* Assets.xcassets */; };
 		86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86EB439823CF60A200BADA71 /* LaunchScreen.storyboard */; };
 		86EB439D23CF60A200BADA71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EB439C23CF60A200BADA71 /* main.m */; };
+		86F6900024E2748C00013EF1 /* header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 86F68FFF24E2748B00013EF1 /* header.jpg */; };
+		86F6900424E27EC000013EF1 /* BeanFlapStarUnlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F6900124E27EBF00013EF1 /* BeanFlapStarUnlight.png */; };
+		86F6900524E27EC000013EF1 /* BeanFlapStarPart.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F6900224E27EBF00013EF1 /* BeanFlapStarPart.png */; };
+		86F6900624E27EC000013EF1 /* BeanFlapStarLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 86F6900324E27EBF00013EF1 /* BeanFlapStarLight.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -410,6 +417,12 @@
 		86BE9E1F23D6F04F003F8DE6 /* PoetryContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PoetryContent.h; sourceTree = "<group>"; };
 		86BE9E2023D6F04F003F8DE6 /* PoetryContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoetryContent.m; sourceTree = "<group>"; };
 		86BE9E2323D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pl_ps_tableview_exphoto2.jpeg; sourceTree = "<group>"; };
+		86C0599E24C70D4500865D82 /* PLFaceRecognitionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFaceRecognitionModel.h; sourceTree = "<group>"; };
+		86C0599F24C70D4500865D82 /* PLFaceRecognitionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFaceRecognitionModel.m; sourceTree = "<group>"; };
+		86C059A424C7354800865D82 /* PLFaceRecognitionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFaceRecognitionView.h; sourceTree = "<group>"; };
+		86C059A524C7354800865D82 /* PLFaceRecognitionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFaceRecognitionView.m; sourceTree = "<group>"; };
+		86C059A724C73AC800865D82 /* PLFaceRecogitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFaceRecogitionViewController.h; sourceTree = "<group>"; };
+		86C059A824C73AC800865D82 /* PLFaceRecogitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFaceRecogitionViewController.m; sourceTree = "<group>"; };
 		86EB438A23CF60A200BADA71 /* PoeticLanguage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoeticLanguage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB438D23CF60A200BADA71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		86EB438E23CF60A200BADA71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -420,6 +433,10 @@
 		86EB439923CF60A200BADA71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86EB439B23CF60A200BADA71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86EB439C23CF60A200BADA71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86F68FFF24E2748B00013EF1 /* header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.jpg; sourceTree = "<group>"; };
+		86F6900124E27EBF00013EF1 /* BeanFlapStarUnlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanFlapStarUnlight.png; sourceTree = "<group>"; };
+		86F6900224E27EBF00013EF1 /* BeanFlapStarPart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanFlapStarPart.png; sourceTree = "<group>"; };
+		86F6900324E27EBF00013EF1 /* BeanFlapStarLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeanFlapStarLight.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1058,10 +1075,29 @@
 			children = (
 				869D340B23D201F3008D761B /* PLPoetrySearchMainViewController.h */,
 				869D340C23D201F3008D761B /* PLPoetrySearchMainViewController.m */,
+				86C059A724C73AC800865D82 /* PLFaceRecogitionViewController.h */,
+				86C059A824C73AC800865D82 /* PLFaceRecogitionViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
 		};
+    
+		869D340323D1FFB3008D761B /* V */ = {
+			isa = PBXGroup;
+			children = (
+				869D340823D201D2008D761B /* PLPoetrySearchMainView.h */,
+				869D340923D201D2008D761B /* PLPoetrySearchMainView.m */,
+				861C6D4C23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.h */,
+				861C6D4D23D33DDF000C5FEA /* PLPoetrySearchTableViewCell.m */,
+				8618926B241944B200D154BE /* PLPSCellButton.h */,
+				8618926C241944B200D154BE /* PLPSCellButton.m */,
+				86C059A424C7354800865D82 /* PLFaceRecognitionView.h */,
+				86C059A524C7354800865D82 /* PLFaceRecognitionView.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+
 		869D340423D1FFC3008D761B /* M */ = {
 			isa = PBXGroup;
 			children = (
@@ -1069,6 +1105,7 @@
 				869D340623D2000C008D761B /* PLPoetrySearchMainModel.m */,
 				861203BF246B09C1005906F2 /* PLCollectModel.h */,
 				861203C0246B09C1005906F2 /* PLCollectModel.m */,
+
 				684436E324E21FCD00766B9E /* GetTheHeightOfNavigationBar.h */,
 				684436E424E21FCD00766B9E /* GetTheHeightOfNavigationBar.m */,
 			);
@@ -1092,6 +1129,10 @@
 		869FE0BA23EB13DE0038BF72 /* M */ = {
 			isa = PBXGroup;
 			children = (
+
+				86C0599E24C70D4500865D82 /* PLFaceRecognitionModel.h */,
+				86C0599F24C70D4500865D82 /* PLFaceRecognitionModel.m */,
+
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1309,7 +1350,6 @@
 				869D340123D1FDDD008D761B /* PLPoetrySearchMain */,
 				86EB43A823CF61CC00BADA71 /* PLKeywordSearch */,
 				86BE9E1523D6EA62003F8DE6 /* PLKeywordSearchDetailed */,
-				86EB43A923CF61E700BADA71 /* PLPhotoRecognition */,
 			);
 			path = PLPoetrySearch;
 			sourceTree = "<group>";
@@ -1322,16 +1362,6 @@
 				86BE9E0E23D6E740003F8DE6 /* C */,
 			);
 			path = PLKeywordSearch;
-			sourceTree = "<group>";
-		};
-		86EB43A923CF61E700BADA71 /* PLPhotoRecognition */ = {
-			isa = PBXGroup;
-			children = (
-				869FE0BA23EB13DE0038BF72 /* M */,
-				869FE0B923EB13D90038BF72 /* V */,
-				869FE0B823EB13CA0038BF72 /* C */,
-			);
-			path = PLPhotoRecognition;
 			sourceTree = "<group>";
 		};
 		86EB43AA23CF620900BADA71 /* PLDIYBaby */ = {
@@ -1399,6 +1429,10 @@
 		86EB43AF23CF648B00BADA71 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				86F6900324E27EBF00013EF1 /* BeanFlapStarLight.png */,
+				86F6900224E27EBF00013EF1 /* BeanFlapStarPart.png */,
+				86F6900124E27EBF00013EF1 /* BeanFlapStarUnlight.png */,
+				86F68FFF24E2748B00013EF1 /* header.jpg */,
 				68F1EC092498A76100FC1A26 /* allBackgroundImage.jpg */,
 				8613D909247EC97C002481FB /* pl_ps_camera.png */,
 				861C6D5823D34F07000C5FEA /* pl_ps_background_knot.jpeg */,
@@ -1553,6 +1587,7 @@
 				86EB439A23CF60A200BADA71 /* LaunchScreen.storyboard in Resources */,
 				86011B7523F4489D00C19F00 /* pl_diy_tabbar_selected.png in Resources */,
 				86011B7123F4486E00C19F00 /* pl_pc_tabbar_selected.png in Resources */,
+				86F6900424E27EC000013EF1 /* BeanFlapStarUnlight.png in Resources */,
 				8613D907247EC5F5002481FB /* Baby-07.png in Resources */,
 				684B402E24C12CB400FFAAF9 /* recommandBackGround1.JPG in Resources */,
 				68B02B7D23EC28C900437F45 /* skirt1.jpeg in Resources */,
@@ -1574,6 +1609,7 @@
 				68070A16249B3C58003C0BC2 /* animation5.jpeg in Resources */,
 				8613D902247EC5F5002481FB /* 人ed.png in Resources */,
 				8604983723E885C4007C91FB /* roy3.JPG in Resources */,
+				86F6900024E2748C00013EF1 /* header.jpg in Resources */,
 				8613D904247EC5F5002481FB /* 人员 (1).png in Resources */,
 				68B02B6D23EC281700437F45 /* body.jpeg in Resources */,
 				68B02B6B23EC27AF00437F45 /* background3.jpeg in Resources */,
@@ -1582,7 +1618,11 @@
 				68070A1E249B666E003C0BC2 /* animation3.jpeg in Resources */,
 				8613D906247EC5F5002481FB /* book.png in Resources */,
 				86BE9E2423D6F4E8003F8DE6 /* pl_ps_tableview_exphoto2.jpeg in Resources */,
+
 				684B403124C12CB500FFAAF9 /* recommandBackGround3.JPG in Resources */,
+
+				86F6900524E27EC000013EF1 /* BeanFlapStarPart.png in Resources */,
+
 				68B02B7F23EC308900437F45 /* hair2.jpeg in Resources */,
 				68E1186F23F2D6F7001755F8 /* skirt4.jpeg in Resources */,
 				8613D903247EC5F5002481FB /* Baby-07ed.png in Resources */,
@@ -1616,6 +1656,7 @@
 				682401C1240E7BDB00866107 /* CharacterAnimation2.jpeg in Resources */,
 				86189269241937A700D154BE /* pl_ps_uncollect.png in Resources */,
 				8618926A241937A700D154BE /* pl_ps_collected.png in Resources */,
+				86F6900624E27EC000013EF1 /* BeanFlapStarLight.png in Resources */,
 				68E1187723F2E854001755F8 /* skirt8.jpeg in Resources */,
 				8613D908247EC5F5002481FB /* share (2).png in Resources */,
 				68B02B6523EC279900437F45 /* background1.jpeg in Resources */,
@@ -1688,6 +1729,7 @@
 				8669AFE324BDF468009DA4AA /* PLAboutView.m in Sources */,
 				861AFC3923EC52DE00355738 /* ImageManager.m in Sources */,
 				861203BB246B0451005906F2 /* PLCollectManager.m in Sources */,
+				86C059A024C70D4500865D82 /* PLFaceRecognitionModel.m in Sources */,
 				862D323E2457428300AD5E02 /* PLRegisterModel.m in Sources */,
 				8625D4C0240BA2BF00C022F2 /* PLPoetryChallengeMainViewController.m in Sources */,
 				8604982323E8848D007C91FB /* PLDIYBabyView.m in Sources */,
@@ -1696,6 +1738,7 @@
 				860BBA45240827B800E52BE3 /* PLSettingPersonalTableViewCell.m in Sources */,
 				86118BA4240C094F00CC13E2 /* PLPoetryChallengeButtonView.m in Sources */,
 				861AFC3E23EC53F500355738 /* ImageModel.m in Sources */,
+				86C059A624C7354800865D82 /* PLFaceRecognitionView.m in Sources */,
 				86234B94245F19F9006B16EA /* PLSettingUpdateHeaderTableViewCell.m in Sources */,
 				861854AF23E06876004AFC85 /* ChangeFontTay.m in Sources */,
 				861AFC4123EC54C200355738 /* AccessModel.m in Sources */,
@@ -1738,6 +1781,7 @@
 				683DA09C249A109600038FA8 /* PLSavedSuitManger.m in Sources */,
 				861A661023FD597E00515A0B /* PLRegisterView.m in Sources */,
 				86234B9D245F48D5006B16EA /* PLSettingUpdateModel.m in Sources */,
+				86C059A924C73AC800865D82 /* PLFaceRecogitionViewController.m in Sources */,
 				8606F20924759AB500883E40 /* PLRememberView.m in Sources */,
 				861E9B0D2474297900D79651 /* PLRecitePoemsModel.m in Sources */,
 				68EC0B84247FB27000F0210E /* PLSaveManger.m in Sources */,

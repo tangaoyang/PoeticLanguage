@@ -18,7 +18,9 @@
 #import "AccessModel.h"
 #import "PLPSCellButton.h"
 #import "PLCollectManager.h"
+#import "PLFaceRecognitionModel.h"
 #import "PLCollectModel.h"
+#import "PLFaceRecogitionViewController.h"
 
 @interface PLPoetrySearchMainViewController ()
 <PLPSCellDelegate>
@@ -209,6 +211,17 @@
             [self presentViewController:alert animated:NO completion:nil];
         } else {
             NSLog(@"年龄为%@岁， 性别为%@的可能性是%@， 表情为%@的可能性是%@", list.age, list.gender.type, list.gender.probability, list.expression.type, list.expression.probability);
+            [[PLCollectManager sharedManager] asPoet:^(PLFaceRecognitionModel * _Nullable faceRecognitionModel) {
+                if ([faceRecognitionModel.msg isEqualToString:@"ok"]) {
+                    PLFaceRecogitionViewController *faceRecogitionViewController = [[PLFaceRecogitionViewController alloc] init];
+                    faceRecogitionViewController.myModel = faceRecognitionModel;
+                    [self.navigationController pushViewController:faceRecogitionViewController animated:NO];
+                } else {
+                    NSLog(@"face recognition error == %@", faceRecognitionModel.msg);
+                }
+            } error:^(NSError * _Nullable error) {
+                NSLog(@"face recognition error == %@", error);
+            } age:list.age sex:list.gender.type];
         }
     }];
     
